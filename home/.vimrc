@@ -197,7 +197,7 @@
 
   syntax on
   set background=dark
-  colorscheme mustang
+  colorscheme wombat
 
   " Highlight VCS conflict markers
   match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
