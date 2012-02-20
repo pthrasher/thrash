@@ -29,11 +29,12 @@
 
   " Generic editing
   Bundle 'tpope/vim-repeat'
-  " Bundle 'tpope/vim-fugitive'
+  Bundle 'tpope/vim-fugitive'
   Bundle 'tpope/vim-abolish'
   Bundle 'tpope/vim-commentary'
   Bundle 'tpope/vim-endwise'
   Bundle 'tpope/vim-surround'
+  Bundle 'tpope/vim-git'
 
   Bundle 'scrooloose/syntastic'
   Bundle 'scrooloose/snipmate-snippets'
@@ -131,8 +132,9 @@
   " Make Vim able to edit crontab files again.
   set backupskip=/tmp/*,/private/tmp/*"
 
+  " function! s:SaveOnFocusLost
   " Save when losing focus
-  au FocusLost * :wa
+  au FocusLost * :silent wa
 
   " Resize splits when the window is resized
   au VimResized * :wincmd =
