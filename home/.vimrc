@@ -1,8 +1,7 @@
 " .vimrc
-" vim: set foldlevel=0 foldmethod=marker spell expandtab ts=2 sw=2:
 " Author: Philip Thrasher
 " Source: http://github.com/pthrasher/thrash/??
-" 
+"
 " Email or tweet with any questions. Glad to answer.
 
 " Vundle Bootloader {{{
@@ -40,7 +39,7 @@
   Bundle 'scrooloose/snipmate-snippets'
 
   Bundle 'kien/ctrlp.vim'
-  Bundle 'shougo/neocomplcache'
+  Bundle 'git://github.com/Shougo/neocomplcache.git' " Had to do it this way.
   Bundle 'Lokaltog/vim-powerline'
   Bundle 'ervandew/supertab'
   Bundle 'Raimondi/delimitMate'
@@ -74,7 +73,7 @@
   " CSS
   Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 
-  
+
   filetype plugin indent on
 "}}}
 
