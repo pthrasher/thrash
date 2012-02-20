@@ -7,3 +7,4 @@ for file in "$HOME/.bash_profile.d"/*; do
    source "$file"
 done
 shopt -u nullglob
+

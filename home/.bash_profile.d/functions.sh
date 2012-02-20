@@ -251,18 +251,19 @@ function down {
 # python venv {{{
 
 # make sure virtualenvwrapper is enabled if availalbe
-[[ `which virtualenvwrapper.sh` ]] && . `source virtualenvwrapper.sh`
+[[ `which virtualenvwrapper.sh` ]] && . `which virtualenvwrapper.sh`
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # startup virtualenv-burrito
     if [ -f "$HOME/.venvburrito/startup.sh" ]; then
-        . "$HOME/.venvburrito/startup.sh"
+        source "$HOME/.venvburrito/startup.sh"
     fi
 fi
 #}}}
 
 # z {{{
+
 #!/bin/bash
 
 # maintains a jump-list of the directories you actually use
