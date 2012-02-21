@@ -19,9 +19,7 @@
 " Vundles {{{
 
   " Dependencies
-  " Bundle 'kairichard/l9_vim_mirror'
-  " Bundle 'MarcWeber/vim-addon-mw-utils'
-  " Bundle 'tomtom/tlib_vim'
+  " Bundle 'L9'
   Bundle 'mileszs/ack.vim'
 
   " Colors
@@ -42,7 +40,7 @@
   Bundle 'kien/ctrlp.vim'
   Bundle 'Shougo/neocomplcache.git'
   Bundle 'Lokaltog/vim-powerline'
-  Bundle 'ervandew/supertab'
+  " Bundle 'ervandew/supertab'
   Bundle 'Raimondi/delimitMate'
   Bundle 'AndrewRadev/linediff.vim'
   Bundle 'scratch.vim'
@@ -59,11 +57,10 @@
   " Javascript
   Bundle 'leshill/vim-json'
   Bundle 'pangloss/vim-javascript'
-  " Bundle 'taxilian/vim-web-indent'
 
   " Python
   Bundle 'vim-scripts/python.vim'
-  " Bundle 'klen/python-mode.git'
+  Bundle 'klen/python-mode.git'
   Bundle 'michaeljsmith/vim-indent-object'
 
   " PHP
@@ -96,7 +93,6 @@
   set encoding=utf-8
   set modelines=0
   set ruler
-  set backspace=indent,eol,start
 
   set showmode
   set showcmd
@@ -111,8 +107,7 @@
   set undofile
   set undoreload=10000
   set list
-
-  set listchars=tab:▸\
+  set listchars=tab:\ ▸,trail:⌴
   set shell=/bin/bash
   set lazyredraw
   set matchtime=3
@@ -351,11 +346,6 @@
 
 " GUI {{{
 
-  augroup trailing
-      au!
-      au InsertEnter * :set listchars-=trail:⌴
-      au InsertLeave * :set listchars+=trail:⌴
-  augroup END
 
 
   if has('gui_running')
@@ -781,5 +771,14 @@
       au FileType help setlocal textwidth=78
       au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
   augroup END
+
+"}}}
+" Trailing Spaces {{{
+
+augroup trailing
+    au!
+    au InsertEnter * :set listchars=tab:\ ▸
+    au InsertLeave * :set listchars=tab:▸\ ,trail:⌴
+augroup END
 
 "}}}
