@@ -1,6 +1,6 @@
 " .vimrc
 " Author: Philip Thrasher
-" Source: http://github.com/pthrasher/thrash/??
+" Source: https://github.com/pthrasher/thrash/blob/master/home/.vimrc
 "
 " Email or tweet with any questions. Glad to answer.
 
@@ -773,6 +773,7 @@
   augroup END
 
 "}}}
+
 " Trailing Spaces {{{
 
 augroup trailing
@@ -782,3 +783,4 @@ augroup trailing
 augroup END
 
 "}}}
+
