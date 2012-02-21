@@ -1,6 +1,6 @@
 " .vimrc
 " Author: Philip Thrasher
-" Source: http://github.com/pthrasher/thrash/??
+" Source: https://github.com/pthrasher/thrash/blob/master/home/.vimrc
 "
 " Email or tweet with any questions. Glad to answer.
 
@@ -44,6 +44,7 @@
   Bundle 'Raimondi/delimitMate'
   Bundle 'AndrewRadev/linediff.vim'
   Bundle 'scratch.vim'
+  Bundle 'Align'
 
   Bundle 'sjl/strftimedammit.vim'
   Bundle 'sjl/gundo.vim'
@@ -502,6 +503,12 @@
   cnoremap w!! w !sudo tee % >/dev/null
 "}}}
 
+" Align {{{
+
+  vnoremap <leader>a :Align =<cr>
+
+"}}}
+
 " Linediff {{{
 
   vnoremap <leader>l :Linediff<cr>
@@ -773,6 +780,7 @@
   augroup END
 
 "}}}
+
 " Trailing Spaces {{{
 
 augroup trailing
