@@ -44,6 +44,7 @@
   Bundle 'Raimondi/delimitMate'
   Bundle 'AndrewRadev/linediff.vim'
   Bundle 'scratch.vim'
+  Bundle 'Align'
 
   Bundle 'sjl/strftimedammit.vim'
   Bundle 'sjl/gundo.vim'
@@ -78,19 +79,23 @@
 "}}}
 
 " Misc {{{
+
+  " Tab stuff
   set tabstop=2
   set shiftwidth=2
   set softtabstop=2
-  set backspace=indent,eol,start
   set expandtab
   set autoindent
   set smartindent
   set smarttab
-  set textwidth=80
-  set formatoptions=qrn1
-  set colorcolumn=+1
 
   set encoding=utf-8
+  set backspace=indent,eol,start
+  set textwidth=80
+  set colorcolumn=+1
+
+  " Text formatting options
+  set formatoptions+=qorn1
   set modelines=0
   set ruler
 
@@ -100,7 +105,7 @@
   set visualbell
   set cursorline
   set ttyfast
-  set nonumber
+  set number
   set relativenumber
   set laststatus=2
   set history=1000
@@ -109,27 +114,26 @@
   set list
   set listchars=tab:\ ▸,trail:⌴
   set shell=/bin/bash
-  set lazyredraw
+
   set matchtime=3
   set splitbelow
   set splitright
   set fillchars=diff:⣿,vert:│
-  set ttimeout
   set notimeout
   set nottimeout
-  set autowrite
   set shiftround
-  set autoread
   set title
-  set linebreak
+
   set dictionary=/usr/share/dict/words
+
+  set autowrite
+  set autoread
 
   " Make Vim able to edit crontab files again.
   set backupskip=/tmp/*,/private/tmp/*"
 
-  " function! s:SaveOnFocusLost
-  " Save when losing focus
-  au FocusLost * :silent wa
+  " save on focus lost
+  au FocusLost * :silent! wa
 
   " Resize splits when the window is resized
   au VimResized * :wincmd =
@@ -170,8 +174,8 @@
 " Backups {{{
 
   set undodir=~/.vim/undo//         " undo files
-  set backupdir=~/.vim/tmp/backup// " backups
-  set directory=~/.vim/tmp/swap//   " swap files
+  " set backupdir=~/.vim/tmp/backup// " backups
+  " set directory=~/.vim/tmp/swap//   " swap files
   set nobackup                      " no need for backups -- we have vcs
   set nowb
   set noswapfile                    " It's 2012, Vim.
@@ -224,8 +228,6 @@
   "quick buffer switching
   nnoremap <leader><leader> <c-^>
 
-  map <tab> %
-
   " Made D behave
   nnoremap D d$
 
@@ -249,7 +251,7 @@
   noremap H ^
   noremap L g_
 
-  " Heresy
+  " Quickly jump to beg or end in insert mode
   inoremap <c-a> <esc>I
   inoremap <c-e> <esc>A
 
@@ -319,21 +321,40 @@
   " Use ,z to "focus" the current fold.
   nnoremap <leader>z zMzvzz
 
-  function! MyFoldText() " {{{
-      let line = getline(v:foldstart)
-
-      let nucolwidth = &fdc + &number * &numberwidth
-      let windowwidth = winwidth(0) - nucolwidth - 3
-      let foldedlinecount = v:foldend - v:foldstart
-
-      " expand tabs into spaces
-      let onetab = strpart('          ', 0, &tabstop)
-      let line = substitute(line, '\t', onetab, 'g')
-
-      let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
-      let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
-      return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
-  endfunction " }}}
+  " Set a nicer foldtext function
+  function! MyFoldText()
+    let line = getline(v:foldstart)
+    if match( line, '^[ \t]*\(\/\*\|\/\/\)[*/\\]*[ \t]*$' ) == 0
+      let initial = substitute( line, '^\([ \t]\)*\(\/\*\|\/\/\)\(.*\)', '\1\2', '' )
+      let linenum = v:foldstart + 1
+      while linenum < v:foldend
+        let line = getline( linenum )
+        let comment_content = substitute( line, '^\([ \t\/\*]*\)\(.*\)$', '\2', 'g' )
+        if comment_content != ''
+          break
+        endif
+        let linenum = linenum + 1
+      endwhile
+      let sub = initial . ' ' . comment_content
+    else
+      let sub = line
+      let startbrace = substitute( line, '^.*{[ \t]*$', '{', 'g')
+      if startbrace == '{'
+        let line = getline(v:foldend)
+        let endbrace = substitute( line, '^[ \t]*}\(.*\)$', '}', 'g')
+        if endbrace == '}'
+          let sub = sub.substitute( line, '^[ \t]*}\(.*\)$', '...}\1', 'g')
+        endif
+      endif
+    endif
+    let n = v:foldend - v:foldstart + 1
+    let info = " " . n . " lines"
+    let sub = sub . "                                                                                                              "
+    let num_w = getwinvar( 0, '&number' ) * getwinvar( 0, '&numberwidth' )
+    let fold_w = getwinvar( 0, '&foldcolumn' )
+    let sub = strpart( sub, 0, winwidth(0) - strlen( info ) - num_w - fold_w - 5 )
+    return sub . info
+  endfunction
   set foldtext=MyFoldText()
 
 " }}}
@@ -500,6 +521,12 @@
 
   " Sudo to write
   cnoremap w!! w !sudo tee % >/dev/null
+"}}}
+
+" Align {{{
+
+  vnoremap <leader>a :Align =<cr>
+
 "}}}
 
 " Linediff {{{
@@ -783,4 +810,5 @@ augroup trailing
 augroup END
 
 "}}}
+
 
