@@ -45,12 +45,15 @@
   Bundle 'AndrewRadev/linediff.vim'
   Bundle 'scratch.vim'
   Bundle 'Align'
+  Bundle 'Conque-Shell'
+  Bundle 'ZoomWin'
+  " possible use this in the future...
+  " Bundle 'sjbach/lusty'
 
   Bundle 'sjl/strftimedammit.vim'
   Bundle 'sjl/gundo.vim'
 
   " Cross compiled scripts
-  Bundle 'kchmck/vim-coffee-script'
   Bundle 'tpope/vim-liquid'
   Bundle 'tpope/vim-markdown'
   Bundle 'groenewege/vim-less'
@@ -115,12 +118,15 @@
   set listchars=tab:\ ▸,trail:⌴
   set shell=/bin/bash
 
+  set showmatch
   set matchtime=3
+
   set splitbelow
   set splitright
   set fillchars=diff:⣿,vert:│
-  set notimeout
-  set nottimeout
+
+  set timeoutlen=500
+
   set shiftround
   set title
 
@@ -128,6 +134,9 @@
 
   set autowrite
   set autoread
+
+  " cpoptions :help cpoptions
+  set cpoptions=aABceFs
 
   " Make Vim able to edit crontab files again.
   set backupskip=/tmp/*,/private/tmp/*"
@@ -213,7 +222,7 @@
   set hlsearch
   set gdefault
 
-  set scrolloff=3
+  set scrolloff=8
   set sidescroll=1
   set sidescrolloff=10
 
@@ -305,6 +314,7 @@
 
 " Folding {{{
 
+  set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
   set foldlevelstart=0
 
   " Make the current location sane.
@@ -431,6 +441,12 @@
 
 " Convenience mappings {{{
 
+  "ios style periods
+  imap <Space><Space> .
+
+  " yank line without $
+  nnoremap ,y ^yg_"_dd
+
   " Clean trailing whitespace
   nnoremap <leader>w :%s/\s\+$//<cr>:let @/=''<cr>
 
@@ -448,10 +464,6 @@
   " Substitute
   nnoremap <leader>s :%s//<left>
 
-  " ack, duh...
-  nnoremap <leader>a :Ack
-
-
   " Emacs bindings in command line mode
   cnoremap <c-a> <home>
   cnoremap <c-e> <end>
@@ -466,9 +478,29 @@
   " Easier linewise reselection
   nnoremap <leader>V V`]
 
-  " Split line (sister to [J]oin lines)
+  " S to split
   " The normal use of S is covered by cc, so don't worry about shadowing it.
-  nnoremap S i<cr><esc><right>mwgk:silent! s/\v +$//<cr>:noh<cr>`w
+  " Basically this splits the current line into two new ones at the cursor position,
+  " then joins the second one with whatever comes next.
+  "
+  " Example:                      Cursor Here
+  "                                    |
+  "                                    V
+  " foo = ('hello', 'world', 'a', 'b', 'c',
+  "        'd', 'e')
+  "
+  " becomes
+  "
+  " foo = ('hello', 'world', 'a', 'b',
+  "        'c', 'd', 'e')
+  "
+  " Especially useful for adding items in the middle of long lists/tuples in Python
+  " while maintaining a sane text width.
+  nnoremap S <nop>
+  nnoremap S h/[^ ]<cr>"zd$jyyP^v$h"zpJk:s/\v +$//<cr>:noh<cr>j^
+
+  " Acking current word under cursor
+  map <Leader>f :execute "Ack " . expand("<cword>") <Bar> cw<CR>
 
   " Align text
   nnoremap <leader>Al :left<cr>
@@ -805,7 +837,7 @@
 
 augroup trailing
     au!
-    au InsertEnter * :set listchars=tab:\ ▸
+    au InsertEnter * :set listchars=tab:▸\ 
     au InsertLeave * :set listchars=tab:▸\ ,trail:⌴
 augroup END
 
