@@ -1,11 +1,11 @@
 [user]
-	name = pthrasher
-	email = philipthrasher@gmail.com
-[github]
-	user = pthrasher
-	token = !security find-generic-password -gs github.token 2>&1 >/dev/null | sed -E 's/password: "([a-zA-Z0-9]+)"/\1/'
-[gist]
-	browse = no
-	private = yes
+  name = pthrasher
+  email = philipthrasher@gmail.com
 [core]
-	excludesfile = ~/.gitignore_global
+  excludesfile = ~/.gitignore_global
+[github]
+  user = pthrasher
+  token = !sh echo $GITHUB_TOKEN
+[gist]
+  browse = no
+  private = yes

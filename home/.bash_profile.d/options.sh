@@ -12,6 +12,8 @@ export GREP_COLOR='1;33'
 
 # colored ls
 export LSCOLORS='Gxfxcxdxdxegedabagacad'
+    
+export GITHUB_TOKEN=`security 2>&1 >/dev/null find-generic-password -gs github.token | sed -E 's/password: "([a-zA-Z0-9]+)"/\1/'`
 
 # append to bash_history if Terminal.app quits
 shopt -s histappend
