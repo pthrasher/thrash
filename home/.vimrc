@@ -94,7 +94,7 @@
 
   set encoding=utf-8
   set backspace=indent,eol,start
-  set textwidth=80
+  set textwidth=79
   set colorcolumn=+1
 
   " Text formatting options
@@ -125,7 +125,9 @@
   set splitright
   set fillchars=diff:⣿,vert:│
 
-  set timeoutlen=500
+  set notimeout
+  set nottimeout
+  " set timeoutlen=500
 
   set shiftround
   set title
@@ -333,6 +335,8 @@
 
   " Set a nicer foldtext function
   function! MyFoldText()
+    " if someone can explain to me what all this this shit does, I'd appreciate
+    " it.
     let line = getline(v:foldstart)
     if match( line, '^[ \t]*\(\/\*\|\/\/\)[*/\\]*[ \t]*$' ) == 0
       let initial = substitute( line, '^\([ \t]\)*\(\/\*\|\/\/\)\(.*\)', '\1\2', '' )
@@ -357,13 +361,12 @@
         endif
       endif
     endif
+    " I know what this does, I wrote it.
     let n = v:foldend - v:foldstart + 1
-    let info = " " . n . " lines"
-    let sub = sub . "                                                                                                              "
-    let num_w = getwinvar( 0, '&number' ) * getwinvar( 0, '&numberwidth' )
-    let fold_w = getwinvar( 0, '&foldcolumn' )
-    let sub = strpart( sub, 0, winwidth(0) - strlen( info ) - num_w - fold_w - 5 )
-    return sub . info
+    let info =  n . " lines …"
+    let real_line_len = strlen( info ) + strlen( sub )
+    let fill_text = repeat(" ", &textwidth - real_line_len + 3)
+    return sub . fill_text . info
   endfunction
   set foldtext=MyFoldText()
 
@@ -374,6 +377,19 @@
   let g:Powerline_symbols = 'fancy'
 
 " }}}
+
+" Commentary {{{
+
+  nmap <leader>c <Plug>CommentaryLine
+  xmap <leader>c <Plug>Commentary
+
+"}}}
+
+" NeoComplCache {{{
+
+  let g:neocomplcache_enable_at_startup = 1
+
+"}}}
 
 " GUI {{{
 
@@ -441,8 +457,6 @@
 
 " Convenience mappings {{{
 
-  "ios style periods
-  imap <Space><Space> .
 
   " yank line without $
   nnoremap ,y ^yg_"_dd
@@ -617,6 +631,16 @@
 
 " }}}
 
+" CPP {{{
+
+  augroup ft_cpp
+    au!
+    au FileType cpp setlocal foldmethod=syntax
+    au FileType cpp set softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79
+  augroup END
+
+" }}}
+
 " CSS and LessCSS {{{
 
   augroup ft_css
@@ -742,6 +766,8 @@
     set wrap
     set wm=2
     set textwidth=79
+    "ios style periods
+    imap <Space><Space> .
   endfunction
 
   au BufRead,BufNewFile *.txt call s:setupWrapping()
@@ -837,7 +863,7 @@
 
 augroup trailing
     au!
-    au InsertEnter * :set listchars=tab:▸\ 
+    au InsertEnter * :set listchars=tab:▸\
     au InsertLeave * :set listchars=tab:▸\ ,trail:⌴
 augroup END
 

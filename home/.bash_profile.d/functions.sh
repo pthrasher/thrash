@@ -246,8 +246,8 @@ function down {
 # python venv {{{
 
 # make sure virtualenvwrapper is enabled if availalbe
-[[ `which virtualenvwrapper.sh` ]] && . `which virtualenvwrapper.sh`
 export VIRTUALENVWRAPPER_PYTHON=`which python`
+[[ `which virtualenvwrapper.sh` ]] && . `which virtualenvwrapper.sh`
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
