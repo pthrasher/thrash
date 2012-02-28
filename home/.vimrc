@@ -389,18 +389,6 @@
 
 "}}}
 
-" Completion {{{
-
-set ofu=syntaxcomplete#Complete
-
-set completeopt=longest,menuone
-
-inoremap <expr><CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-
-inoremap <expr><M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-inoremap <expr><M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-"}}}
 
 " GUI {{{
 
@@ -884,4 +872,15 @@ augroup END
 
 "}}}
 
+" Completion {{{
+
+  set ofu=syntaxcomplete#Complete
+
+  set completeopt=longest,menuone
+
+  inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+  inoremap <expr> <M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+"}}}
 
