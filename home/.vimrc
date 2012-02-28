@@ -35,10 +35,14 @@
   Bundle 'tpope/vim-git'
 
   Bundle 'scrooloose/syntastic'
+  Bundle 'msanders/snipmate.vim'
   Bundle 'scrooloose/snipmate-snippets'
 
   Bundle 'kien/ctrlp.vim'
-  Bundle 'Shougo/neocomplcache.git'
+  Bundle 'xolox/vim-easytags'
+  Bundle 'AutoComplePop'
+  
+  " Bundle 'Shougo/neocomplcache.git'
   Bundle 'Lokaltog/vim-powerline'
   " Bundle 'ervandew/supertab'
   Bundle 'Raimondi/delimitMate'
@@ -385,46 +389,17 @@
 
 "}}}
 
-" NeoComplCache {{{
+" Completion {{{
 
-  " Use neocomplcache.
-  let g:neocomplcache_enable_at_startup = 1
-  " Use smartcase.
-  let g:neocomplcache_enable_smart_case = 1
-  " Use camel case completion.
-  let g:neocomplcache_enable_camel_case_completion = 1
-  " Use underbar completion.
-  let g:neocomplcache_enable_underbar_completion = 1
+set completeopt=longest,menuone
 
-  let g:neocomplcache_auto_completion_start_length = 3
-  let g:neocomplcache_manual_completion_start_length = 3
-  let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-  " Define keyword.
-  if !exists('g:neocomplcache_keyword_patterns')
-      let g:neocomplcache_keyword_patterns = {}
-  endif
-  let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
-  " snippets expand key
-  " SuperTab like snippets behavior.
-  " imap <silent><expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-  imap <silent><expr><TAB>  neocomplcache#plugin#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : (pumvisible() ? "\<C-e>" : "\<TAB>")
-  smap <TAB>  <RIGHT><Plug>(neocomplcache_snippets_jump)
-  inoremap <expr><C-e>     neocomplcache#complete_common_string()
-
-
-  " Recommended key-mappings.
-  " <CR>: close popup and save indent.
-  inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
-  " <TAB>: completion.
-  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-  " <C-h>, <BS>: close popup and delete backword char.
-  inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-  inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-  inoremap <expr><C-y>  neocomplcache#close_popup()
-  inoremap <expr><C-e>  neocomplcache#cancel_popup()
-
+inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
+  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 "}}}
 
