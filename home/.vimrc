@@ -50,6 +50,7 @@
   Bundle 'scratch.vim'
   Bundle 'Align'
   Bundle 'Conque-Shell'
+  Bundle 'Shell.vim'
   Bundle 'ZoomWin'
   " possible use this in the future...
   " Bundle 'sjbach/lusty'
@@ -136,7 +137,6 @@
   set shiftround
   set title
 
-  set dictionary=/usr/share/dict/words
 
   set autowrite
   set autoread
@@ -395,14 +395,11 @@ set ofu=syntaxcomplete#Complete
 
 set completeopt=longest,menuone
 
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr><CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
-  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
-inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
-  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
+inoremap <expr><M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+inoremap <expr><M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 "}}}
 
 " GUI {{{
@@ -784,28 +781,32 @@ inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
     imap <Space><Space> .
   endfunction
 
-  au BufRead,BufNewFile *.txt call s:setupWrapping()
-  au BufRead,BufNewFile *.txt set spell
+  function s:setupText()
+    au Filetype markdown setlocal spell
+    au Filetype markdown setlocal dictionary=/usr/share/dict/words
+    call s:setupWrapping()
+  endfunction
+
+  au BufRead,BufNewFile *.txt call s:setupText()
 "}}}
 
 " Markdown {{{
 
   function s:setupMarkup()
-    call s:setupWrapping()
-    map <buffer> <Leader>p :Mm <CR>
+    call s:setupText()
+    nnoremap <buffer> <Leader>p :Mm <CR>
+
+    " Use <localleader>1/2/3 to add headings.
+    nnoremap <buffer> <localleader>1 yypVr=
+    nnoremap <buffer> <localleader>2 yypVr-
+    nnoremap <buffer> <localleader>3 I### <ESC>
   endfunction
 
   augroup ft_markdown
-      au!
+    au!
 
-      au BufNewFile,BufRead *.{md,markdown,mdown,mkd,mkdn} setlocal filetype=markdown
-      au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
-      au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set spell
-
-      " Use <localleader>1/2/3 to add headings.
-      au Filetype markdown nnoremap <buffer> <localleader>1 yypVr=
-      au Filetype markdown nnoremap <buffer> <localleader>2 yypVr-
-      au Filetype markdown nnoremap <buffer> <localleader>3 I### <ESC>
+    au BufNewFile,BufRead *.{md,markdown,mdown,mkd,mkdn} setlocal filetype=markdown
+    au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
   augroup END
 
 " }}}
