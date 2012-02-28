@@ -40,7 +40,7 @@
 
   Bundle 'kien/ctrlp.vim'
   " Bundle 'xolox/vim-easytags'
-  Bundle 'AutoComplPop'
+  " Bundle 'AutoComplPop'
   
   " Bundle 'Shougo/neocomplcache.git'
   Bundle 'Lokaltog/vim-powerline'
@@ -874,10 +874,17 @@ augroup END
 
 " Completion {{{
 
-  " set ofu=syntaxcomplete#Complete
+  set ofu=syntaxcomplete#Complete
 
-  " set completeopt=longest,menuone
+  set completeopt=longest,menuone
 
+  inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+  inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+  inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
+  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 "}}}
 
