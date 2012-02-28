@@ -42,7 +42,7 @@
   " Bundle 'xolox/vim-easytags'
   " Bundle 'AutoComplPop'
   
-  " Bundle 'Shougo/neocomplcache.git'
+  Bundle 'Shougo/neocomplcache.git'
   Bundle 'Lokaltog/vim-powerline'
   " Bundle 'ervandew/supertab'
   Bundle 'Raimondi/delimitMate'
