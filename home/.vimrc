@@ -19,7 +19,7 @@
 " Vundles {{{
 
   " Dependencies
-  " Bundle 'L9'
+  Bundle 'L9'
   Bundle 'mileszs/ack.vim'
 
   " Colors
