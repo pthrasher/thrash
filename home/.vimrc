@@ -46,7 +46,7 @@
   Bundle 'Align'
   Bundle 'Conque-Shell'
   Bundle 'ZoomWin'
-  Bundle 'autotag'
+  Bundle 'AutoTag'
 
   " possible use this in the future...
   " Bundle 'sjbach/lusty'
