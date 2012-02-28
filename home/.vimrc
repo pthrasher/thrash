@@ -40,7 +40,7 @@
 
   Bundle 'kien/ctrlp.vim'
   Bundle 'xolox/vim-easytags'
-  Bundle 'AutoComplePop'
+  Bundle 'AutoComplPop'
   
   " Bundle 'Shougo/neocomplcache.git'
   Bundle 'Lokaltog/vim-powerline'
