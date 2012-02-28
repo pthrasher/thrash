@@ -39,7 +39,7 @@
   Bundle 'scrooloose/snipmate-snippets'
 
   Bundle 'kien/ctrlp.vim'
-  Bundle 'xolox/vim-easytags'
+  " Bundle 'xolox/vim-easytags'
   Bundle 'AutoComplPop'
   
   " Bundle 'Shougo/neocomplcache.git'
@@ -50,7 +50,7 @@
   Bundle 'scratch.vim'
   Bundle 'Align'
   Bundle 'Conque-Shell'
-  Bundle 'Shell.vim'
+  " Bundle 'Shell.vim'
   Bundle 'ZoomWin'
   " possible use this in the future...
   " Bundle 'sjbach/lusty'
@@ -69,7 +69,7 @@
 
   " Python
   Bundle 'vim-scripts/python.vim'
-  Bundle 'klen/python-mode.git'
+  " Bundle 'klen/python-mode.git'
   Bundle 'michaeljsmith/vim-indent-object'
 
   " PHP
