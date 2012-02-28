@@ -391,6 +391,8 @@
 
 " Completion {{{
 
+set ofu=syntaxcomplete#Complete
+
 set completeopt=longest,menuone
 
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
