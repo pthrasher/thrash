@@ -34,6 +34,7 @@
   Bundle 'tpope/vim-surround'
   Bundle 'tpope/vim-git'
 
+  Bundle 'gridaphobe/go.vim'
   Bundle 'scrooloose/syntastic'
   Bundle 'msanders/snipmate.vim'
   Bundle 'scrooloose/snipmate-snippets'
