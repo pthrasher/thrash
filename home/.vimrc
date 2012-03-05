@@ -1,6 +1,14 @@
-" .vimrc
-" Author: Philip Thrasher
-" Source: https://github.com/pthrasher/thrash/blob/master/home/.vimrc
+" .vimrc Author: Philip Thrasher Source:
+" https://github.com/pthrasher/thrash/blob/master/home/.vimrc
+"
+" This constantly changes. Just take a look at the commit history. I generally
+" put stuff in here to try it out, and then either keep it, or remove it. ViM
+" is so big, that any config is really personal. So... What's perfect for me
+" might not be perfect for you. We all have certain ways we like to work with
+" our code.
+"
+" Additionally, I'm always willing to answer questions regarding how to
+" incorporate ViM into your workflow so that it's useful, and not a hinderance.
 "
 " Email or tweet with any questions. Glad to answer.
 
@@ -44,7 +52,8 @@
   Bundle 'Raimondi/delimitMate'
   Bundle 'AndrewRadev/linediff.vim'
   Bundle 'scratch.vim'
-  Bundle 'Align'
+  Bundle 'godlygeek/tabular'
+  " Bundle 'Align'
   Bundle 'Conque-Shell'
   Bundle 'ZoomWin'
   Bundle 'AutoTag'
@@ -458,6 +467,8 @@
 
 " Convenience mappings {{{
 
+  " Reselect most recently edited/pasted text
+  nmap gV `[v`]
 
   " Source currently selected lines
   vnoremap <leader>y y:@"<cr>
@@ -470,8 +481,7 @@
 
   " Send visual selection to gist.github.com as a private, filetyped Gist
   " Requires the gist command line too (brew install gist)
-  vnoremap <leader>G :w !gist -p -t %:e \| pbcopy<cr>
-  vnoremap <leader>UG :w !gist -p \| pbcopy<cr>
+  nnoremap <leader>G :w !gist -p -t %:e \| pbcopy<cr>
 
   " Change case
   nnoremap <C-U> gUiw
@@ -489,7 +499,8 @@
   " Diffoff
   nnoremap <leader>D :diffoff!<cr>
 
-  " Formatting, TextMate-style
+  " Formatting, TextMate-style (using par)
+  set formatprg=par\ -w79
   nnoremap Q gqip
   vnoremap Q gq
 
@@ -498,8 +509,8 @@
 
   " S to split
   " The normal use of S is covered by cc, so don't worry about shadowing it.
-  " Basically this splits the current line into two new ones at the cursor position,
-  " then joins the second one with whatever comes next.
+  " Basically this splits the current line into two new ones at the cursor
+  " position, then joins the second one with whatever comes next.
   "
   " Example:                      Cursor Here
   "                                    |
@@ -575,7 +586,15 @@
 
 " Align {{{
 
-  vnoremap <leader>a :Align =<cr>
+  " vnoremap <leader>a :Align =<cr>
+  vnoremap <leader>a= :Tab /=<cr>
+  nnoremap <leader>a= :Tab /=<cr>
+
+  vnoremap <leader>a: :Tab /:\zs<cr>
+  nnoremap <leader>a: :Tab /:\zs<cr>
+
+  vnoremap <leader>a/ :Tab /\/\/<cr>
+  nnoremap <leader>a/ :Tab /\/\/<cr>
 
 "}}}
 
@@ -622,7 +641,7 @@
   iabbrev pt@ philipthrasher@gmail.com
 
   " Yes... I do this. ;-)
-  " execute "Abolish pythong python"
+  Abolish pythong python
 
 "}}}
 
