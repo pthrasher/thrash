@@ -127,8 +127,8 @@
   set fillchars=diff:⣿,vert:│
 
   set notimeout
-  set nottimeout
-  " set timeoutlen=500
+  set ttimeout
+  set ttimeoutlen=10
 
   set shiftround
   set title
@@ -404,6 +404,13 @@
 
     highlight SpellBad term=underline gui=undercurl guisp=Orange
 
+    " Window resizing.
+    map <D-Left> :set columns-=15<cr>
+    map <D-Right> :set columns+=15<cr>
+
+    map <D-Up> :set lines-=10<cr>
+    map <D-Down> :set lines+=10<cr>
+
     " Use a line-drawing char for pretty vertical splits.
 
     " Different cursors for different modes.
@@ -451,6 +458,9 @@
 
 " Convenience mappings {{{
 
+
+  " Source currently selected lines
+  vnoremap <leader>y y:@"<cr>
 
   " yank line without $
   nnoremap ,y ^yg_"_dd
