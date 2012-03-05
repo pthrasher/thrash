@@ -2,6 +2,8 @@ if !exists(":Abolish")
   finish
 endif
 
+" Yes... I do this. ;-)
+Abolish pythong python
 Abolish afterword{,s}                         afterward{}
 Abolish anomol{y,ies}                         anomal{}
 Abolish austrail{a,an,ia,ian}                 austral{ia,ian}

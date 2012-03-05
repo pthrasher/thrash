@@ -640,8 +640,7 @@
 
   iabbrev pt@ philipthrasher@gmail.com
 
-  " Yes... I do this. ;-)
-  Abolish pythong python
+  " for the vim-abolish abbrv's look in .vim/after/plugin/abolish.vim
 
 "}}}
 
