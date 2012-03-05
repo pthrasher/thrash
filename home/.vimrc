@@ -789,7 +789,7 @@
     set wm=2
     set textwidth=79
     "ios style periods
-    imap <Space><Space> .
+    " imap <Space><Space> .
   endfunction
 
   function s:setupText()
