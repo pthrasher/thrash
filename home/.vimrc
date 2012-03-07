@@ -75,8 +75,8 @@
   Bundle 'pangloss/vim-javascript'
 
   " Python
-  Bundle 'vim-scripts/python.vim'
-  " Bundle 'klen/python-mode.git'
+  " Bundle 'vim-scripts/python.vim'
+  Bundle 'klen/python-mode.git'
   Bundle 'michaeljsmith/vim-indent-object'
 
   " PHP
