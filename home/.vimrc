@@ -38,15 +38,15 @@
   Bundle 'tpope/vim-fugitive'
   Bundle 'tpope/vim-abolish'
   Bundle 'tpope/vim-commentary'
-  Bundle 'tpope/vim-endwise'
+  " Bundle 'tpope/vim-endwise'
   Bundle 'tpope/vim-surround'
   Bundle 'tpope/vim-git'
 
   Bundle 'gridaphobe/go.vim'
   Bundle 'scrooloose/syntastic'
-  Bundle 'msanders/snipmate.vim'
   Bundle 'scrooloose/snipmate-snippets'
-  Bundle 'ervandew/supertab'
+  Bundle 'msanders/snipmate.vim'
+  " Bundle 'ervandew/supertab'
   Bundle 'kien/ctrlp.vim'
   Bundle 'Lokaltog/vim-powerline'
   Bundle 'Raimondi/delimitMate'
@@ -56,7 +56,7 @@
   " Bundle 'Align'
   Bundle 'Conque-Shell'
   Bundle 'ZoomWin'
-  Bundle 'AutoTag'
+  " Bundle 'AutoTag'
 
   " possible use this in the future...
   " Bundle 'sjbach/lusty'
@@ -569,6 +569,8 @@
   nnoremap <C-j> <C-w>j
   nnoremap <C-k> <C-w>k
   nnoremap <C-l> <C-w>l
+  "zoomwin mapping
+  nnoremap <C-o> <C-w>o
 
   " Opens an edit command with the path of the currently edited file filled in
   " Normal mode: <Leader>e
