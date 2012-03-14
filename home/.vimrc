@@ -54,7 +54,7 @@
   Bundle 'scratch.vim'
   Bundle 'godlygeek/tabular'
   " Bundle 'Align'
-  " Bundle 'rosenfeld/conque-term'
+  Bundle 'rosenfeld/conque-term'
   Bundle 'ZoomWin'
   " Bundle 'AutoTag'
 
