@@ -27,7 +27,7 @@ for color in {000..255}; do
 done
 
 
-export LSCOLORS="Gxfxcxdxbxegedabagacad"
+alias ls="ls --colors"
 
 # Enable ls colors
 if [ "$DISABLE_LS_COLORS" != "true" ]
