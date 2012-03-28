@@ -31,6 +31,7 @@
   Bundle 'mileszs/ack.vim'
 
   " Colors
+  Bundle 'altercation/vim-colors-solarized'
   Bundle 'flazz/vim-colorschemes'
 
   " Generic editing
@@ -126,7 +127,7 @@
   set undofile
   set undoreload=10000
   set list
-  set listchars=tab:\ ▸,trail:⌴
+  set listchars=tab:▸\ 
   set shell=/bin/bash
 
   set showmatch
@@ -213,8 +214,15 @@
 " Color scheme {{{
 
   syntax on
-  set background=dark
-  colorscheme mustang
+
+  if has('gui_running')
+    set background=light
+  else
+    set background=light
+    let g:solarized_termtrans=1
+  endif
+
+  colorscheme solarized
 
   " Highlight VCS conflict markers
   match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
@@ -476,9 +484,6 @@
 
   " yank line without $
   nnoremap ,y ^yg_"_dd
-
-  " Clean trailing whitespace
-  nnoremap <leader>w :%s/\s\+$//<cr>:let @/=''<cr>
 
   " Send visual selection to gist.github.com as a private, filetyped Gist
   " Requires the gist command line too (brew install gist)
@@ -888,14 +893,3 @@
   augroup END
 
 "}}}
-
-" Trailing Spaces {{{
-
-augroup trailing
-    au!
-    au InsertEnter * :set listchars=tab:▸\ 
-    au InsertLeave * :set listchars=tab:▸\ ,trail:⌴
-augroup END
-
-"}}}
-
