@@ -57,6 +57,7 @@
   Bundle 'rosenfeld/conque-term'
   Bundle 'ZoomWin'
   " Bundle 'AutoTag'
+  Bundle 'YankRing.vim'
 
   " possible use this in the future...
   " Bundle 'sjbach/lusty'
@@ -264,8 +265,8 @@
   nnoremap g, g,zz
 
   " Window resizing
-  nnoremap <c-left> 5<c-w>>
-  nnoremap <c-right> 5<c-w><
+  nnoremap <C-left> 5<c-w>>
+  nnoremap <C-right> 5<c-w><
 
   " Easier to type, and I never use the default behavior.
   noremap H ^
@@ -310,7 +311,7 @@
 
 " Directional Keys {{{
 
-  " It's 2011.
+  " Visual line nav, not real line nav
   noremap j gj
   noremap k gk
 
