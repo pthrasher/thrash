@@ -45,8 +45,9 @@
 
   Bundle 'gridaphobe/go.vim'
   Bundle 'scrooloose/syntastic'
-  Bundle 'scrooloose/snipmate-snippets'
-  Bundle 'msanders/snipmate.vim'
+  Bundle 'spf13/snipmate-snippets'
+  source $HOME/.vim/bundle/snipmate-snippets/support_functions.vim 
+  " Bundle 'msanders/snipmate.vim'
   " Bundle 'ervandew/supertab'
   Bundle 'kien/ctrlp.vim'
   Bundle 'Lokaltog/vim-powerline'
@@ -59,6 +60,7 @@
   Bundle 'ZoomWin'
   " Bundle 'AutoTag'
   Bundle 'YankRing.vim'
+  Bundle 'Shougo/neocomplcache'
 
   " possible use this in the future...
   " Bundle 'sjbach/lusty'
@@ -407,7 +409,7 @@
 
 
 
-  if has('gui_running')
+if has('gui_running')
     " Not sure if this one has all the right glyphs
     " set guifont=Ubuntu\ Regular\ for\ Powerline:h14
     set guifont=Menlo\ for\ Powerline:h12
@@ -422,12 +424,6 @@
 
     highlight SpellBad term=underline gui=undercurl
 
-    " Window resizing.
-    map <D-Left> :set columns-=15<cr>
-    map <D-Right> :set columns+=15<cr>
-
-    map <D-Up> :set lines-=10<cr>
-    map <D-Down> :set lines+=10<cr>
 
     " Use a line-drawing char for pretty vertical splits.
 
@@ -438,20 +434,26 @@
     "set guicursor+=i-ci:ver20-iCursor
 
     if has("gui_macvim")
-      " Color column should be a sane color.
-      " highlight ColorColumn guibg=#666666
+        " Color column should be a sane color.
+        " highlight ColorColumn guibg=#666666
 
-      " Full screen means FULL screen
-      set fuoptions=maxvert,maxhorz
+        " Full screen means FULL screen
+        set fuoptions=maxvert,maxhorz
 
-      imap <M-BS>         <C-w>
-      inoremap <D-BS>     <esc>my0c`y
+        imap <M-BS>         <C-w>
+        inoremap <D-BS>     <esc>my0c`y
+        " Window resizing.
+        nnoremap <D-Left> :set columns-=15<cr>
+        nnoremap <D-Right> :set columns+=15<cr>
+
+        nnoremap <D-Up> :set lines-=10<cr>
+        nnoremap <D-Down> :set lines+=10<cr>
     else
-      " Non-MacVim GUI, like Gvim
+        " Non-MacVim GUI, like Gvim
     end
-  else
+else
     " Console Vim
-  endif
+endif
 "}}}
 
 " Convenience mappings {{{
@@ -570,6 +572,7 @@
 
   " Sudo to write
   cnoremap w!! w !sudo tee % >/dev/null
+
 "}}}
 
 " Align {{{
@@ -872,4 +875,61 @@
       au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
   augroup END
 
+"}}}
+
+" neocomplcache {{{
+        let g:neocomplcache_enable_at_startup = 1
+        let g:neocomplcache_enable_camel_case_completion = 1
+        let g:neocomplcache_enable_smart_case = 1
+        let g:neocomplcache_enable_underbar_completion = 1
+        let g:neocomplcache_min_syntax_length = 3
+        let g:neocomplcache_enable_auto_delimiter = 1
+
+        " AutoComplPop like behavior.
+        let g:neocomplcache_enable_auto_select = 0
+
+        " SuperTab like snippets behavior.
+        imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+
+        " Plugin key-mappings.
+        imap <C-k>     <Plug>(neocomplcache_snippets_expand)
+        smap <C-k>     <Plug>(neocomplcache_snippets_expand)
+        inoremap <expr><C-g>     neocomplcache#undo_completion()
+        inoremap <expr><C-l>     neocomplcache#complete_common_string()
+
+
+        " <CR>: close popup 
+        " <s-CR>: close popup and save indent.
+        inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+        inoremap <expr><s-CR> pumvisible() ? neocomplcache#close_popup() "\<CR>" : "\<CR>" 
+        " <TAB>: completion.
+        inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+        " <C-h>, <BS>: close popup and delete backword char.
+        inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+        inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+        inoremap <expr><C-y>  neocomplcache#close_popup()
+        inoremap <expr><C-e>  neocomplcache#cancel_popup()
+
+        " Enable omni completion.
+        autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+        autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+        autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+        autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+        autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+        " Enable heavy omni completion.
+        if !exists('g:neocomplcache_omni_patterns')
+            let g:neocomplcache_omni_patterns = {}
+        endif
+        let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
+        "autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+        let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+        let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
+        let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+
+        " For snippet_complete marker.
+        if has('conceal')
+            set conceallevel=2 concealcursor=i
+        endif
 "}}}
