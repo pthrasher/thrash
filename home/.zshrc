@@ -56,8 +56,8 @@ export VCPROMPT_FORMAT="[%n:%b%m%u]"
 export VIRTUAL_ENV_DISABLE_PROMPT='yeah'
 setopt PROMPT_SUBST
 
-PROMPT='${FX[reset]}${FG[240]}[%n@%m]$(vcprompt)${venv_prompt} ${FX[reset]}${FG[102]}$paths $fill ${FX[reset]}${FG[245]}[%*]${FX[reset]}
-${FX[reset]}${FG[093]}➤ ${FX[reset]}'
+# PROMPT='${FX[reset]}${FG[240]}[%n@%m]$(vcprompt)${venv_prompt} ${FX[reset]}${FG[102]}$paths $fill ${FX[reset]}${FG[245]}[%*]${FX[reset]}'
+PROMPT='${FX[reset]}${FG[093]}➤ ${FX[reset]}'
 
 precmd() {
     fill=""
@@ -75,7 +75,9 @@ precmd() {
         paths="...${last_two}"
     }
 
-    nofill=`print -P "[%n@%m]$(vcprompt)${venv_prompt} ${paths}  [%*]"`
+    vcpout=`vcprompt`
+
+    nofill=`print -P "[%n@%m]${vcpout}${venv_prompt} ${paths}  [%*]"`
     (( pos = ${COLUMNS} - ${#nofill} ))
     while [[ $pos -gt 0 ]] {
         fill="-${fill}"
@@ -84,6 +86,8 @@ precmd() {
 
     #z.sh stuff:
     _z --add "$(pwd -P)"
+
+    print -rP '${FX[reset]}${FG[240]}[%n@%m]${vcpout}${venv_prompt} ${FX[reset]}${FG[102]}$paths $fill ${FX[reset]}${FG[245]}[%*]${FX[reset]}' 
 }
 
 # Options
