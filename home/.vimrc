@@ -850,9 +850,6 @@ let g:sparkupExecuteMapping = '<C-e>'
     " I don't want pep8 all the time.
     let g:pymode_lint_checker = "pyflakes"
 
-    " My colleagues don't care
-    let g:pymode_utils_whitespaces = 0
-
     " I have no clue what this does. But it says if you have a fast comp...
     let g:pymode_syntax_slow_sync = 0
 
