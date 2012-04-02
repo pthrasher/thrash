@@ -280,9 +280,6 @@
   noremap H ^
   noremap L g_
 
-  " Quickly jump to beg or end in insert mode
-  inoremap <c-a> <esc>I
-  inoremap <c-e> <esc>A
 
   " Open a Quickfix window for the last search.
   nnoremap <silent> <leader>/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
@@ -395,6 +392,18 @@
   let g:Powerline_symbols = 'fancy'
 
 " }}}
+
+" Sparkup {{{
+
+let g:sparkupExecuteMapping = '<C-e>'
+
+"}}}
+
+" CtrlP {{{
+
+    let g:ctrlp_map = '<c-t>'
+
+"}}}
 
 " Commentary {{{
 
@@ -842,7 +851,7 @@
     let g:pymode_lint_checker = "pyflakes"
 
     " My colleagues don't care
-    let g:pymode_utils_whitespaces 0
+    let g:pymode_utils_whitespaces = 0
 
     " I have no clue what this does. But it says if you have a fast comp...
     let g:pymode_syntax_slow_sync = 0
