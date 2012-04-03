@@ -414,14 +414,6 @@ let g:sparkupExecuteMapping = '<C-e>'
 
 "}}}
 
-" Syntastic {{{
-
-let g:syntastic_mode_map = { 'mode': 'active',
-                            'active_filetypes': [],
-                            'passive_filetypes': ['less']}
-
-"}}}
-
 " GUI {{{
 
 
@@ -623,7 +615,7 @@ endif
 " Syntastic {{{
 
   let g:syntastic_enable_signs = 1
-  let g:syntastic_disabled_filetypes = ['html']
+  let g:syntastic_disabled_filetypes = ['html', 'less']
   let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
   let g:syntastic_jsl_conf = '$HOME/.vim/jsl.conf'
 
