@@ -1,5 +1,5 @@
-" Modeline and Notes {
-" vim: set foldmarker={,} foldlevel=0 foldmethod=marker spell:
+" Modeline and Notes {{{
+" vim: set foldmarker={{{,}}} foldlevel=0 foldmethod=marker spell:
 "            __  .__                        .__     
 "    _______/  |_|  |______________    _____|  |__  
 "    \____ \   __\  |  \_  __ \__  \  /  ___/  |  \ 
@@ -23,33 +23,29 @@
 "
 "    Email:   philipthrasher@gmail.com
 "    Twitter: @philipthrasher
-" }
-"
+" }}}
 
-" Bundles (Plugins) {
-    " Preamble {
+" Bundles (Plugins) {{{
+
+    " Preamble {{{
         set nocompatible
         filetype off
 
         set rtp+=~/.vim/bundle/vundle/
         call vundle#rc()
+    " }}}
 
-        " let Vundle manage Vundle
-        " required!
-    " }
-
-    " Dependencies {
+    " Dependencies {{{
         Bundle 'gmarik/vundle'
         Bundle 'L9'
-        Bundle 'mileszs/ack.vim'
-    " }
+    " }}}
 
-    " Colors
+    " Colors {{{
         Bundle 'altercation/vim-colors-solarized'
         " Bundle 'flazz/vim-colorschemes'
-    " }
+    " }}}
 
-    " General {
+    " General {{{
         Bundle 'tpope/vim-repeat'
         Bundle 'tpope/vim-abolish'
         Bundle 'tpope/vim-surround'
@@ -58,13 +54,14 @@
 
         Bundle 'Lokaltog/vim-powerline'
         Bundle 'godlygeek/tabular'
+        Bundle 'mileszs/ack.vim'
 
         Bundle 'YankRing.vim'
         Bundle 'scratch.vim'
         Bundle 'sjl/gundo.vim'
-    " }
+    " }}}
 
-    " Programming {
+    " Programming {{{
         Bundle 'Raimondi/delimitMate'
         Bundle 'tpope/vim-commentary'
         Bundle 'scrooloose/syntastic'
@@ -73,9 +70,9 @@
 
         Bundle 'Shougo/neocomplcache-snippets-complete'
         Bundle 'Shougo/neocomplcache'
-    " }
+    " }}}
 
-    " Extra Syntaxes {
+    " Extra Syntaxes {{{
         Bundle 'gridaphobe/go.vim'
         Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 
@@ -98,15 +95,15 @@
 
         " PHP
         Bundle 'spf13/PIV'
-    " }
+    " }}}
 
 
     " possibly use this in the future...
     " Bundle 'sjbach/lusty'
 
-" }
+" }}}
 
-" Misc {
+" Misc {{{
     filetype plugin indent on
 
   " Tab stuff
@@ -172,9 +169,9 @@
   au VimResized * :wincmd =
 
 
-" }
+" }}}
 
-" Wildmenu stuff {
+" Wildmenu stuff {{{
   set wildmenu
   set wildmode=list:longest
 
@@ -188,12 +185,11 @@
 
   set wildignore+=migrations                       " Django migrations
   set wildignore+=*.pyc                            " Python byte code
-" }
+" }}}
 
-" Line Return {
+" Line Return {{{
 
 " Make sure Vim returns to the same line when you reopen a file.
-" Thanks, Amit
   augroup line_return
     au!
     au BufReadPost *
@@ -202,9 +198,9 @@
       \ endif
   augroup END
 
-" }
+" }}}
 
-" Backups {
+" Backups {{{
 
     if version > 720
         set undofile
@@ -215,16 +211,16 @@
     set backupdir=~/.vim/tmp/backup
     set noswapfile
 
-" }
+" }}}
 
-" Leader {
+" Leader {{{
 
   let mapleader = ","
   let maplocalleader = "\\"
 
-" }
+" }}}
 
-" Color scheme {
+" Color scheme {{{
 
     syntax on
 
@@ -235,13 +231,9 @@
         set background=light
         let g:solarized_termtrans=1
     endif
+" }}}
 
-    " Highlight VCS conflict markers
-    match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
-
-" }
-
-" Searching and moving {
+" Searching and moving {{{
 
   " Use sane regexes.
   nnoremap / /\v
@@ -306,9 +298,9 @@
   nnoremap Vab vabV
   nnoremap VaB vaBV
 
-" }
+" }}}
 
-" Error navigation {
+" Error navigation {{{
   "
   "             Location List     QuickFix Window
   "            (e.g. Syntastic)     (e.g. Ack)
@@ -324,9 +316,9 @@
   nnoremap <m-Down> :cnext<cr>zvzz
   nnoremap <m-Up> :cprevious<cr>zvzz
 
-" }
+" }}}
 
-" Directional Keys {
+" Directional Keys {{{
 
   " Visual line nav, not real line nav
   noremap j gj
@@ -339,9 +331,9 @@
   noremap <C-l>  <C-w>l
   noremap <leader>v <C-w>v
 
-" }
+" }}}
 
-" Folding {
+" Folding {{{
 
   set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
   set foldlevelstart=0
@@ -397,35 +389,35 @@
   endfunction
   set foldtext=MyFoldText()
 
-" }
+" }}}
 
-" Powerline {
+" Powerline {{{
 
   let g:Powerline_symbols = 'fancy'
 
-" }
+" }}}
 
-" Sparkup / Zen Coding {
+" Sparkup / Zen Coding {{{
 
     let g:user_zen_leader_key = '<c-e>'
     " let g:sparkupExecuteMapping = '<C-e>'
 
-" }
+" }}}
 
-" CtrlP {
+" CtrlP {{{
 
     let g:ctrlp_map = '<c-t>'
 
-" }
+" }}}
 
-" Commentary {
+" Commentary {{{
 
   nmap <leader>c <Plug>CommentaryLine
   xmap <leader>c <Plug>Commentary
 
-" }
+" }}}
 
-" Convenience mappings {
+" Convenience mappings {{{
 
   " Reselect most recently edited/pasted text
   nmap gV `[v`]
@@ -542,9 +534,9 @@
   " Sudo to write
   cnoremap w!! w !sudo tee % >/dev/null
 
-" }
+" }}}
 
-" Align {
+" Align {{{
 
   " vnoremap <leader>a :Align =<cr>
   vnoremap <leader>a= :Tab /=<cr>
@@ -556,32 +548,32 @@
   vnoremap <leader>a/ :Tab /\/\/<cr>
   nnoremap <leader>a/ :Tab /\/\/<cr>
 
-" }
+" }}}
 
-" Linediff {
+" Linediff {{{
 
   vnoremap <leader>l :Linediff<cr>
   nnoremap <leader>L :LinediffReset<cr>
 
-" }
+" }}}
 
-" Supertab {
+" Supertab {{{
 
   let g:SuperTabDefaultCompletionType = "<c-n>"
   let g:SuperTabLongestHighlight = 1
 
-" }
+" }}}
 
-" Syntastic {
+" Syntastic {{{
 
   let g:syntastic_enable_signs = 1
   let g:syntastic_disabled_filetypes = ['html', 'less']
   let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
   let g:syntastic_jsl_conf = '$HOME/.vim/jsl.conf'
 
-" }
+" }}}
 
-" Abbreviations {
+" Abbreviations {{{
 
   function! EatChar(pat)
     let c = nr2char(getchar(0))
@@ -602,18 +594,18 @@
 
   " for the vim-abolish abbrv's look in .vim/after/plugin/abolish.vim
 
-" }
+" }}}
 
-" C {
+" C {{{
 
   augroup ft_c
     au!
     au FileType c setlocal foldmethod=syntax
   augroup END
 
-" }
+" }}}
 
-" CPP {
+" CPP {{{
 
   augroup ft_cpp
     au!
@@ -621,9 +613,9 @@
     au FileType cpp set softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79
   augroup END
 
-" }
+" }}}
 
-" CSS and LessCSS {
+" CSS and LessCSS {{{
 
   augroup ft_css
     au!
@@ -637,7 +629,7 @@
 
     " Use <leader>S to sort properties.  Turns this:
     "
-    "     p {
+    "     p {{{
     "         width: 200px;
     "         height: 100px;
     "         background: red;
@@ -647,7 +639,7 @@
     "
     " into this:
 
-    "     p {
+    "     p {{{
     "         background: red;
     "         height: 100px;
     "         width: 200px;
@@ -661,9 +653,9 @@
     au BufNewFile,BufRead *.less,*.css inoremap <buffer> {<cr> {}<left><cr><space><space><space><space>.<cr><esc>kA<bs>
   augroup END
 
-" }
+" }}}
 
-" Django {
+" Django {{{
 
   augroup ft_django
     au!
@@ -684,9 +676,9 @@
     au BufNewFile,BufRead common_settings.py  setlocal foldmethod=marker
   augroup END
 
-" }
+" }}}
 
-" HTML and HTMLDjango {
+" HTML and HTMLDjango {{{
 
   augroup ft_html
     au!
@@ -725,9 +717,9 @@
     au FileType jinja,htmldjango inoremap <buffer> <c-f> {{<space><space>}}<left><left><left>
   augroup END
 
-" }
+" }}}
 
-" Javascript {
+" Javascript {{{
 
   augroup ft_javascript
       au!
@@ -740,9 +732,9 @@
       au Filetype javascript inoremap <buffer> {<cr> {}<left><cr><space><space><space><space>.<cr><esc>kA<bs>
   augroup END
 
-" }
+" }}}
 
-" Plain Text {
+" Plain Text {{{
 
   function s:setupWrapping()
     set wrap
@@ -760,9 +752,9 @@
   endfunction
 
   au BufRead,BufNewFile *.txt call s:setupText()
-" }
+" }}}
 
-" Markdown {
+" Markdown {{{
 
   function s:setupMarkup()
     call s:setupText()
@@ -781,9 +773,9 @@
     au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
   augroup END
 
-" }
+" }}}
 
-" Python {
+" Python {{{
 
   augroup ft_python
       au!
@@ -800,9 +792,9 @@
   augroup END
 
 
-" }
+" }}}
 
-" Python-Mode Plugin {
+" Python-Mode Plugin {{{
 
     " I prefer the online docs
     let g:pymode_doc = 0
@@ -819,9 +811,9 @@
     " http://stackoverflow.com/a/35476
     let g:pymode_lint_ignore = "W0142,W0403,R0201,W0212,W0613,W0232,R0903,W0614,C0111,R0913,F0401,W0402,R0914"
 
-" }
+" }}}
 
-" PHP {
+" PHP {{{
 
   augroup ft_php
     au!
@@ -830,9 +822,9 @@
     au Filetype php setlocal foldmethod=syntax
   augroup END
 
-" }
+" }}}
 
-" ReStructuredText {
+" ReStructuredText {{{
 
   augroup ft_rest
       au!
@@ -843,18 +835,18 @@
       au Filetype rst nnoremap <buffer> <localleader>4 yypVr`
   augroup END
 
-" }
+" }}}
 
-" Ruby {
+" Ruby {{{
 
   augroup ft_ruby
       au!
       au Filetype ruby setlocal foldmethod=syntax
   augroup END
 
-" }
+" }}}
 
-" Vim {
+" Vim {{{
 
   augroup ft_vim
       au!
@@ -864,9 +856,9 @@
       au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
   augroup END
 
-" }
+" }}}
 
-" neocomplcache {
+" neocomplcache {{{
 
         if version >= 730
             " Only show if I've stopped typing for a half second.
@@ -926,9 +918,9 @@
         if has('conceal')
             set conceallevel=2 concealcursor=i
         endif
-" }
+" }}}
 
-" Last Call {
+" Last Call {{{
     
     " Stuff here doesn't work properly unless called last.
 
@@ -936,4 +928,4 @@
         set relativenumber
     endif
 
-" }
+" }}}
