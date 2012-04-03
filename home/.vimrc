@@ -123,11 +123,8 @@
   set cursorline
   set ttyfast
   set number
-  set relativenumber
   set laststatus=2
   set history=1000
-  set undofile
-  set undoreload=10000
   set list
   set listchars=tab:▸\ 
   set shell=/bin/bash
@@ -197,12 +194,14 @@
 
 " Backups {{{
 
-  set undodir=~/.vim/undo//         " undo files
-  " set backupdir=~/.vim/tmp/backup// " backups
-  " set directory=~/.vim/tmp/swap//   " swap files
-  set nobackup                      " no need for backups -- we have vcs
-  set nowb
-  set noswapfile                    " It's 2012, Vim.
+    if version > 720
+        set undofile
+        set undoreload=10000
+        set undodir=~/.vim/tmp/undo
+    endif
+
+    set backupdir=~/.vim/tmp/backup
+    set noswapfile
 
 " }}}
 
@@ -855,6 +854,13 @@ let g:sparkupExecuteMapping = '<C-e>'
 "}}}
 
 " neocomplcache {{{
+
+        if version >= 730
+            " Only show if I've stopped typing for a half second.
+            let g:neocomplcache_enable_cursor_hold_i = 1
+            let g:neocomplcache_cursor_hold_i_time = 500
+        endif
+
         let g:neocomplcache_enable_at_startup = 1
         let g:neocomplcache_enable_camel_case_completion = 1
         let g:neocomplcache_enable_smart_case = 1
@@ -909,4 +915,14 @@ let g:sparkupExecuteMapping = '<C-e>'
         if has('conceal')
             set conceallevel=2 concealcursor=i
         endif
+"}}}
+
+" Last Call
+    
+    " Stuff here doesn't work properly unless called last.
+
+    if version > 720
+        set relativenumber
+    endif
+
 "}}}
