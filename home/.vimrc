@@ -1,4 +1,3 @@
-" Modeline and Notes {{{
 " vim: set foldmarker={{{,}}} foldlevel=0 foldmethod=marker spell:
 "            __  .__                        .__     
 "    _______/  |_|  |______________    _____|  |__  
@@ -15,15 +14,14 @@
 "    perfect for me might not be perfect for you. We all have certain ways we
 "    like to work with our code.
 "   
-"    Additionally, I'm always willing to answer questions regarding how
-"    to incorporate ViM into your workflow so that it's useful, and not a
-"    hinderance.
+"    Additionally, I'm always willing to answer questions regarding how to
+"    incorporate ViM into your work flow so that it's useful, and not a
+"    hindrance.
 "
 "    Email or tweet with any questions. Glad to answer.
 "
 "    Email:   philipthrasher@gmail.com
 "    Twitter: @philipthrasher
-" }}}
 
 " Bundles (Plugins) {{{
 
@@ -97,327 +95,200 @@
         Bundle 'spf13/PIV'
     " }}}
 
-
     " possibly use this in the future...
     " Bundle 'sjbach/lusty'
 
 " }}}
 
-" Misc {{{
-    filetype plugin indent on
+" Settings {{{
+    " Misc Settings {{{
+        filetype plugin indent on
 
-  " Tab stuff
-  set tabstop=4
-  set shiftwidth=4
-  set softtabstop=4
-  set expandtab
-  set autoindent
-  set smartindent
-  set smarttab
+    " Tab stuff
+    set tabstop=4
+    set shiftwidth=4
+    set softtabstop=4
+    set expandtab
+    set autoindent
+    set smartindent
+    set smarttab
 
-  set encoding=utf-8
-  set backspace=indent,eol,start
-  set textwidth=79
-  set colorcolumn=+1
+    set encoding=utf-8
+    set backspace=indent,eol,start
+    set textwidth=79
+    set colorcolumn=+1
 
-  " Text formatting options
-  set formatoptions+=qorn1
-  set modelines=5
-  set ruler
+    " Text formatting options
+    set formatoptions+=qorn1
+    set modelines=5
+    set ruler
 
-  set showmode
-  set showcmd
-  set hidden
-  set visualbell
-  set cursorline
-  set ttyfast
-  set number
-  set laststatus=2
-  set history=1000
-  set list
-  set listchars=tab:▸\ 
-  set shell=/bin/bash
+    set showmode
+    set showcmd
+    set hidden
+    set visualbell
+    set cursorline
+    set ttyfast
+    set number
+    set laststatus=2
+    set history=1000
+    set list
+    set listchars=tab:▸\ 
+    set shell=/bin/bash
 
-  set showmatch
-  set matchtime=3
+    set showmatch
+    set matchtime=3
 
-  set splitbelow
-  set splitright
-  set fillchars=diff:⣿,vert:│
+    set splitbelow
+    set splitright
+    set fillchars=diff:⣿,vert:│
 
-  set notimeout
-  set ttimeout
-  set ttimeoutlen=10
+    set notimeout
+    set ttimeout
+    set ttimeoutlen=10
 
-  set shiftround
-  set title
-
-
-  set autowrite
-  set autoread
-
-  " cpoptions :help cpoptions
-  set cpoptions=aABceFs
-
-  " Make Vim able to edit crontab files again.
-  set backupskip=/tmp/*,/private/tmp/*"
-
-  " save on focus lost
-  au FocusLost * :silent! wa
-
-  " Resize splits when the window is resized
-  au VimResized * :wincmd =
+    set shiftround
+    set title
 
 
+    set autowrite
+    set autoread
+
+    " cpoptions :help cpoptions
+    set cpoptions=aABceFs
+
+    " Make Vim able to edit crontab files again.
+    set backupskip=/tmp/*,/private/tmp/*"
+
+    " save on focus lost
+    au FocusLost * :silent! wa
+
+    " Resize splits when the window is resized
+    au VimResized * :wincmd =
+
+
+    " }}}
+    " Backups {{{
+
+        if version > 720
+            set undofile
+            set undoreload=10000
+            set undodir=~/.vim/tmp/undo
+        endif
+
+        set backupdir=~/.vim/tmp/backup
+        set noswapfile
+
+    " }}}
+    " Color scheme {{{
+
+        syntax on
+
+        colorscheme solarized
+        set background=light
+
+        if !has('gui_running')
+            set background=light
+            let g:solarized_termtrans=1
+        endif
+    " }}}
+    " Wildmenu stuff {{{
+    set wildmenu
+    set wildmode=list:longest
+
+    set wildignore+=.hg,.git,.svn                    " Version control
+    set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
+    set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
+    set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
+    set wildignore+=*.spl                            " compiled spelling word lists
+    set wildignore+=*.sw?                            " Vim swap files
+    set wildignore+=*.DS_Store                       " OSX bullshit
+
+    set wildignore+=migrations                       " Django migrations
+    set wildignore+=*.pyc                            " Python byte code
+    " }}}
 " }}}
 
-" Wildmenu stuff {{{
-  set wildmenu
-  set wildmode=list:longest
+" Extra Functionality {{{
+    " Line Return {{{
 
-  set wildignore+=.hg,.git,.svn                    " Version control
-  set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
-  set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
-  set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
-  set wildignore+=*.spl                            " compiled spelling word lists
-  set wildignore+=*.sw?                            " Vim swap files
-  set wildignore+=*.DS_Store                       " OSX bullshit
+    " Make sure Vim returns to the same line when you reopen a file.
+    augroup line_return
+        au!
+        au BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \     execute 'normal! g`"zvzz' |
+        \ endif
+    augroup END
 
-  set wildignore+=migrations                       " Django migrations
-  set wildignore+=*.pyc                            " Python byte code
+    " }}}
+    " Folding {{{
+
+    set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
+    set foldlevelstart=0
+
+    " Make the current location sane.
+    nnoremap <c-cr> zvzt
+
+    " Space to toggle folds.
+    nnoremap <Space> za
+    vnoremap <Space> za
+
+    " Make zO recursively open whatever top level fold we're in, no matter where the
+    " cursor happens to be.
+    nnoremap zO zCzO
+
+    " Use ,z to "focus" the current fold.
+    nnoremap <leader>z zMzvzz
+
+    " Set a nicer foldtext function
+    function! MyFoldText()
+        " if someone can explain to me what all this this shit does, I'd appreciate
+        " it.
+        let line = getline(v:foldstart)
+        if match( line, '^[ \t]*\(\/\*\|\/\/\)[*/\\]*[ \t]*$' ) == 0
+        let initial = substitute( line, '^\([ \t]\)*\(\/\*\|\/\/\)\(.*\)', '\1\2', '' )
+        let linenum = v:foldstart + 1
+        while linenum < v:foldend
+            let line = getline( linenum )
+            let comment_content = substitute( line, '^\([ \t\/\*]*\)\(.*\)$', '\2', 'g' )
+            if comment_content != ''
+            break
+            endif
+            let linenum = linenum + 1
+        endwhile
+        let sub = initial . ' ' . comment_content
+        else
+        let sub = line
+        let startbrace = substitute( line, '^.*{[ \t]*$', '{', 'g')
+        if startbrace == '{'
+            let line = getline(v:foldend)
+            let endbrace = substitute( line, '^[ \t]*}\(.*\)$', '}', 'g')
+            if endbrace == '}'
+            let sub = sub.substitute( line, '^[ \t]*}\(.*\)$', '...}\1', 'g')
+            endif
+        endif
+        endif
+        " I know what this does, I wrote it.
+        let n = v:foldend - v:foldstart + 1
+        let info =  n . " lines …"
+        let real_line_len = strlen( info ) + strlen( sub )
+        let fill_text = repeat(" ", &textwidth - real_line_len + 3)
+        return sub . fill_text . info
+    endfunction
+    set foldtext=MyFoldText()
+
+    " }}}
 " }}}
 
-" Line Return {{{
-
-" Make sure Vim returns to the same line when you reopen a file.
-  augroup line_return
-    au!
-    au BufReadPost *
-      \ if line("'\"") > 0 && line("'\"") <= line("$") |
-      \     execute 'normal! g`"zvzz' |
-      \ endif
-  augroup END
-
-" }}}
-
-" Backups {{{
-
-    if version > 720
-        set undofile
-        set undoreload=10000
-        set undodir=~/.vim/tmp/undo
-    endif
-
-    set backupdir=~/.vim/tmp/backup
-    set noswapfile
-
-" }}}
-
+" Key Mappings {{{
 " Leader {{{
 
   let mapleader = ","
   let maplocalleader = "\\"
 
 " }}}
-
-" Color scheme {{{
-
-    syntax on
-
-    colorscheme solarized
-    set background=light
-
-    if !has('gui_running')
-        set background=light
-        let g:solarized_termtrans=1
-    endif
-" }}}
-
-" Searching and moving {{{
-
-  " Use sane regexes.
-  nnoremap / /\v
-  vnoremap / /\v
-
-  set ignorecase
-  set smartcase
-  set incsearch
-  set showmatch
-  set hlsearch
-  set gdefault
-
-  set scrolloff=8
-  set sidescroll=1
-  set sidescrolloff=10
-
-  set virtualedit+=block
-
-  noremap <leader><space> :noh<cr>:call clearmatches()<cr>
-
-  " Highlight all occurances of the word under the cursor without changing
-  " cursor position.
-  nnoremap <leader>h *<C-O>
-
-  "quick buffer switching
-  nnoremap <leader><leader> <c-^>
-
-  " Made D behave
-  nnoremap D d$
-
-  " Keep search matches in the middle of the window and pulse the line when moving
-  " to them.
-  nnoremap n nzzzv
-  nnoremap N Nzzzv
-
-  " Don't move on *
-  nnoremap * *<c-o>
-
-  " Same when jumping around
-  nnoremap g; g;zz
-  nnoremap g, g,zz
-
-  " Window resizing
-  nnoremap <C-left> 5<c-w>>
-  nnoremap <C-right> 5<c-w><
-
-  " Easier to type, and I never use the default behavior.
-  noremap H ^
-  noremap L g_
-
-
-  " Open a Quickfix window for the last search.
-  nnoremap <silent> <leader>/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
-
-  " Ack for the last search.
-  nnoremap <silent> <leader>? :execute "Ack! '" . substitute(substitute(substitute(@/, "\\\\<", "\\\\b", ""), "\\\\>", "\\\\b", ""), "\\\\v", "", "") . "'"<CR>
-
-  " Fix linewise visual selection of various text objects
-  nnoremap VV V
-  nnoremap Vit vitVkoj
-  nnoremap Vat vatV
-  nnoremap Vab vabV
-  nnoremap VaB vaBV
-
-" }}}
-
-" Error navigation {{{
-  "
-  "             Location List     QuickFix Window
-  "            (e.g. Syntastic)     (e.g. Ack)
-  "            ----------------------------------
-  " Next      |     M-j               M-Down     |
-  " Previous  |     M-k                M-Up      |
-  "            ----------------------------------
-  "
-  nnoremap ∆ :lnext<cr>zvzz
-  nnoremap ˚ :lprevious<cr>zvzz
-  inoremap ∆ <esc>:lnext<cr>zvzz
-  inoremap ˚ <esc>:lprevious<cr>zvzz
-  nnoremap <m-Down> :cnext<cr>zvzz
-  nnoremap <m-Up> :cprevious<cr>zvzz
-
-" }}}
-
-" Directional Keys {{{
-
-  " Visual line nav, not real line nav
-  noremap j gj
-  noremap k gk
-
-  " Easy buffer navigation
-  noremap <C-h>  <C-w>h
-  noremap <C-j>  <C-w>j
-  noremap <C-k>  <C-w>k
-  noremap <C-l>  <C-w>l
-  noremap <leader>v <C-w>v
-
-" }}}
-
-" Folding {{{
-
-  set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
-  set foldlevelstart=0
-
-  " Make the current location sane.
-  nnoremap <c-cr> zvzt
-
-  " Space to toggle folds.
-  nnoremap <Space> za
-  vnoremap <Space> za
-
-  " Make zO recursively open whatever top level fold we're in, no matter where the
-  " cursor happens to be.
-  nnoremap zO zCzO
-
-  " Use ,z to "focus" the current fold.
-  nnoremap <leader>z zMzvzz
-
-  " Set a nicer foldtext function
-  function! MyFoldText()
-    " if someone can explain to me what all this this shit does, I'd appreciate
-    " it.
-    let line = getline(v:foldstart)
-    if match( line, '^[ \t]*\(\/\*\|\/\/\)[*/\\]*[ \t]*$' ) == 0
-      let initial = substitute( line, '^\([ \t]\)*\(\/\*\|\/\/\)\(.*\)', '\1\2', '' )
-      let linenum = v:foldstart + 1
-      while linenum < v:foldend
-        let line = getline( linenum )
-        let comment_content = substitute( line, '^\([ \t\/\*]*\)\(.*\)$', '\2', 'g' )
-        if comment_content != ''
-          break
-        endif
-        let linenum = linenum + 1
-      endwhile
-      let sub = initial . ' ' . comment_content
-    else
-      let sub = line
-      let startbrace = substitute( line, '^.*{[ \t]*$', '{', 'g')
-      if startbrace == '{'
-        let line = getline(v:foldend)
-        let endbrace = substitute( line, '^[ \t]*}\(.*\)$', '}', 'g')
-        if endbrace == '}'
-          let sub = sub.substitute( line, '^[ \t]*}\(.*\)$', '...}\1', 'g')
-        endif
-      endif
-    endif
-    " I know what this does, I wrote it.
-    let n = v:foldend - v:foldstart + 1
-    let info =  n . " lines …"
-    let real_line_len = strlen( info ) + strlen( sub )
-    let fill_text = repeat(" ", &textwidth - real_line_len + 3)
-    return sub . fill_text . info
-  endfunction
-  set foldtext=MyFoldText()
-
-" }}}
-
-" Powerline {{{
-
-  let g:Powerline_symbols = 'fancy'
-
-" }}}
-
-" Sparkup / Zen Coding {{{
-
-    let g:user_zen_leader_key = '<c-e>'
-    " let g:sparkupExecuteMapping = '<C-e>'
-
-" }}}
-
-" CtrlP {{{
-
-    let g:ctrlp_map = '<c-t>'
-
-" }}}
-
-" Commentary {{{
-
-  nmap <leader>c <Plug>CommentaryLine
-  xmap <leader>c <Plug>Commentary
-
-" }}}
-
-" Convenience mappings {{{
+" General Mappings {{{
 
   " Reselect most recently edited/pasted text
   nmap gV `[v`]
@@ -535,389 +406,489 @@
   cnoremap w!! w !sudo tee % >/dev/null
 
 " }}}
+" Searching and moving {{{
 
-" Align {{{
+  " Use sane regexes.
+  nnoremap / /\v
+  vnoremap / /\v
 
-  " vnoremap <leader>a :Align =<cr>
-  vnoremap <leader>a= :Tab /=<cr>
-  nnoremap <leader>a= :Tab /=<cr>
+  set ignorecase
+  set smartcase
+  set incsearch
+  set showmatch
+  set hlsearch
+  set gdefault
 
-  vnoremap <leader>a: :Tab /:\zs<cr>
-  nnoremap <leader>a: :Tab /:\zs<cr>
+  set scrolloff=8
+  set sidescroll=1
+  set sidescrolloff=10
 
-  vnoremap <leader>a/ :Tab /\/\/<cr>
-  nnoremap <leader>a/ :Tab /\/\/<cr>
+  set virtualedit+=block
 
-" }}}
+  noremap <leader><space> :noh<cr>:call clearmatches()<cr>
 
-" Linediff {{{
+  " Highlight all occurances of the word under the cursor without changing
+  " cursor position.
+  nnoremap <leader>h *<C-O>
 
-  vnoremap <leader>l :Linediff<cr>
-  nnoremap <leader>L :LinediffReset<cr>
+  "quick buffer switching
+  nnoremap <leader><leader> <c-^>
 
-" }}}
+  " Made D behave
+  nnoremap D d$
 
-" Supertab {{{
+  " Keep search matches in the middle of the window and pulse the line when moving
+  " to them.
+  nnoremap n nzzzv
+  nnoremap N Nzzzv
 
-  let g:SuperTabDefaultCompletionType = "<c-n>"
-  let g:SuperTabLongestHighlight = 1
+  " Don't move on *
+  nnoremap * *<c-o>
 
-" }}}
+  " Same when jumping around
+  nnoremap g; g;zz
+  nnoremap g, g,zz
 
-" Syntastic {{{
+  " Window resizing
+  nnoremap <C-left> 5<c-w>>
+  nnoremap <C-right> 5<c-w><
 
-  let g:syntastic_enable_signs = 1
-  let g:syntastic_disabled_filetypes = ['html', 'less']
-  let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
-  let g:syntastic_jsl_conf = '$HOME/.vim/jsl.conf'
+  " Easier to type, and I never use the default behavior.
+  noremap H ^
+  noremap L g_
 
-" }}}
 
-" Abbreviations {{{
+  " Open a Quickfix window for the last search.
+  nnoremap <silent> <leader>/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
 
-  function! EatChar(pat)
-    let c = nr2char(getchar(0))
-    return (c =~ a:pat) ? '' : c
-  endfunction
+  " Ack for the last search.
+  nnoremap <silent> <leader>? :execute "Ack! '" . substitute(substitute(substitute(@/, "\\\\<", "\\\\b", ""), "\\\\>", "\\\\b", ""), "\\\\v", "", "") . "'"<CR>
 
-  function! MakeSpacelessIabbrev(from, to)
-      execute "iabbrev <silent> ".a:from." ".a:to."<C-R>=EatChar('\\s')<CR>"
-  endfunction
-
-  call MakeSpacelessIabbrev('pt/',  'http://philipthrasher.com/')
-  call MakeSpacelessIabbrev('gh/',  'http://github.com/')
-  call MakeSpacelessIabbrev('ghp/', 'http://github.com/pthrasher/')
-
-  iabbrev ldis ಠ_ಠ
-
-  iabbrev pt@ philipthrasher@gmail.com
-
-  " for the vim-abolish abbrv's look in .vim/after/plugin/abolish.vim
-
-" }}}
-
-" C {{{
-
-  augroup ft_c
-    au!
-    au FileType c setlocal foldmethod=syntax
-  augroup END
+  " Fix linewise visual selection of various text objects
+  nnoremap VV V
+  nnoremap Vit vitVkoj
+  nnoremap Vat vatV
+  nnoremap Vab vabV
+  nnoremap VaB vaBV
 
 " }}}
-
-" CPP {{{
-
-  augroup ft_cpp
-    au!
-    au FileType cpp setlocal foldmethod=syntax
-    au FileType cpp set softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79
-  augroup END
-
-" }}}
-
-" CSS and LessCSS {{{
-
-  augroup ft_css
-    au!
-
-    " au BufNewFile,BufRead *.less setlocal filetype=less
-
-    au Filetype less,css setlocal foldmethod=marker
-    au Filetype less,css setlocal foldmarker={,}
-    au Filetype css setlocal omnifunc=csscomplete#CompleteCSS
-    " au Filetype less,css setlocal iskeyword+=-
-
-    " Use <leader>S to sort properties.  Turns this:
-    "
-    "     p {{{
-    "         width: 200px;
-    "         height: 100px;
-    "         background: red;
-    "
-    "         ...
-    "     }
-    "
-    " into this:
-
-    "     p {{{
-    "         background: red;
-    "         height: 100px;
-    "         width: 200px;
-    "
-    "         ...
-    "     }
-    au BufNewFile,BufRead *.less,*.css nnoremap <buffer> <localleader>S ?{<CR>jV/\v^\s*\}?$<CR>k:sort<CR>:noh<CR>
-
-    " Make {<cr> insert a pair of brackets in such a way that the cursor is correctly
-    " positioned inside of them AND the following code doesn't get unfolded.
-    au BufNewFile,BufRead *.less,*.css inoremap <buffer> {<cr> {}<left><cr><space><space><space><space>.<cr><esc>kA<bs>
-  augroup END
+" Error navigation {{{
+  "
+  "             Location List     QuickFix Window
+  "            (e.g. Syntastic)     (e.g. Ack)
+  "            ----------------------------------
+  " Next      |     M-j               M-Down     |
+  " Previous  |     M-k                M-Up      |
+  "            ----------------------------------
+  "
+  nnoremap ∆ :lnext<cr>zvzz
+  nnoremap ˚ :lprevious<cr>zvzz
+  inoremap ∆ <esc>:lnext<cr>zvzz
+  inoremap ˚ <esc>:lprevious<cr>zvzz
+  nnoremap <m-Down> :cnext<cr>zvzz
+  nnoremap <m-Up> :cprevious<cr>zvzz
 
 " }}}
+" Directional Keys {{{
 
-" Django {{{
+  " Visual line nav, not real line nav
+  noremap j gj
+  noremap k gk
 
-  augroup ft_django
-    au!
-
-    au BufNewFile,BufRead urls.py           setlocal nowrap
-    au BufNewFile,BufRead urls.py           normal! zR
-    au BufNewFile,BufRead dashboard.py      normal! zR
-    au BufNewFile,BufRead local_settings.py normal! zR
-
-    au BufNewFile,BufRead admin.py     setlocal filetype=python.django
-    au BufNewFile,BufRead urls.py      setlocal filetype=python.django
-    au BufNewFile,BufRead models.py    setlocal filetype=python.django
-    au BufNewFile,BufRead views.py     setlocal filetype=python.django
-    au BufNewFile,BufRead settings.py  setlocal filetype=python.django
-    au BufNewFile,BufRead settings.py  setlocal foldmethod=marker
-    au BufNewFile,BufRead forms.py     setlocal filetype=python.django
-    au BufNewFile,BufRead common_settings.py  setlocal filetype=python.django
-    au BufNewFile,BufRead common_settings.py  setlocal foldmethod=marker
-  augroup END
+  " Easy buffer navigation
+  noremap <C-h>  <C-w>h
+  noremap <C-j>  <C-w>j
+  noremap <C-k>  <C-w>k
+  noremap <C-l>  <C-w>l
+  noremap <leader>v <C-w>v
 
 " }}}
-
-" HTML and HTMLDjango {{{
-
-  augroup ft_html
-    au!
-
-    au BufNewFile,BufRead *.html setlocal filetype=htmldjango
-    au FileType html,jinja,htmldjango setlocal foldmethod=manual
-
-    " Use <localleader>f to fold the current tag.
-    au FileType html,jinja,htmldjango nnoremap <buffer> <localleader>f Vatzf
-
-    " Use <localleader>t to fold the current templatetag.
-    au FileType html,jinja,htmldjango nmap <buffer> <localleader>t viikojozf
-
-    " Use Shift-Return to turn this:
-    "     <tag>|</tag>
-    "
-    " into this:
-    "     <tag>
-    "         |
-    "     </tag>
-    au FileType html,jinja,htmldjango nnoremap <buffer> <s-cr> vit<esc>a<cr><esc>vito<esc>i<cr><esc>
-
-    " Smarter pasting
-    au FileType html,jinja,htmldjango nnoremap <buffer> p :<C-U>YRPaste 'p'<CR>v`]=`]
-    au FileType html,jinja,htmldjango nnoremap <buffer> P :<C-U>YRPaste 'P'<CR>v`]=`]
-    au FileType html,jinja,htmldjango nnoremap <buffer> π :<C-U>YRPaste 'p'<CR>
-    au FileType html,jinja,htmldjango nnoremap <buffer> ∏ :<C-U>YRPaste 'P'<CR>
-
-    " Indent tag
-    au FileType html,jinja,htmldjango nnoremap <buffer> <localleader>= Vat=
-
-    " Django tags
-    au FileType jinja,htmldjango inoremap <buffer> <c-t> {%<space><space>%}<left><left><left>
-
-    " Django variables
-    au FileType jinja,htmldjango inoremap <buffer> <c-f> {{<space><space>}}<left><left><left>
-  augroup END
-
 " }}}
 
-" Javascript {{{
+" Plugin Settings {{{
+    " Powerline {{{
 
-  augroup ft_javascript
-      au!
+    let g:Powerline_symbols = 'fancy'
 
-      au FileType javascript setlocal foldmethod=marker
-      au FileType javascript setlocal foldmarker={,}
+    " }}}
+    " Sparkup / Zen Coding {{{
 
-      " Make {<cr> insert a pair of brackets in such a way that the cursor is correctly
-      " positioned inside of them AND the following code doesn't get unfolded.
-      au Filetype javascript inoremap <buffer> {<cr> {}<left><cr><space><space><space><space>.<cr><esc>kA<bs>
-  augroup END
+        let g:user_zen_leader_key = '<c-e>'
+        " let g:sparkupExecuteMapping = '<C-e>'
 
+    " }}}
+    " CtrlP {{{
+
+        let g:ctrlp_map = '<c-t>'
+
+    " }}}
+    " Commentary {{{
+
+    nmap <leader>c <Plug>CommentaryLine
+    xmap <leader>c <Plug>Commentary
+
+    " }}}
+    " Align {{{
+
+    " vnoremap <leader>a :Align =<cr>
+    vnoremap <leader>a= :Tab /=<cr>
+    nnoremap <leader>a= :Tab /=<cr>
+
+    vnoremap <leader>a: :Tab /:\zs<cr>
+    nnoremap <leader>a: :Tab /:\zs<cr>
+
+    vnoremap <leader>a/ :Tab /\/\/<cr>
+    nnoremap <leader>a/ :Tab /\/\/<cr>
+
+    " }}}
+    " Linediff {{{
+
+    vnoremap <leader>l :Linediff<cr>
+    nnoremap <leader>L :LinediffReset<cr>
+
+    " }}}
+    " Syntastic {{{
+
+    let g:syntastic_enable_signs = 1
+    let g:syntastic_disabled_filetypes = ['html', 'less']
+    let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
+    let g:syntastic_jsl_conf = '$HOME/.vim/jsl.conf'
+
+    " }}}
+    " Python-Mode Plugin {{{
+
+        " I prefer the online docs
+        let g:pymode_doc = 0
+
+        " I run from the terminal. Not crippled vim.
+        let g:pymode_run = 0
+        
+        " I don't want pep8 all the time.
+        let g:pymode_lint_checker = "pyflakes"
+
+        " I have no clue what this does. But it says if you have a fast comp...
+        let g:pymode_syntax_slow_sync = 0
+
+        " http://stackoverflow.com/a/35476
+        let g:pymode_lint_ignore = "W0142,W0403,R0201,W0212,W0613,W0232,R0903,W0614,C0111,R0913,F0401,W0402,R0914"
+
+    " }}}
+    " neocomplcache {{{
+
+            if version >= 730
+                " Only show if I've stopped typing for a half second.
+                let g:neocomplcache_enable_cursor_hold_i = 1
+                let g:neocomplcache_cursor_hold_i_time = 300
+            endif
+
+            let g:neocomplcache_enable_at_startup = 1
+            let g:neocomplcache_enable_camel_case_completion = 1
+            let g:neocomplcache_enable_smart_case = 1
+            let g:neocomplcache_enable_underbar_completion = 1
+            let g:neocomplcache_min_syntax_length = 3
+            let g:neocomplcache_enable_auto_delimiter = 1
+
+            " AutoComplPop like behavior.
+            let g:neocomplcache_enable_auto_select = 0
+
+            " SuperTab like snippets behavior.
+
+            " Plugin key-mappings.
+            imap <C-k>     <Plug>(neocomplcache_snippets_expand)
+            smap <C-k>     <Plug>(neocomplcache_snippets_expand)
+            inoremap <expr><C-g>     neocomplcache#undo_completion()
+            inoremap <expr><C-l>     neocomplcache#complete_common_string()
+
+            " <CR>: close popup 
+            " <s-CR>: close popup and save indent.
+            inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+            inoremap <expr><s-CR> pumvisible() ? neocomplcache#close_popup() "\<CR>" : "\<CR>" 
+            " <TAB>: completion.
+            inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+            " <C-h>, <BS>: close popup and delete backword char.
+            inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+            inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+            inoremap <expr><C-y>  neocomplcache#close_popup()
+            inoremap <expr><C-e>  neocomplcache#cancel_popup()
+
+            " Enable omni completion.
+            autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+            autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+            autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+            autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+            autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+            " Enable heavy omni completion.
+            if !exists('g:neocomplcache_omni_patterns')
+                let g:neocomplcache_omni_patterns = {}
+            endif
+            let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
+            "autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+            let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+            let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
+            let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+
+            " For snippet_complete marker.
+            if has('conceal')
+                set conceallevel=2 concealcursor=i
+            endif
+    " }}}
+    " Abbreviations {{{
+
+    function! EatChar(pat)
+        let c = nr2char(getchar(0))
+        return (c =~ a:pat) ? '' : c
+    endfunction
+
+    function! MakeSpacelessIabbrev(from, to)
+        execute "iabbrev <silent> ".a:from." ".a:to."<C-R>=EatChar('\\s')<CR>"
+    endfunction
+
+    call MakeSpacelessIabbrev('pt/',  'http://philipthrasher.com/')
+    call MakeSpacelessIabbrev('gh/',  'http://github.com/')
+    call MakeSpacelessIabbrev('ghp/', 'http://github.com/pthrasher/')
+
+    iabbrev ldis ಠ_ಠ
+
+    iabbrev pt@ philipthrasher@gmail.com
+
+    " for the vim-abolish abbrv's look in .vim/after/plugin/abolish.vim
+
+    " }}}
 " }}}
 
-" Plain Text {{{
+" Syntax Settings {{{
+    " C {{{
 
-  function s:setupWrapping()
-    set wrap
-    set wm=2
-    set textwidth=79
-    "ios style periods
-    " imap <Space><Space> .
-  endfunction
+    augroup ft_c
+        au!
+        au FileType c setlocal foldmethod=syntax
+    augroup END
 
-  function s:setupText()
-    setlocal spell
-    " setlocal dictionary=/usr/share/dict/words
-    let b:delimitMate_autoclose = 0 
-    call s:setupWrapping()
-  endfunction
+    " }}}
+    " CPP {{{
 
-  au BufRead,BufNewFile *.txt call s:setupText()
-" }}}
+    augroup ft_cpp
+        au!
+        au FileType cpp setlocal foldmethod=syntax
+        au FileType cpp set softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79
+    augroup END
 
-" Markdown {{{
+    " }}}
+    " CSS and LessCSS {{{
 
-  function s:setupMarkup()
-    call s:setupText()
-    nnoremap <buffer> <Leader>p :Mm <CR>
+    augroup ft_css
+        au!
 
-    " Use <localleader>1/2/3 to add headings.
-    nnoremap <buffer> <localleader>1 yypVr=
-    nnoremap <buffer> <localleader>2 yypVr-
-    nnoremap <buffer> <localleader>3 I### <ESC>
-  endfunction
+        " au BufNewFile,BufRead *.less setlocal filetype=less
 
-  augroup ft_markdown
-    au!
+        au Filetype less,css setlocal foldmethod=marker
+        au Filetype less,css setlocal foldmarker={,}
+        au Filetype css setlocal omnifunc=csscomplete#CompleteCSS
+        " au Filetype less,css setlocal iskeyword+=-
 
-    au BufNewFile,BufRead *.{md,markdown,mdown,mkd,mkdn} setlocal filetype=markdown
-    au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
-  augroup END
+        " Use <leader>S to sort properties.  Turns this:
+        "
+        "     p {
+        "         width: 200px;
+        "         height: 100px;
+        "         background: red;
+        "
+        "         ...
+        "     }
+        "
+        " into this:
 
-" }}}
+        "     p {
+        "         background: red;
+        "         height: 100px;
+        "         width: 200px;
+        "
+        "         ...
+        "     }
+        au BufNewFile,BufRead *.less,*.css nnoremap <buffer> <localleader>S ?{<CR>jV/\v^\s*\}?$<CR>k:sort<CR>:noh<CR>
 
-" Python {{{
+        " Make {<cr> insert a pair of brackets in such a way that the cursor is correctly
+        " positioned inside of them AND the following code doesn't get unfolded.
+        au BufNewFile,BufRead *.less,*.css inoremap <buffer> {<cr> {}<left><cr><space><space><space><space>.<cr><esc>kA<bs>
+    augroup END
 
-  augroup ft_python
-      au!
+    " }}}
+    " Django {{{
 
-      " au FileType python setlocal omnifunc=pythoncomplete#Complete
-      au FileType python setlocal define=^\s*\\(def\\\\|class\\)
+    augroup ft_django
+        au!
+
+        au BufNewFile,BufRead urls.py           setlocal nowrap
+        au BufNewFile,BufRead urls.py           normal! zR
+        au BufNewFile,BufRead dashboard.py      normal! zR
+        au BufNewFile,BufRead local_settings.py normal! zR
+
+        au BufNewFile,BufRead admin.py     setlocal filetype=python.django
+        au BufNewFile,BufRead urls.py      setlocal filetype=python.django
+        au BufNewFile,BufRead models.py    setlocal filetype=python.django
+        au BufNewFile,BufRead views.py     setlocal filetype=python.django
+        au BufNewFile,BufRead settings.py  setlocal filetype=python.django
+        au BufNewFile,BufRead settings.py  setlocal foldmethod=marker
+        au BufNewFile,BufRead forms.py     setlocal filetype=python.django
+        au BufNewFile,BufRead common_settings.py  setlocal filetype=python.django
+        au BufNewFile,BufRead common_settings.py  setlocal foldmethod=marker
+    augroup END
+
+    " }}}
+    " HTML and HTMLDjango {{{
+
+    augroup ft_html
+        au!
+
+        au BufNewFile,BufRead *.html setlocal filetype=htmldjango
+        au FileType html,jinja,htmldjango setlocal foldmethod=manual
+
+        " Use <localleader>f to fold the current tag.
+        au FileType html,jinja,htmldjango nnoremap <buffer> <localleader>f Vatzf
+
+        " Use <localleader>t to fold the current templatetag.
+        au FileType html,jinja,htmldjango nmap <buffer> <localleader>t viikojozf
+
+        " Use Shift-Return to turn this:
+        "     <tag>|</tag>
+        "
+        " into this:
+        "     <tag>
+        "         |
+        "     </tag>
+        au FileType html,jinja,htmldjango nnoremap <buffer> <s-cr> vit<esc>a<cr><esc>vito<esc>i<cr><esc>
+
+        " Smarter pasting
+        au FileType html,jinja,htmldjango nnoremap <buffer> p :<C-U>YRPaste 'p'<CR>v`]=`]
+        au FileType html,jinja,htmldjango nnoremap <buffer> P :<C-U>YRPaste 'P'<CR>v`]=`]
+        au FileType html,jinja,htmldjango nnoremap <buffer> π :<C-U>YRPaste 'p'<CR>
+        au FileType html,jinja,htmldjango nnoremap <buffer> ∏ :<C-U>YRPaste 'P'<CR>
+
+        " Indent tag
+        au FileType html,jinja,htmldjango nnoremap <buffer> <localleader>= Vat=
+
+        " Django tags
+        au FileType jinja,htmldjango inoremap <buffer> <c-t> {%<space><space>%}<left><left><left>
+
+        " Django variables
+        au FileType jinja,htmldjango inoremap <buffer> <c-f> {{<space><space>}}<left><left><left>
+    augroup END
+
+    " }}}
+    " Javascript {{{
+
+    augroup ft_javascript
+        au!
+
+        au FileType javascript setlocal foldmethod=marker
+        au FileType javascript setlocal foldmarker={,}
+
+        " Make {<cr> insert a pair of brackets in such a way that the cursor is correctly
+        " positioned inside of them AND the following code doesn't get unfolded.
+        au Filetype javascript inoremap <buffer> {<cr> {}<left><cr><space><space><space><space>.<cr><esc>kA<bs>
+    augroup END
+
+    " }}}
+    " Plain Text {{{
+
+    function s:setupWrapping()
+        set wrap
+        set wm=2
+        set textwidth=79
+        "ios style periods
+        " imap <Space><Space> .
+    endfunction
+
+    function s:setupText()
+        setlocal spell
+        " setlocal dictionary=/usr/share/dict/words
+        let b:delimitMate_autoclose = 0 
+        call s:setupWrapping()
+    endfunction
+
+    au BufRead,BufNewFile *.txt call s:setupText()
+    " }}}
+    " Markdown {{{
+
+    function s:setupMarkup()
+        call s:setupText()
+        nnoremap <buffer> <Leader>p :Mm <CR>
+
+        " Use <localleader>1/2/3 to add headings.
+        nnoremap <buffer> <localleader>1 yypVr=
+        nnoremap <buffer> <localleader>2 yypVr-
+        nnoremap <buffer> <localleader>3 I### <ESC>
+    endfunction
+
+    augroup ft_markdown
+        au!
+
+        au BufNewFile,BufRead *.{md,markdown,mdown,mkd,mkdn} setlocal filetype=markdown
+        au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
+    augroup END
+
+    " }}}
+    " Python {{{
+
+    augroup ft_python
+        au!
+
+        " au FileType python setlocal omnifunc=pythoncomplete#Complete
+        au FileType python setlocal define=^\s*\\(def\\\\|class\\)
 
 
-      au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
+        au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 
-      au FileType python if exists("python_space_error_highlight") | unlet python_space_error_highlight | endif
-
-
-  augroup END
+        au FileType python if exists("python_space_error_highlight") | unlet python_space_error_highlight | endif
 
 
-" }}}
+    augroup END
 
-" Python-Mode Plugin {{{
 
-    " I prefer the online docs
-    let g:pymode_doc = 0
+    " }}}
+    " PHP {{{
 
-    " I run from the terminal. Not crippled vim.
-    let g:pymode_run = 0
-    
-    " I don't want pep8 all the time.
-    let g:pymode_lint_checker = "pyflakes"
+    augroup ft_php
+        au!
 
-    " I have no clue what this does. But it says if you have a fast comp...
-    let g:pymode_syntax_slow_sync = 0
+        au FileType php set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
+        au Filetype php setlocal foldmethod=syntax
+    augroup END
 
-    " http://stackoverflow.com/a/35476
-    let g:pymode_lint_ignore = "W0142,W0403,R0201,W0212,W0613,W0232,R0903,W0614,C0111,R0913,F0401,W0402,R0914"
+    " }}}
+    " ReStructuredText {{{
 
-" }}}
+    augroup ft_rest
+        au!
 
-" PHP {{{
+        au Filetype rst nnoremap <buffer> <localleader>1 yypVr=
+        au Filetype rst nnoremap <buffer> <localleader>2 yypVr-
+        au Filetype rst nnoremap <buffer> <localleader>3 yypVr~
+        au Filetype rst nnoremap <buffer> <localleader>4 yypVr`
+    augroup END
 
-  augroup ft_php
-    au!
+    " }}}
+    " Ruby {{{
 
-    au FileType php set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
-    au Filetype php setlocal foldmethod=syntax
-  augroup END
+    augroup ft_ruby
+        au!
+        au Filetype ruby setlocal foldmethod=syntax
+    augroup END
 
-" }}}
+    " }}}
+    " Vim {{{
 
-" ReStructuredText {{{
+    augroup ft_vim
+        au!
 
-  augroup ft_rest
-      au!
+        au FileType vim setlocal foldmethod=marker
+        au FileType help setlocal textwidth=78
+        au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
+    augroup END
 
-      au Filetype rst nnoremap <buffer> <localleader>1 yypVr=
-      au Filetype rst nnoremap <buffer> <localleader>2 yypVr-
-      au Filetype rst nnoremap <buffer> <localleader>3 yypVr~
-      au Filetype rst nnoremap <buffer> <localleader>4 yypVr`
-  augroup END
-
-" }}}
-
-" Ruby {{{
-
-  augroup ft_ruby
-      au!
-      au Filetype ruby setlocal foldmethod=syntax
-  augroup END
-
-" }}}
-
-" Vim {{{
-
-  augroup ft_vim
-      au!
-
-      au FileType vim setlocal foldmethod=marker
-      au FileType help setlocal textwidth=78
-      au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
-  augroup END
-
-" }}}
-
-" neocomplcache {{{
-
-        if version >= 730
-            " Only show if I've stopped typing for a half second.
-            let g:neocomplcache_enable_cursor_hold_i = 1
-            let g:neocomplcache_cursor_hold_i_time = 300
-        endif
-
-        let g:neocomplcache_enable_at_startup = 1
-        let g:neocomplcache_enable_camel_case_completion = 1
-        let g:neocomplcache_enable_smart_case = 1
-        let g:neocomplcache_enable_underbar_completion = 1
-        let g:neocomplcache_min_syntax_length = 3
-        let g:neocomplcache_enable_auto_delimiter = 1
-
-        " AutoComplPop like behavior.
-        let g:neocomplcache_enable_auto_select = 0
-
-        " SuperTab like snippets behavior.
-
-        " Plugin key-mappings.
-        imap <C-k>     <Plug>(neocomplcache_snippets_expand)
-        smap <C-k>     <Plug>(neocomplcache_snippets_expand)
-        inoremap <expr><C-g>     neocomplcache#undo_completion()
-        inoremap <expr><C-l>     neocomplcache#complete_common_string()
-
-        " <CR>: close popup 
-        " <s-CR>: close popup and save indent.
-        inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "\<CR>"
-        inoremap <expr><s-CR> pumvisible() ? neocomplcache#close_popup() "\<CR>" : "\<CR>" 
-        " <TAB>: completion.
-        inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
-        " <C-h>, <BS>: close popup and delete backword char.
-        inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-        inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-        inoremap <expr><C-y>  neocomplcache#close_popup()
-        inoremap <expr><C-e>  neocomplcache#cancel_popup()
-
-        " Enable omni completion.
-        autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-        autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-        autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-        autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-        autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-        " Enable heavy omni completion.
-        if !exists('g:neocomplcache_omni_patterns')
-            let g:neocomplcache_omni_patterns = {}
-        endif
-        let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
-        "autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-        let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-        let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
-        let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
-
-        " For snippet_complete marker.
-        if has('conceal')
-            set conceallevel=2 concealcursor=i
-        endif
+    " }}}
 " }}}
 
 " Last Call {{{
