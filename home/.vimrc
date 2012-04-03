@@ -414,6 +414,14 @@ let g:sparkupExecuteMapping = '<C-e>'
 
 "}}}
 
+" Syntastic {{{
+
+let g:syntastic_mode_map = { 'mode': 'active',
+                            'active_filetypes': [],
+                            'passive_filetypes': ['less']}
+
+"}}}
+
 " GUI {{{
 
 
@@ -668,12 +676,12 @@ endif
   augroup ft_css
     au!
 
-    au BufNewFile,BufRead *.less setlocal filetype=less
+    " au BufNewFile,BufRead *.less setlocal filetype=less
 
     au Filetype less,css setlocal foldmethod=marker
     au Filetype less,css setlocal foldmarker={,}
-    au Filetype less,css setlocal omnifunc=csscomplete#CompleteCSS
-    au Filetype less,css setlocal iskeyword+=-
+    au Filetype css setlocal omnifunc=csscomplete#CompleteCSS
+    " au Filetype less,css setlocal iskeyword+=-
 
     " Use <leader>S to sort properties.  Turns this:
     "
@@ -794,7 +802,7 @@ endif
 
   function s:setupText()
     setlocal spell
-    setlocal dictionary=/usr/share/dict/words
+    " setlocal dictionary=/usr/share/dict/words
     let b:delimitMate_autoclose = 0 
     call s:setupWrapping()
   endfunction
