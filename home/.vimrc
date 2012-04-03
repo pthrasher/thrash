@@ -215,19 +215,18 @@
 
 " Color scheme {{{
 
-  syntax on
+    syntax on
 
-  if has('gui_running')
+    colorscheme solarized
     set background=light
-  else
-    set background=light
-    let g:solarized_termtrans=1
-  endif
 
-  colorscheme solarized
+    if !has('gui_running')
+        set background=light
+        let g:solarized_termtrans=1
+    endif
 
-  " Highlight VCS conflict markers
-  match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+    " Highlight VCS conflict markers
+    match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " }}}
 
@@ -412,57 +411,6 @@ let g:sparkupExecuteMapping = '<C-e>'
   nmap <leader>c <Plug>CommentaryLine
   xmap <leader>c <Plug>Commentary
 
-"}}}
-
-" GUI {{{
-
-
-
-if has('gui_running')
-    " Not sure if this one has all the right glyphs
-    " set guifont=Ubuntu\ Regular\ for\ Powerline:h14
-    set guifont=Menlo\ for\ Powerline:h12
-
-    set transparency=3
-    " Remove all the UI cruft
-    set go-=T
-    set go-=l
-    set go-=L
-    set go-=r
-    set go-=R
-
-    highlight SpellBad term=underline gui=undercurl
-
-
-    " Use a line-drawing char for pretty vertical splits.
-
-    " Different cursors for different modes.
-    "highlight iCursor guifg=white guibg=black
-    "set guicursor=n-c:block-Cursor-blinkon0
-    "set guicursor+=v:block-vCursor-blinkon0
-    "set guicursor+=i-ci:ver20-iCursor
-
-    if has("gui_macvim")
-        " Color column should be a sane color.
-        " highlight ColorColumn guibg=#666666
-
-        " Full screen means FULL screen
-        set fuoptions=maxvert,maxhorz
-
-        imap <M-BS>         <C-w>
-        inoremap <D-BS>     <esc>my0c`y
-        " Window resizing.
-        nnoremap <D-Left> :set columns-=15<cr>
-        nnoremap <D-Right> :set columns+=15<cr>
-
-        nnoremap <D-Up> :set lines-=10<cr>
-        nnoremap <D-Down> :set lines+=10<cr>
-    else
-        " Non-MacVim GUI, like Gvim
-    end
-else
-    " Console Vim
-endif
 "}}}
 
 " Convenience mappings {{{
