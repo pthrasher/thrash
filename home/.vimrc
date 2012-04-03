@@ -1,104 +1,113 @@
-" .vimrc Author: Philip Thrasher Source:
-" https://github.com/pthrasher/thrash/blob/master/home/.vimrc
+" Modeline and Notes {
+" vim: set foldmarker={,} foldlevel=0 foldmethod=marker spell:
+"            __  .__                        .__     
+"    _______/  |_|  |______________    _____|  |__  
+"    \____ \   __\  |  \_  __ \__  \  /  ___/  |  \ 
+"    |  |_> >  | |   Y  \  | \// __ \_\___ \|   Y  \
+"    |   __/|__| |___|  /__|  (____  /____  >___|  /
+"    |__|             \/           \/     \/     \/ 
 "
-" This constantly changes. Just take a look at the commit history. I generally
-" put stuff in here to try it out, and then either keep it, or remove it. ViM
-" is so big, that any config is really personal. So... What's perfect for me
-" might not be perfect for you. We all have certain ways we like to work with
-" our code.
+"    https://github.com/pthrasher/thrash/blob/master/home/.vimrc
 "
-" Additionally, I'm always willing to answer questions regarding how to
-" incorporate ViM into your workflow so that it's useful, and not a hinderance.
+"    This constantly changes. Just take a look at the commit history. I
+"    generally put stuff in here to try it out, and then either keep it, or
+"    remove it. ViM is so big, that any config is really personal. So... What's
+"    perfect for me might not be perfect for you. We all have certain ways we
+"    like to work with our code.
+"   
+"    Additionally, I'm always willing to answer questions regarding how
+"    to incorporate ViM into your workflow so that it's useful, and not a
+"    hinderance.
 "
-" Email or tweet with any questions. Glad to answer.
+"    Email or tweet with any questions. Glad to answer.
+"
+"    Email:   philipthrasher@gmail.com
+"    Twitter: @philipthrasher
+" }
+"
 
-" Vundle Bootloader {{{
-  set nocompatible               " be iMproved
-  filetype off                   " required!
+" Bundles (Plugins) {
+    " Preamble {
+        set nocompatible
+        filetype off
 
-  set rtp+=~/.vim/bundle/vundle/
-  call vundle#rc()
+        set rtp+=~/.vim/bundle/vundle/
+        call vundle#rc()
 
-  " let Vundle manage Vundle
-  " required!
-  Bundle 'gmarik/vundle'
-"}}}
+        " let Vundle manage Vundle
+        " required!
+    " }
 
-" Vundles {{{
+    " Dependencies {
+        Bundle 'gmarik/vundle'
+        Bundle 'L9'
+        Bundle 'mileszs/ack.vim'
+    " }
 
-  " Dependencies
-  Bundle 'L9'
-  Bundle 'mileszs/ack.vim'
+    " Colors
+        Bundle 'altercation/vim-colors-solarized'
+        " Bundle 'flazz/vim-colorschemes'
+    " }
 
-  " Colors
-  Bundle 'altercation/vim-colors-solarized'
-  Bundle 'flazz/vim-colorschemes'
+    " General {
+        Bundle 'tpope/vim-repeat'
+        Bundle 'tpope/vim-abolish'
+        Bundle 'tpope/vim-surround'
+        Bundle 'tpope/vim-git'
+        Bundle 'tpope/vim-fugitive'
 
-  " Generic editing
-  Bundle 'tpope/vim-repeat'
-  Bundle 'tpope/vim-fugitive'
-  Bundle 'tpope/vim-abolish'
-  Bundle 'tpope/vim-commentary'
-  " Bundle 'tpope/vim-endwise'
-  Bundle 'tpope/vim-surround'
-  Bundle 'tpope/vim-git'
+        Bundle 'Lokaltog/vim-powerline'
+        Bundle 'godlygeek/tabular'
 
-  Bundle 'gridaphobe/go.vim'
-  Bundle 'scrooloose/syntastic'
-  " Bundle 'spf13/snipmate-snippets'
-  " source $HOME/.vim/bundle/snipmate-snippets/support_functions.vim 
-  " Bundle 'msanders/snipmate.vim'
-  " Bundle 'ervandew/supertab'
-  Bundle 'kien/ctrlp.vim'
-  Bundle 'Lokaltog/vim-powerline'
-  Bundle 'Raimondi/delimitMate'
-  Bundle 'AndrewRadev/linediff.vim'
-  Bundle 'scratch.vim'
-  Bundle 'godlygeek/tabular'
-  " Bundle 'Align'
-  " Bundle 'rosenfeld/conque-term'
-  " Bundle 'ZoomWin'
-  " Bundle 'AutoTag'
-  Bundle 'YankRing.vim'
-  Bundle 'Shougo/neocomplcache-snippets-complete'
-  Bundle 'Shougo/neocomplcache'
+        Bundle 'YankRing.vim'
+        Bundle 'scratch.vim'
+        Bundle 'sjl/gundo.vim'
+    " }
 
-  " possible use this in the future...
-  " Bundle 'sjbach/lusty'
+    " Programming {
+        Bundle 'Raimondi/delimitMate'
+        Bundle 'tpope/vim-commentary'
+        Bundle 'scrooloose/syntastic'
+        Bundle 'AndrewRadev/linediff.vim'
+        Bundle 'sjl/strftimedammit.vim'
 
-  Bundle 'sjl/strftimedammit.vim'
-  Bundle 'sjl/gundo.vim'
+        Bundle 'Shougo/neocomplcache-snippets-complete'
+        Bundle 'Shougo/neocomplcache'
+    " }
 
-  " Cross compiled scripts
-  Bundle 'tpope/vim-liquid'
-  Bundle 'tpope/vim-markdown'
-  Bundle 'groenewege/vim-less'
-  Bundle 'vim-coffee-script'
+    " Extra Syntaxes {
+        Bundle 'gridaphobe/go.vim'
+        Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 
-  " Javascript
-  Bundle 'leshill/vim-json'
-  " Bundle 'pangloss/vim-javascript'
-  Bundle 'taxilian/vim-web-indent'
+        " Markup
+        Bundle 'tpope/vim-liquid'
+        Bundle 'tpope/vim-markdown'
+        Bundle 'mattn/zencoding-vim'
 
-  " Python
-  " Bundle 'vim-scripts/python.vim'
-  Bundle 'klen/python-mode.git'
-  Bundle 'michaeljsmith/vim-indent-object'
+        " Cross-Compiled
+        Bundle 'groenewege/vim-less'
+        Bundle 'vim-coffee-script'
 
-  " PHP
-  Bundle 'spf13/PIV'
+        " Javascript
+        Bundle 'leshill/vim-json'
+        Bundle 'taxilian/vim-web-indent'
 
-  " HTML
-  " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-  Bundle 'mattn/zencoding-vim'
+        " Python
+        Bundle 'klen/python-mode.git'
+        Bundle 'michaeljsmith/vim-indent-object'
 
-  " CSS
-  Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
+        " PHP
+        Bundle 'spf13/PIV'
+    " }
 
-  filetype plugin indent on
-"}}}
 
-" Misc {{{
+    " possibly use this in the future...
+    " Bundle 'sjbach/lusty'
+
+" }
+
+" Misc {
+    filetype plugin indent on
 
   " Tab stuff
   set tabstop=4
@@ -116,7 +125,7 @@
 
   " Text formatting options
   set formatoptions+=qorn1
-  set modelines=0
+  set modelines=5
   set ruler
 
   set showmode
@@ -163,9 +172,9 @@
   au VimResized * :wincmd =
 
 
-"}}}
+" }
 
-" Wildmenu stuff {{{
+" Wildmenu stuff {
   set wildmenu
   set wildmode=list:longest
 
@@ -179,9 +188,9 @@
 
   set wildignore+=migrations                       " Django migrations
   set wildignore+=*.pyc                            " Python byte code
-"}}}
+" }
 
-" Line Return {{{
+" Line Return {
 
 " Make sure Vim returns to the same line when you reopen a file.
 " Thanks, Amit
@@ -193,9 +202,9 @@
       \ endif
   augroup END
 
-" }}}
+" }
 
-" Backups {{{
+" Backups {
 
     if version > 720
         set undofile
@@ -206,16 +215,16 @@
     set backupdir=~/.vim/tmp/backup
     set noswapfile
 
-" }}}
+" }
 
-" Leader {{{
+" Leader {
 
   let mapleader = ","
   let maplocalleader = "\\"
 
-" }}}
+" }
 
-" Color scheme {{{
+" Color scheme {
 
     syntax on
 
@@ -230,9 +239,9 @@
     " Highlight VCS conflict markers
     match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
-" }}}
+" }
 
-" Searching and moving {{{
+" Searching and moving {
 
   " Use sane regexes.
   nnoremap / /\v
@@ -297,9 +306,9 @@
   nnoremap Vab vabV
   nnoremap VaB vaBV
 
-"}}}
+" }
 
-" Error navigation {{{
+" Error navigation {
   "
   "             Location List     QuickFix Window
   "            (e.g. Syntastic)     (e.g. Ack)
@@ -315,9 +324,9 @@
   nnoremap <m-Down> :cnext<cr>zvzz
   nnoremap <m-Up> :cprevious<cr>zvzz
 
-"}}}
+" }
 
-" Directional Keys {{{
+" Directional Keys {
 
   " Visual line nav, not real line nav
   noremap j gj
@@ -330,9 +339,9 @@
   noremap <C-l>  <C-w>l
   noremap <leader>v <C-w>v
 
-"}}}
+" }
 
-" Folding {{{
+" Folding {
 
   set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
   set foldlevelstart=0
@@ -388,35 +397,35 @@
   endfunction
   set foldtext=MyFoldText()
 
-" }}}
+" }
 
-" Powerline {{{
+" Powerline {
 
   let g:Powerline_symbols = 'fancy'
 
-" }}}
+" }
 
-" Sparkup / Zen Coding {{{
+" Sparkup / Zen Coding {
 
     let g:user_zen_leader_key = '<c-e>'
     " let g:sparkupExecuteMapping = '<C-e>'
 
-"}}}
+" }
 
-" CtrlP {{{
+" CtrlP {
 
     let g:ctrlp_map = '<c-t>'
 
-"}}}
+" }
 
-" Commentary {{{
+" Commentary {
 
   nmap <leader>c <Plug>CommentaryLine
   xmap <leader>c <Plug>Commentary
 
-"}}}
+" }
 
-" Convenience mappings {{{
+" Convenience mappings {
 
   " Reselect most recently edited/pasted text
   nmap gV `[v`]
@@ -533,9 +542,9 @@
   " Sudo to write
   cnoremap w!! w !sudo tee % >/dev/null
 
-"}}}
+" }
 
-" Align {{{
+" Align {
 
   " vnoremap <leader>a :Align =<cr>
   vnoremap <leader>a= :Tab /=<cr>
@@ -547,32 +556,32 @@
   vnoremap <leader>a/ :Tab /\/\/<cr>
   nnoremap <leader>a/ :Tab /\/\/<cr>
 
-"}}}
+" }
 
-" Linediff {{{
+" Linediff {
 
   vnoremap <leader>l :Linediff<cr>
   nnoremap <leader>L :LinediffReset<cr>
 
-"}}}
+" }
 
-" Supertab {{{
+" Supertab {
 
   let g:SuperTabDefaultCompletionType = "<c-n>"
   let g:SuperTabLongestHighlight = 1
 
-"}}}
+" }
 
-" Syntastic {{{
+" Syntastic {
 
   let g:syntastic_enable_signs = 1
   let g:syntastic_disabled_filetypes = ['html', 'less']
   let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
   let g:syntastic_jsl_conf = '$HOME/.vim/jsl.conf'
 
-"}}}
+" }
 
-" Abbreviations {{{
+" Abbreviations {
 
   function! EatChar(pat)
     let c = nr2char(getchar(0))
@@ -593,18 +602,18 @@
 
   " for the vim-abolish abbrv's look in .vim/after/plugin/abolish.vim
 
-"}}}
+" }
 
-" C {{{
+" C {
 
   augroup ft_c
     au!
     au FileType c setlocal foldmethod=syntax
   augroup END
 
-" }}}
+" }
 
-" CPP {{{
+" CPP {
 
   augroup ft_cpp
     au!
@@ -612,9 +621,9 @@
     au FileType cpp set softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79
   augroup END
 
-" }}}
+" }
 
-" CSS and LessCSS {{{
+" CSS and LessCSS {
 
   augroup ft_css
     au!
@@ -652,9 +661,9 @@
     au BufNewFile,BufRead *.less,*.css inoremap <buffer> {<cr> {}<left><cr><space><space><space><space>.<cr><esc>kA<bs>
   augroup END
 
-" }}}
+" }
 
-" Django {{{
+" Django {
 
   augroup ft_django
     au!
@@ -675,9 +684,9 @@
     au BufNewFile,BufRead common_settings.py  setlocal foldmethod=marker
   augroup END
 
-"}}}
+" }
 
-" HTML and HTMLDjango {{{
+" HTML and HTMLDjango {
 
   augroup ft_html
     au!
@@ -716,9 +725,9 @@
     au FileType jinja,htmldjango inoremap <buffer> <c-f> {{<space><space>}}<left><left><left>
   augroup END
 
-"}}}
+" }
 
-" Javascript {{{
+" Javascript {
 
   augroup ft_javascript
       au!
@@ -731,9 +740,9 @@
       au Filetype javascript inoremap <buffer> {<cr> {}<left><cr><space><space><space><space>.<cr><esc>kA<bs>
   augroup END
 
-"}}}
+" }
 
-" Plain Text {{{
+" Plain Text {
 
   function s:setupWrapping()
     set wrap
@@ -751,9 +760,9 @@
   endfunction
 
   au BufRead,BufNewFile *.txt call s:setupText()
-"}}}
+" }
 
-" Markdown {{{
+" Markdown {
 
   function s:setupMarkup()
     call s:setupText()
@@ -772,9 +781,9 @@
     au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
   augroup END
 
-" }}}
+" }
 
-" Python {{{
+" Python {
 
   augroup ft_python
       au!
@@ -791,9 +800,9 @@
   augroup END
 
 
-"}}}
+" }
 
-" Python-Mode Plugin {{{
+" Python-Mode Plugin {
 
     " I prefer the online docs
     let g:pymode_doc = 0
@@ -810,9 +819,9 @@
     " http://stackoverflow.com/a/35476
     let g:pymode_lint_ignore = "W0142,W0403,R0201,W0212,W0613,W0232,R0903,W0614,C0111,R0913,F0401,W0402,R0914"
 
-"}}}
+" }
 
-" PHP {{{
+" PHP {
 
   augroup ft_php
     au!
@@ -821,9 +830,9 @@
     au Filetype php setlocal foldmethod=syntax
   augroup END
 
-"}}}
+" }
 
-" ReStructuredText {{{
+" ReStructuredText {
 
   augroup ft_rest
       au!
@@ -834,18 +843,18 @@
       au Filetype rst nnoremap <buffer> <localleader>4 yypVr`
   augroup END
 
-" }}}
+" }
 
-" Ruby {{{
+" Ruby {
 
   augroup ft_ruby
       au!
       au Filetype ruby setlocal foldmethod=syntax
   augroup END
 
-"}}}
+" }
 
-" Vim {{{
+" Vim {
 
   augroup ft_vim
       au!
@@ -855,9 +864,9 @@
       au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
   augroup END
 
-"}}}
+" }
 
-" neocomplcache {{{
+" neocomplcache {
 
         if version >= 730
             " Only show if I've stopped typing for a half second.
@@ -917,9 +926,9 @@
         if has('conceal')
             set conceallevel=2 concealcursor=i
         endif
-"}}}
+" }
 
-" Last Call {{{
+" Last Call {
     
     " Stuff here doesn't work properly unless called last.
 
@@ -927,4 +936,4 @@
         set relativenumber
     endif
 
-"}}}
+" }
