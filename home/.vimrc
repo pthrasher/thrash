@@ -45,8 +45,8 @@
 
   Bundle 'gridaphobe/go.vim'
   Bundle 'scrooloose/syntastic'
-  Bundle 'spf13/snipmate-snippets'
-  source $HOME/.vim/bundle/snipmate-snippets/support_functions.vim 
+  " Bundle 'spf13/snipmate-snippets'
+  " source $HOME/.vim/bundle/snipmate-snippets/support_functions.vim 
   " Bundle 'msanders/snipmate.vim'
   " Bundle 'ervandew/supertab'
   Bundle 'kien/ctrlp.vim'
@@ -56,10 +56,11 @@
   Bundle 'scratch.vim'
   Bundle 'godlygeek/tabular'
   " Bundle 'Align'
-  Bundle 'rosenfeld/conque-term'
-  Bundle 'ZoomWin'
+  " Bundle 'rosenfeld/conque-term'
+  " Bundle 'ZoomWin'
   " Bundle 'AutoTag'
   Bundle 'YankRing.vim'
+  Bundle 'Shougo/neocomplcache-snippets-complete'
   Bundle 'Shougo/neocomplcache'
 
   " possible use this in the future...
@@ -76,7 +77,8 @@
 
   " Javascript
   Bundle 'leshill/vim-json'
-  Bundle 'pangloss/vim-javascript'
+  " Bundle 'pangloss/vim-javascript'
+  Bundle 'taxilian/vim-web-indent'
 
   " Python
   " Bundle 'vim-scripts/python.vim'
@@ -87,7 +89,8 @@
   Bundle 'spf13/PIV'
 
   " HTML
-  Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+  " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+  Bundle 'mattn/zencoding-vim'
 
   " CSS
   Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
@@ -393,9 +396,10 @@
 
 " }}}
 
-" Sparkup {{{
+" Sparkup / Zen Coding {{{
 
-let g:sparkupExecuteMapping = '<C-e>'
+    let g:user_zen_leader_key = '<c-e>'
+    " let g:sparkupExecuteMapping = '<C-e>'
 
 "}}}
 
@@ -858,7 +862,7 @@ let g:sparkupExecuteMapping = '<C-e>'
         if version >= 730
             " Only show if I've stopped typing for a half second.
             let g:neocomplcache_enable_cursor_hold_i = 1
-            let g:neocomplcache_cursor_hold_i_time = 500
+            let g:neocomplcache_cursor_hold_i_time = 300
         endif
 
         let g:neocomplcache_enable_at_startup = 1
@@ -872,14 +876,12 @@ let g:sparkupExecuteMapping = '<C-e>'
         let g:neocomplcache_enable_auto_select = 0
 
         " SuperTab like snippets behavior.
-        imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 
         " Plugin key-mappings.
         imap <C-k>     <Plug>(neocomplcache_snippets_expand)
         smap <C-k>     <Plug>(neocomplcache_snippets_expand)
         inoremap <expr><C-g>     neocomplcache#undo_completion()
         inoremap <expr><C-l>     neocomplcache#complete_common_string()
-
 
         " <CR>: close popup 
         " <s-CR>: close popup and save indent.
@@ -917,7 +919,7 @@ let g:sparkupExecuteMapping = '<C-e>'
         endif
 "}}}
 
-" Last Call
+" Last Call {{{
     
     " Stuff here doesn't work properly unless called last.
 
