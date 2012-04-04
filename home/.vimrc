@@ -57,6 +57,7 @@
         Bundle 'YankRing.vim'
         Bundle 'scratch.vim'
         Bundle 'sjl/gundo.vim'
+        Bundle 'kien/ctrlp.vim'
     " }}}
 
     " Programming {{{
@@ -88,7 +89,7 @@
         Bundle 'taxilian/vim-web-indent'
 
         " Python
-        Bundle 'klen/python-mode.git'
+        Bundle 'klen/python-mode'
         Bundle 'michaeljsmith/vim-indent-object'
 
         " PHP
@@ -517,11 +518,6 @@
         " let g:sparkupExecuteMapping = '<C-e>'
 
     " }}}
-    " CtrlP {{{
-
-        let g:ctrlp_map = '<c-t>'
-
-    " }}}
     " Commentary {{{
 
     nmap <leader>c <Plug>CommentaryLine
@@ -654,6 +650,11 @@
     iabbrev pt@ philipthrasher@gmail.com
 
     " for the vim-abolish abbrv's look in .vim/after/plugin/abolish.vim
+
+    " }}}
+    " CtrlP {{{
+
+        let g:ctrlp_map = '<c-t>'
 
     " }}}
 " }}}
