@@ -283,227 +283,227 @@
 " }}}
 
 " Key Mappings {{{
-" Leader {{{
+    " Leader {{{
 
-  let mapleader = ","
-  let maplocalleader = "\\"
+    let mapleader = ","
+    let maplocalleader = "\\"
 
-" }}}
-" General Mappings {{{
+    " }}}
+    " General Mappings {{{
 
-  " Reselect most recently edited/pasted text
-  nmap gV `[v`]
+    " Reselect most recently edited/pasted text
+    nmap gV `[v`]
 
-  " Source currently selected lines
-  vnoremap <leader>y y:@"<cr>
+    " Source currently selected lines
+    vnoremap <leader>y y:@"<cr>
 
-  " yank line without $
-  nnoremap ,y ^yg_"_dd
+    " yank line without $
+    nnoremap ,y ^yg_"_dd
 
-  " Send visual selection to gist.github.com as a private, filetyped Gist
-  " Requires the gist command line too (brew install gist)
-  nnoremap <leader>G :w !gist -p -t %:e \| pbcopy<cr>
+    " Send visual selection to gist.github.com as a private, filetyped Gist
+    " Requires the gist command line too (brew install gist)
+    nnoremap <leader>G :w !gist -p -t %:e \| pbcopy<cr>
 
-  " Change case
-  nnoremap <C-U> gUiw
-  inoremap <C-U> <esc>gUiwea
-  nnoremap <C-u> guiw
-  inoremap <C-u> <esc>guiwea
+    " Change case
+    nnoremap <C-U> gUiw
+    inoremap <C-U> <esc>gUiwea
+    nnoremap <C-u> guiw
+    inoremap <C-u> <esc>guiwea
 
-  " Substitute
-  nnoremap <leader>s :%s//<left>
+    " Substitute
+    nnoremap <leader>s :%s//<left>
 
-  " Emacs bindings in command line mode
-  cnoremap <c-a> <home>
-  cnoremap <c-e> <end>
+    " Emacs bindings in command line mode
+    cnoremap <c-a> <home>
+    cnoremap <c-e> <end>
 
-  " Diffoff
-  nnoremap <leader>D :diffoff!<cr>
+    " Diffoff
+    nnoremap <leader>D :diffoff!<cr>
 
-  " Formatting, TextMate-style (using par)
-  set formatprg=par\ -w79
-  nnoremap Q gqip
-  vnoremap Q gq
+    " Formatting, TextMate-style (using par)
+    set formatprg=par\ -w79
+    nnoremap Q gqip
+    vnoremap Q gq
 
-  " Easier linewise reselection
-  nnoremap <leader>V V`]
+    " Easier linewise reselection
+    nnoremap <leader>V V`]
 
-  " S to split
-  " The normal use of S is covered by cc, so don't worry about shadowing it.
-  " Basically this splits the current line into two new ones at the cursor
-  " position, then joins the second one with whatever comes next.
-  "
-  " Example:                      Cursor Here
-  "                                    |
-  "                                    V
-  " foo = ('hello', 'world', 'a', 'b', 'c',
-  "        'd', 'e')
-  "
-  " becomes
-  "
-  " foo = ('hello', 'world', 'a', 'b',
-  "        'c', 'd', 'e')
-  "
-  " Especially useful for adding items in the middle of long lists/tuples in Python
-  " while maintaining a sane text width.
-  nnoremap S <nop>
-  nnoremap S h/[^ ]<cr>"zd$jyyP^v$h"zpJk:s/\v +$//<cr>:noh<cr>j^
+    " S to split
+    " The normal use of S is covered by cc, so don't worry about shadowing it.
+    " Basically this splits the current line into two new ones at the cursor
+    " position, then joins the second one with whatever comes next.
+    "
+    " Example:                      Cursor Here
+    "                                    |
+    "                                    V
+    " foo = ('hello', 'world', 'a', 'b', 'c',
+    "        'd', 'e')
+    "
+    " becomes
+    "
+    " foo = ('hello', 'world', 'a', 'b',
+    "        'c', 'd', 'e')
+    "
+    " Especially useful for adding items in the middle of long lists/tuples in Python
+    " while maintaining a sane text width.
+    nnoremap S <nop>
+    nnoremap S h/[^ ]<cr>"zd$jyyP^v$h"zpJk:s/\v +$//<cr>:noh<cr>j^
 
-  " Acking current word under cursor
-  map <Leader>f :execute "Ack " . expand("<cword>") <Bar> cw<CR>
+    " Acking current word under cursor
+    map <Leader>f :execute "Ack " . expand("<cword>") <Bar> cw<CR>
 
-  " Align text
-  nnoremap <leader>Al :left<cr>
-  nnoremap <leader>Ac :center<cr>
-  nnoremap <leader>Ar :right<cr>
-  vnoremap <leader>Al :left<cr>
-  vnoremap <leader>Ac :center<cr>
-  vnoremap <leader>Ar :right<cr>
+    " Align text
+    nnoremap <leader>Al :left<cr>
+    nnoremap <leader>Ac :center<cr>
+    nnoremap <leader>Ar :right<cr>
+    vnoremap <leader>Al :left<cr>
+    vnoremap <leader>Ac :center<cr>
+    vnoremap <leader>Ar :right<cr>
 
-  " Less chording
-  nnoremap ; :
-  vnoremap ; :
-  inoremap jf <esc>
+    " Less chording
+    nnoremap ; :
+    vnoremap ; :
+    inoremap jf <esc>
 
-  " Cmdheight switching
-  nnoremap <leader>1 :set cmdheight=1<cr>
-  nnoremap <leader>2 :set cmdheight=2<cr>
+    " Cmdheight switching
+    nnoremap <leader>1 :set cmdheight=1<cr>
+    nnoremap <leader>2 :set cmdheight=2<cr>
 
-  " send to preview as pdf
-  nnoremap <D-p> "_ddPV`]=
+    " send to preview as pdf
+    nnoremap <D-p> "_ddPV`]=
 
-  " Marks and Quotes
-  noremap ' `
+    " Marks and Quotes
+    noremap ' `
 
-  " Select (charwise) the contents of the current line, excluding indentation.
-  " Great for pasting Python lines into REPLs.
-  nnoremap vv ^vg_
+    " Select (charwise) the contents of the current line, excluding indentation.
+    " Great for pasting Python lines into REPLs.
+    nnoremap vv ^vg_
 
-  " Calculator
-  inoremap <C-B> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
+    " Calculator
+    inoremap <C-B> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
 
-  " create new vert split, and switch to new buff
-  nnoremap <leader>W <C-w>v<C-w>l
+    " create new vert split, and switch to new buff
+    nnoremap <leader>W <C-w>v<C-w>l
 
-  " bindings for easy split nav
-  nnoremap <C-h> <C-w>h
-  nnoremap <C-j> <C-w>j
-  nnoremap <C-k> <C-w>k
-  nnoremap <C-l> <C-w>l
-  "zoomwin mapping
-  nnoremap <C-o> <C-w>o
+    " bindings for easy split nav
+    nnoremap <C-h> <C-w>h
+    nnoremap <C-j> <C-w>j
+    nnoremap <C-k> <C-w>k
+    nnoremap <C-l> <C-w>l
+    "zoomwin mapping
+    nnoremap <C-o> <C-w>o
 
-  " Opens an edit command with the path of the currently edited file filled in
-  " Normal mode: <Leader>e
-  map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+    " Opens an edit command with the path of the currently edited file filled in
+    " Normal mode: <Leader>e
+    map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
-  " Yank from here till end of line.
-  nnoremap Y y$
+    " Yank from here till end of line.
+    nnoremap Y y$
 
-  " Better Completion
-  set completeopt=longest,menuone,preview
+    " Better Completion
+    set completeopt=longest,menuone,preview
 
-  " Sudo to write
-  cnoremap w!! w !sudo tee % >/dev/null
+    " Sudo to write
+    cnoremap w!! w !sudo tee % >/dev/null
 
-" }}}
-" Searching and moving {{{
+    " }}}
+    " Searching and moving {{{
 
-  " Use sane regexes.
-  nnoremap / /\v
-  vnoremap / /\v
+    " Use sane regexes.
+    nnoremap / /\v
+    vnoremap / /\v
 
-  set ignorecase
-  set smartcase
-  set incsearch
-  set showmatch
-  set hlsearch
-  set gdefault
+    set ignorecase
+    set smartcase
+    set incsearch
+    set showmatch
+    set hlsearch
+    set gdefault
 
-  set scrolloff=8
-  set sidescroll=1
-  set sidescrolloff=10
+    set scrolloff=8
+    set sidescroll=1
+    set sidescrolloff=10
 
-  set virtualedit+=block
+    set virtualedit+=block
 
-  noremap <leader><space> :noh<cr>:call clearmatches()<cr>
+    noremap <leader><space> :noh<cr>:call clearmatches()<cr>
 
-  " Highlight all occurances of the word under the cursor without changing
-  " cursor position.
-  nnoremap <leader>h *<C-O>
+    " Highlight all occurances of the word under the cursor without changing
+    " cursor position.
+    nnoremap <leader>h *<C-O>
 
-  "quick buffer switching
-  nnoremap <leader><leader> <c-^>
+    "quick buffer switching
+    nnoremap <leader><leader> <c-^>
 
-  " Made D behave
-  nnoremap D d$
+    " Made D behave
+    nnoremap D d$
 
-  " Keep search matches in the middle of the window and pulse the line when moving
-  " to them.
-  nnoremap n nzzzv
-  nnoremap N Nzzzv
+    " Keep search matches in the middle of the window and pulse the line when moving
+    " to them.
+    nnoremap n nzzzv
+    nnoremap N Nzzzv
 
-  " Don't move on *
-  nnoremap * *<c-o>
+    " Don't move on *
+    nnoremap * *<c-o>
 
-  " Same when jumping around
-  nnoremap g; g;zz
-  nnoremap g, g,zz
+    " Same when jumping around
+    nnoremap g; g;zz
+    nnoremap g, g,zz
 
-  " Window resizing
-  nnoremap <C-left> 5<c-w>>
-  nnoremap <C-right> 5<c-w><
+    " Window resizing
+    nnoremap <C-left> 5<c-w>>
+    nnoremap <C-right> 5<c-w><
 
-  " Easier to type, and I never use the default behavior.
-  noremap H ^
-  noremap L g_
+    " Easier to type, and I never use the default behavior.
+    noremap H ^
+    noremap L g_
 
 
-  " Open a Quickfix window for the last search.
-  nnoremap <silent> <leader>/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
+    " Open a Quickfix window for the last search.
+    nnoremap <silent> <leader>/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
 
-  " Ack for the last search.
-  nnoremap <silent> <leader>? :execute "Ack! '" . substitute(substitute(substitute(@/, "\\\\<", "\\\\b", ""), "\\\\>", "\\\\b", ""), "\\\\v", "", "") . "'"<CR>
+    " Ack for the last search.
+    nnoremap <silent> <leader>? :execute "Ack! '" . substitute(substitute(substitute(@/, "\\\\<", "\\\\b", ""), "\\\\>", "\\\\b", ""), "\\\\v", "", "") . "'"<CR>
 
-  " Fix linewise visual selection of various text objects
-  nnoremap VV V
-  nnoremap Vit vitVkoj
-  nnoremap Vat vatV
-  nnoremap Vab vabV
-  nnoremap VaB vaBV
+    " Fix linewise visual selection of various text objects
+    nnoremap VV V
+    nnoremap Vit vitVkoj
+    nnoremap Vat vatV
+    nnoremap Vab vabV
+    nnoremap VaB vaBV
 
-" }}}
-" Error navigation {{{
-  "
-  "             Location List     QuickFix Window
-  "            (e.g. Syntastic)     (e.g. Ack)
-  "            ----------------------------------
-  " Next      |     M-j               M-Down     |
-  " Previous  |     M-k                M-Up      |
-  "            ----------------------------------
-  "
-  nnoremap ∆ :lnext<cr>zvzz
-  nnoremap ˚ :lprevious<cr>zvzz
-  inoremap ∆ <esc>:lnext<cr>zvzz
-  inoremap ˚ <esc>:lprevious<cr>zvzz
-  nnoremap <m-Down> :cnext<cr>zvzz
-  nnoremap <m-Up> :cprevious<cr>zvzz
+    " }}}
+    " Error navigation {{{
+    "
+    "             Location List     QuickFix Window
+    "            (e.g. Syntastic)     (e.g. Ack)
+    "            ----------------------------------
+    " Next      |     M-j               M-Down     |
+    " Previous  |     M-k                M-Up      |
+    "            ----------------------------------
+    "
+    nnoremap ∆ :lnext<cr>zvzz
+    nnoremap ˚ :lprevious<cr>zvzz
+    inoremap ∆ <esc>:lnext<cr>zvzz
+    inoremap ˚ <esc>:lprevious<cr>zvzz
+    nnoremap <m-Down> :cnext<cr>zvzz
+    nnoremap <m-Up> :cprevious<cr>zvzz
 
-" }}}
-" Directional Keys {{{
+    " }}}
+    " Directional Keys {{{
 
-  " Visual line nav, not real line nav
-  noremap j gj
-  noremap k gk
+    " Visual line nav, not real line nav
+    noremap j gj
+    noremap k gk
 
-  " Easy buffer navigation
-  noremap <C-h>  <C-w>h
-  noremap <C-j>  <C-w>j
-  noremap <C-k>  <C-w>k
-  noremap <C-l>  <C-w>l
-  noremap <leader>v <C-w>v
+    " Easy buffer navigation
+    noremap <C-h>  <C-w>h
+    noremap <C-j>  <C-w>j
+    noremap <C-k>  <C-w>k
+    noremap <C-l>  <C-w>l
+    noremap <leader>v <C-w>v
 
-" }}}
+    " }}}
 " }}}
 
 " Plugin Settings {{{
@@ -565,8 +565,14 @@
         " I have no clue what this does. But it says if you have a fast comp...
         let g:pymode_syntax_slow_sync = 0
 
+        " Don't fuck with the whitespaces... I don't like them, but my team
+        " doesn't like noisy git diffs.
+        let g:pymode_utils_whitespaces = 0
+
         " http://stackoverflow.com/a/35476
         let g:pymode_lint_ignore = "W0142,W0403,R0201,W0212,W0613,W0232,R0903,W0614,C0111,R0913,F0401,W0402,R0914"
+
+        let g:pymode_lint_write = 0
 
     " }}}
     " neocomplcache {{{
@@ -771,7 +777,7 @@
         au FileType html,jinja,htmldjango nnoremap <buffer> <localleader>= Vat=
 
         " Django tags
-        au FileType jinja,htmldjango inoremap <buffer> <c-t> {%<space><space>%}<left><left><left>
+        au FileType jinja,htmldjango inoremap <buffer> <leader><c-t> {%<space><space>%}<left><left><left>
 
         " Django variables
         au FileType jinja,htmldjango inoremap <buffer> <c-f> {{<space><space>}}<left><left><left>
