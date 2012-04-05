@@ -89,7 +89,7 @@
         Bundle 'taxilian/vim-web-indent'
 
         " Python
-        Bundle 'klen/python-mode'
+        " Bundle 'klen/python-mode'
         Bundle 'michaeljsmith/vim-indent-object'
 
         " PHP
@@ -553,26 +553,26 @@
     " }}}
     " Python-Mode Plugin {{{
 
-        " I prefer the online docs
-        let g:pymode_doc = 0
+"         " I prefer the online docs
+"         let g:pymode_doc = 0
 
-        " I run from the terminal. Not crippled vim.
-        let g:pymode_run = 0
+"         " I run from the terminal. Not crippled vim.
+"         let g:pymode_run = 0
         
-        " I don't want pep8 all the time.
-        let g:pymode_lint_checker = "pyflakes"
+"         " I don't want pep8 all the time.
+"         let g:pymode_lint_checker = "pyflakes"
 
-        " I have no clue what this does. But it says if you have a fast comp...
-        let g:pymode_syntax_slow_sync = 0
+"         " I have no clue what this does. But it says if you have a fast comp...
+"         let g:pymode_syntax_slow_sync = 0
 
-        " Don't fuck with the whitespaces... I don't like them, but my team
-        " doesn't like noisy git diffs.
-        let g:pymode_utils_whitespaces = 0
+"         " Don't fuck with the whitespaces... I don't like them, but my team
+"         " doesn't like noisy git diffs.
+"         let g:pymode_utils_whitespaces = 0
 
-        " http://stackoverflow.com/a/35476
-        let g:pymode_lint_ignore = "W0142,W0403,R0201,W0212,W0613,W0232,R0903,W0614,C0111,R0913,F0401,W0402,R0914"
+"         " http://stackoverflow.com/a/35476
+"         let g:pymode_lint_ignore = "W0142,W0403,R0201,W0212,W0613,W0232,R0903,W0614,C0111,R0913,F0401,W0402,R0914"
 
-        let g:pymode_lint_write = 0
+"         let g:pymode_lint_write = 0
 
     " }}}
     " neocomplcache {{{
