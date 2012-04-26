@@ -577,7 +577,7 @@
     " }}}
     " neocomplcache {{{
 
-            if version >= 730
+            if version >= 720
                 " Only show if I've stopped typing for a half second.
                 let g:neocomplcache_enable_cursor_hold_i = 1
                 let g:neocomplcache_cursor_hold_i_time = 300
@@ -594,6 +594,7 @@
             let g:neocomplcache_enable_auto_select = 0
 
             " SuperTab like snippets behavior.
+            imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 
             " Plugin key-mappings.
             imap <C-k>     <Plug>(neocomplcache_snippets_expand)
