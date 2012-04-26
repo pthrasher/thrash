@@ -636,7 +636,11 @@
             if has('conceal')
                 set conceallevel=2 concealcursor=i
             endif
+
+            " User defined snippets
+            let g:neocomplcache_snippets_dir = '~/.vim/mysnippets/'
     " }}}
+    "
     " Abbreviations {{{
 
     function! EatChar(pat)
