@@ -593,8 +593,6 @@
             " AutoComplPop like behavior.
             let g:neocomplcache_enable_auto_select = 0
 
-            " SuperTab like snippets behavior.
-            imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 
             " Plugin key-mappings.
             imap <C-k>     <Plug>(neocomplcache_snippets_expand)
@@ -639,8 +637,10 @@
 
             " User defined snippets
             let g:neocomplcache_snippets_dir = '~/.vim/mysnippets/'
+
+            " SuperTab like snippets behavior.
+            imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
     " }}}
-    "
     " Abbreviations {{{
 
     function! EatChar(pat)
