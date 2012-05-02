@@ -186,10 +186,10 @@
         syntax on
 
         colorscheme solarized
-        set background=light
+        set background=dark
 
         if !has('gui_running')
-            set background=light
+            set background=dark
             let g:solarized_termtrans=1
         endif
     " }}}
