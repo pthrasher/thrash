@@ -163,7 +163,7 @@ zstyle ':completion:*:hosts' hosts $hosts
 
 # Use caching so that commands like apt and dpkg complete are useable
 zstyle ':completion::complete:*' use-cache 1
-zstyle ':completion::complete:*' cache-path ~/.oh-my-zsh/cache/
+zstyle ':completion::complete:*' cache-path ~/.zshcomplcache/
 
 # Don't complete uninteresting users
 zstyle ':completion:*:*:*:users' ignored-patterns \
@@ -269,6 +269,9 @@ alias gvim='mvim'
 alias v='mvim'
 export EDITOR='mvim -f'
 
+function random () {
+    cat /dev/urandom | base64 | head -c$1
+}
 
 # Copyright (c) 2009 rupa deadwyler under the WTFPL license
 
@@ -376,7 +379,7 @@ _z() {
     } else {
      for( i in fnd ) $1 !~ fnd[i] && $1 = ""
     }
-    if( $1 ) print "\"" $1 "\""
+    if( $1 ) print $1
    }
   ' "$datafile" 2>/dev/null
 
@@ -495,3 +498,7 @@ elif compctl &> /dev/null; then
  }
  compctl -U -K _z_zsh_tab_completion _z
 fi
+
+function chpwd () {
+    _z --add "$(pwd -P)"
+}

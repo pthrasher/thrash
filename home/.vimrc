@@ -103,7 +103,7 @@
 
 " Settings {{{
     " Misc Settings {{{
-        filetype plugin indent on
+    filetype plugin indent on
 
     " Tab stuff
     set tabstop=4
