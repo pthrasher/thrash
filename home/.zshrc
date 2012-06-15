@@ -6,10 +6,7 @@ export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
 
 PATH=~/bin:$PATH
 
-# startup virtualenv-burrito
-# if [ -f "$HOME/.venvburrito/startup.sh" ]; then
-#     source "$HOME/.venvburrito/startup.sh"
-# fi
+fortune
 
 # color related stuff
 typeset -Ag FX FG BG
