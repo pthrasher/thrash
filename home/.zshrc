@@ -4,7 +4,7 @@ which virtualenvwrapper.sh > /dev/null && source `which virtualenvwrapper.sh`
 eval "$(rbenv init -)"
 export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
 
-PATH=~/bin:$PATH
+PATH=~/bin:$NAVE_PATH:$PATH
 
 fortune
 

@@ -82,6 +82,7 @@
 
         " Cross-Compiled
         Bundle 'groenewege/vim-less'
+        Bundle 'wavded/vim-stylus'
         Bundle 'vim-coffee-script'
 
         " Javascript
@@ -546,7 +547,7 @@
     " Syntastic {{{
 
     let g:syntastic_enable_signs = 1
-    let g:syntastic_disabled_filetypes = ['html', 'less']
+    let g:syntastic_disabled_filetypes = ['html']
     let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
     let g:syntastic_jsl_conf = '$HOME/.vim/jsl.conf'
 
@@ -693,7 +694,7 @@
     augroup ft_css
         au!
 
-        " au BufNewFile,BufRead *.less setlocal filetype=less
+        au BufNewFile,BufRead *.less setlocal filetype=less
 
         au Filetype less,css setlocal foldmethod=marker
         au Filetype less,css setlocal foldmarker={,}
@@ -799,7 +800,7 @@
 
         " Make {<cr> insert a pair of brackets in such a way that the cursor is correctly
         " positioned inside of them AND the following code doesn't get unfolded.
-        au Filetype javascript inoremap <buffer> {<cr> {}<left><cr><space><space><space><space>.<cr><esc>kA<bs>
+        " au Filetype javascript inoremap <buffer> {<cr> {}<left><cr><space><space><space><space>.<cr><esc>kA<bs>
     augroup END
 
     " }}}
