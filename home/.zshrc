@@ -6,6 +6,8 @@ export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
 
 PATH=~/bin:$PATH
 
+alias npm='n npm 0.8.0'
+
 fortune
 
 # color related stuff
