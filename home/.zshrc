@@ -6,7 +6,11 @@ export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
 
 PATH=~/bin:$PATH
 
-alias npm='n npm 0.8.0'
+function npm() {
+    version = $1
+    version = ${version#v}
+    echo $version
+}
 
 fortune
 
