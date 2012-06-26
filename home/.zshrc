@@ -7,9 +7,9 @@ export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
 PATH=~/bin:$PATH
 
 function npm() {
-    active=`node --version`
-    active=${active#v}
-    echo $active
+    active=$(node --version);
+    active=${active#v};
+    n npm $active $@
 }
 
 fortune
