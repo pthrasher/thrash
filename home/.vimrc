@@ -8,17 +8,9 @@
 "
 "    https://github.com/pthrasher/thrash/blob/master/home/.vimrc
 "
-"    This constantly changes. Just take a look at the commit history. I
-"    generally put stuff in here to try it out, and then either keep it, or
-"    remove it. ViM is so big, that any config is really personal. So... What's
-"    perfect for me might not be perfect for you. We all have certain ways we
-"    like to work with our code.
-"   
-"    Additionally, I'm always willing to answer questions regarding how to
-"    incorporate ViM into your work flow so that it's useful, and not a
-"    hindrance.
-"
-"    Email or tweet with any questions. Glad to answer.
+"    vimrc's are very personal. Plunder what ye like. Let me know if you have
+"    any questions. Just tweet me, email me, or submit an issue. Always glad to
+"    answer / help.
 "
 "    Email:   philipthrasher@gmail.com
 "    Twitter: @philipthrasher
@@ -87,11 +79,12 @@
 
         " Javascript
         Bundle 'leshill/vim-json'
-        Bundle 'taxilian/vim-web-indent'
+        Bundle 'pangloss/vim-javascript'
+        " Bundle 'taxilian/vim-web-indent'
 
         " Python
-        " Bundle 'klen/python-mode'
-        Bundle 'michaeljsmith/vim-indent-object'
+        Bundle 'klen/python-mode'
+        " Bundle 'michaeljsmith/vim-indent-object'
 
         " PHP
         Bundle 'spf13/PIV'
@@ -135,8 +128,8 @@
     set laststatus=2
     set history=1000
     set list
-    set listchars=tab:▸\ 
-    set shell=/bin/bash
+    set listchars=tab:▸\ ,eol:↩
+    set shell=/bin/zsh
 
     set showmatch
     set matchtime=3
@@ -152,6 +145,7 @@
     set shiftround
     set title
 
+    set nowrap
 
     set autowrite
     set autoread
@@ -168,15 +162,16 @@
     " Resize splits when the window is resized
     au VimResized * :wincmd =
 
+    " always go to top of commit messages
+    autocmd BufReadPost COMMIT_EDITMSG exec "normal! gg"
+
 
     " }}}
     " Backups {{{
 
-        if version > 720
-            set undofile
-            set undoreload=10000
-            set undodir=~/.vim/tmp/undo
-        endif
+        set undofile
+        set undoreload=10000
+        set undodir=~/.vim/tmp/undo
 
         set backupdir=~/.vim/tmp/backup
         set noswapfile
@@ -292,6 +287,15 @@
     " }}}
     " General Mappings {{{
 
+    " use tm/st2 style cmd key indenting
+    nmap <D-[> <<
+    nmap <D-]> >>
+    vmap <D-[> <gv
+    vmap <D-]> >gv
+
+    " change existing tab chars to match current tab settings (tabs2whitespace)
+    nnoremap <leader>r :retab
+
     " Reselect most recently edited/pasted text
     nmap gV `[v`]
 
@@ -299,7 +303,7 @@
     vnoremap <leader>y y:@"<cr>
 
     " yank line without $
-    nnoremap ,y ^yg_"_dd
+    nnoremap <leader>y ^yg_"_dd
 
     " Send visual selection to gist.github.com as a private, filetyped Gist
     " Requires the gist command line too (brew install gist)
@@ -383,9 +387,6 @@
     " Calculator
     inoremap <C-B> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
 
-    " create new vert split, and switch to new buff
-    nnoremap <leader>W <C-w>v<C-w>l
-
     " bindings for easy split nav
     nnoremap <C-h> <C-w>h
     nnoremap <C-j> <C-w>j
@@ -393,6 +394,8 @@
     nnoremap <C-l> <C-w>l
     "zoomwin mapping
     nnoremap <C-o> <C-w>o
+    "new vsplit, and switch to it.
+    noremap <leader>v <C-w>v
 
     " Opens an edit command with the path of the currently edited file filled in
     " Normal mode: <Leader>e
@@ -451,14 +454,9 @@
     nnoremap g; g;zz
     nnoremap g, g,zz
 
-    " Window resizing
-    nnoremap <C-left> 5<c-w>>
-    nnoremap <C-right> 5<c-w><
-
     " Easier to type, and I never use the default behavior.
     noremap H ^
     noremap L g_
-
 
     " Open a Quickfix window for the last search.
     nnoremap <silent> <leader>/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
@@ -497,34 +495,41 @@
     noremap j gj
     noremap k gk
 
-    " Easy buffer navigation
-    noremap <C-h>  <C-w>h
-    noremap <C-j>  <C-w>j
-    noremap <C-k>  <C-w>k
-    noremap <C-l>  <C-w>l
-    noremap <leader>v <C-w>v
-
     " }}}
 " }}}
 
 " Plugin Settings {{{
+    " vim-javascript {{{
+
+        let g:html_indent_inctags = "html,body,head,tbody"
+        let g:html_indent_script1 = "inc"
+        let g:html_indent_style1 = "inc"
+
+    " }}}
+
     " Powerline {{{
 
-    let g:Powerline_symbols = 'fancy'
+        let g:Powerline_symbols = 'fancy'
 
     " }}}
-    " Sparkup / Zen Coding {{{
+    " Zen Coding {{{
 
         let g:user_zen_leader_key = '<c-e>'
-        " let g:sparkupExecuteMapping = '<C-e>'
+        " 2 space soft tabs
+        let g:user_zen_settings = {
+            'indentation' : '  '
+        }
+        let g:use_zen_complete_tag = 1
 
     " }}}
+
     " Commentary {{{
 
-    nmap <leader>c <Plug>CommentaryLine
-    xmap <leader>c <Plug>Commentary
+        nmap <leader>c <Plug>CommentaryLine
+        xmap <leader>c <Plug>Commentary
 
     " }}}
+
     " Align {{{
 
     " vnoremap <leader>a :Align =<cr>
@@ -547,42 +552,46 @@
     " Syntastic {{{
 
     let g:syntastic_enable_signs = 1
-    let g:syntastic_disabled_filetypes = ['html']
+    let g:syntastic_disabled_filetypes = ['html', 'py']
     let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
     let g:syntastic_jsl_conf = '$HOME/.vim/jsl.conf'
 
     " }}}
     " Python-Mode Plugin {{{
 
-"         " I prefer the online docs
-"         let g:pymode_doc = 0
+        " don't let pymode override relativenumber
+        " FUCK. YOU. PYMODE.
+        let g:pymode_options_other = 0
 
-"         " I run from the terminal. Not crippled vim.
-"         let g:pymode_run = 0
+        " I prefer the online docs
+        let g:pymode_doc = 0
+
+        " I run from the terminal. Not crippled vim.
+        let g:pymode_run = 0
         
-"         " I don't want pep8 all the time.
-"         let g:pymode_lint_checker = "pyflakes"
+        " I don't want pep8 all the time.
+        let g:pymode_lint_checker = "pyflakes"
 
-"         " I have no clue what this does. But it says if you have a fast comp...
-"         let g:pymode_syntax_slow_sync = 0
+        " I have no clue what this does. But it says if you have a fast comp...
+        " let g:pymode_syntax_slow_sync = 0
 
-"         " Don't fuck with the whitespaces... I don't like them, but my team
-"         " doesn't like noisy git diffs.
-"         let g:pymode_utils_whitespaces = 0
+        " Don't fuck with the whitespaces... I don't like them, but my team
+        " doesn't like noisy git diffs.
+        " ---------------------------------------------------------------------
+        " What the hell... Let them be noisy. I'll comment this for now.
+        " let g:pymode_utils_whitespaces = 0
 
-"         " http://stackoverflow.com/a/35476
-"         let g:pymode_lint_ignore = "W0142,W0403,R0201,W0212,W0613,W0232,R0903,W0614,C0111,R0913,F0401,W0402,R0914"
+        " http://stackoverflow.com/a/35476
+        let g:pymode_lint_ignore = "W0142,W0403,R0201,W0212,W0613,W0232,R0903,W0614,C0111,R0913,F0401,W0402,R0914"
 
-"         let g:pymode_lint_write = 0
+        let g:pymode_lint_write = 0
 
     " }}}
     " neocomplcache {{{
 
-            if version >= 720
-                " Only show if I've stopped typing for a half second.
-                let g:neocomplcache_enable_cursor_hold_i = 1
-                let g:neocomplcache_cursor_hold_i_time = 300
-            endif
+            " Only show if I've stopped typing for a quarter second.
+            let g:neocomplcache_enable_cursor_hold_i = 1
+            let g:neocomplcache_cursor_hold_i_time = 250
 
             let g:neocomplcache_enable_at_startup = 1
             let g:neocomplcache_enable_camel_case_completion = 1
@@ -667,6 +676,7 @@
     " CtrlP {{{
 
         let g:ctrlp_map = '<c-t>'
+        let g:ctrlp_max_height = 20
 
     " }}}
 " }}}
@@ -689,43 +699,78 @@
     augroup END
 
     " }}}
-    " CSS and LessCSS {{{
+    " LessCSS {{{
+    "     augroup ft_less
+    "         au!
 
-    augroup ft_css
-        au!
+    "         au Filetype less setlocal foldmethod=marker
+    "         au Filetype less setlocal foldmarker={,}
+    "         " au Filetype less,css setlocal iskeyword+=-
 
-        au BufNewFile,BufRead *.less setlocal filetype=less
+    "         " Use <leader>S to sort properties.  Turns this:
+    "         "
+    "         "     p {
+    "         "         width: 200px;
+    "         "         height: 100px;
+    "         "         background: red;
+    "         "
+    "         "         ...
+    "         "     }
+    "         "
+    "         " into this:
 
-        au Filetype less,css setlocal foldmethod=marker
-        au Filetype less,css setlocal foldmarker={,}
-        au Filetype css setlocal omnifunc=csscomplete#CompleteCSS
-        " au Filetype less,css setlocal iskeyword+=-
+    "         "     p {
+    "         "         background: red;
+    "         "         height: 100px;
+    "         "         width: 200px;
+    "         "
+    "         "         ...
+    "         "     }
+    "         au BufNewFile,BufRead *.less nnoremap <buffer> <localleader>S ?{<CR>jV/\v^\s*\}?$<CR>k:sort<CR>:noh<CR>
 
-        " Use <leader>S to sort properties.  Turns this:
-        "
-        "     p {
-        "         width: 200px;
-        "         height: 100px;
-        "         background: red;
-        "
-        "         ...
-        "     }
-        "
-        " into this:
+    "         " Make {<cr> insert a pair of brackets in such a way that the cursor is correctly
+    "         " positioned inside of them AND the following code doesn't get unfolded.
+    "         " au BufNewFile,BufRead *.less,*.css inoremap <buffer> {<cr> {}<left><cr><space><space><space><space>.<cr><esc>kA<bs>
+    "     augroup END
 
-        "     p {
-        "         background: red;
-        "         height: 100px;
-        "         width: 200px;
-        "
-        "         ...
-        "     }
-        au BufNewFile,BufRead *.less,*.css nnoremap <buffer> <localleader>S ?{<CR>jV/\v^\s*\}?$<CR>k:sort<CR>:noh<CR>
+    " }}}
+    " CSS {{{
 
-        " Make {<cr> insert a pair of brackets in such a way that the cursor is correctly
-        " positioned inside of them AND the following code doesn't get unfolded.
-        au BufNewFile,BufRead *.less,*.css inoremap <buffer> {<cr> {}<left><cr><space><space><space><space>.<cr><esc>kA<bs>
-    augroup END
+    " augroup ft_css
+    "     au!
+
+    "     au BufNewFile,BufRead *.less setlocal filetype=less
+
+    "     au Filetype less,css setlocal foldmethod=marker
+    "     au Filetype less,css setlocal foldmarker={,}
+    "     au Filetype css setlocal omnifunc=csscomplete#CompleteCSS
+    "     au Filetype less,css setlocal iskeyword+=-
+
+    "     " Use <leader>S to sort properties.  Turns this:
+    "     "
+    "     "     p {
+    "     "         width: 200px;
+    "     "         height: 100px;
+    "     "         background: red;
+    "     "
+    "     "         ...
+    "     "     }
+    "     "
+    "     " into this:
+
+    "     "     p {
+    "     "         background: red;
+    "     "         height: 100px;
+    "     "         width: 200px;
+    "     "
+    "     "         ...
+    "     "     }
+    "     au BufNewFile,BufRead *.less,*.css nnoremap <buffer> <localleader>S ?{<CR>jV/\v^\s*\}?$<CR>k:sort<CR>:noh<CR>
+
+    "     " Make {<cr> insert a pair of brackets in such a way that the cursor is correctly
+    "     " positioned inside of them AND the following code doesn't get unfolded.
+    "     au BufNewFile,BufRead *.less,*.css inoremap <buffer> {<cr> {}<left><cr><space><space><space><space>.<cr><esc>kA<bs>
+    " augroup END
 
     " }}}
     " Django {{{
@@ -755,6 +800,7 @@
     augroup ft_html
         au!
 
+        au FileType html,jinja,htmldjango set softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79
         au BufNewFile,BufRead *.html setlocal filetype=htmldjango
         au FileType html,jinja,htmldjango setlocal foldmethod=manual
 
@@ -783,7 +829,7 @@
         au FileType html,jinja,htmldjango nnoremap <buffer> <localleader>= Vat=
 
         " Django tags
-        au FileType jinja,htmldjango inoremap <buffer> <leader><c-t> {%<space><space>%}<left><left><left>
+        au FileType jinja,htmldjango inoremap <buffer> <c-t> {%<space><space>%}<left><left><left>
 
         " Django variables
         au FileType jinja,htmldjango inoremap <buffer> <c-f> {{<space><space>}}<left><left><left>
@@ -791,6 +837,12 @@
 
     " }}}
     " Javascript {{{
+
+    augroup ft_json
+
+        au BufNewFile,BufRead *.json setlocal filetype=json
+
+    augroup END
 
     augroup ft_javascript
         au!
@@ -848,15 +900,9 @@
     augroup ft_python
         au!
 
-        " au FileType python setlocal omnifunc=pythoncomplete#Complete
+        au FileType python setlocal omnifunc=pythoncomplete#Complete
         au FileType python setlocal define=^\s*\\(def\\\\|class\\)
-
-
         au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
-
-        au FileType python if exists("python_space_error_highlight") | unlet python_space_error_highlight | endif
-
-
     augroup END
 
 
@@ -904,12 +950,3 @@
     " }}}
 " }}}
 
-" Last Call {{{
-    
-    " Stuff here doesn't work properly unless called last.
-
-    if version > 720
-        set relativenumber
-    endif
-
-" }}}

@@ -6,11 +6,16 @@ export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
 
 PATH=~/bin:$PATH
 
+# I use `n` -- this makes npm always work for the current version of node I'm
+# running.
 function npm() {
     active=$(node --version);
     active=${active#v};
     n npm $active $@
 }
+
+# quick access to my vim kb mappings
+alias vm='v ~/keyref.md'
 
 fortune
 

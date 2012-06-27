@@ -26,3 +26,12 @@ nnoremap <D-Right> :set columns+=15<cr>
 
 nnoremap <D-Up> :set lines-=10<cr>
 nnoremap <D-Down> :set lines+=10<cr>
+
+" Last Call {{{
+    " Stuff here doesn't work properly unless called last.
+
+    " Some stupid god damn plugin keeps overriding this. I'm going to shit
+    " a fucking pile bricks on that plugin once I find out who it is.
+    set relativenumber
+" }}}
+
