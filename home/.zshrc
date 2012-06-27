@@ -15,7 +15,7 @@ function npm() {
 }
 
 # quick access to my vim kb mappings
-alias vm='v ~/keyref.md'
+alias vm='v ~/.keyref.md'
 
 fortune
 
