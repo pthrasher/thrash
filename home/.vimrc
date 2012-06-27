@@ -58,6 +58,7 @@
         Bundle 'scrooloose/syntastic'
         Bundle 'AndrewRadev/linediff.vim'
         Bundle 'sjl/strftimedammit.vim'
+        Bundle 'jpalardy/vim-slime'
 
         Bundle 'Shougo/neocomplcache-snippets-complete'
         Bundle 'Shougo/neocomplcache'
