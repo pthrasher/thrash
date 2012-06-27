@@ -516,9 +516,7 @@
 
         let g:user_zen_leader_key = '<c-e>'
         " 2 space soft tabs
-        let g:user_zen_settings = {
-            'indentation' : '  '
-        }
+        let g:user_zen_settings = {'indentation' : '  '}
         let g:use_zen_complete_tag = 1
 
     " }}}
