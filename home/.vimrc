@@ -855,6 +855,9 @@
     augroup END
 
     " }}}
+    " CoffeeScript {{{
+        au FileType coffee nnoremap <c-c><c-c> vip:s/$/ \\<cr>vip<plug>SlimeRegionSend<cr>,\ u
+    " }}}
     " Plain Text {{{
 
     function s:setupWrapping()
