@@ -558,6 +558,8 @@
     " }}}
     " Python-Mode Plugin {{{
 
+        " TODO: Figure out why rope is such a piece of shit.
+        let g:pymode_rope = 0
         " don't let pymode override relativenumber
         " FUCK. YOU. PYMODE.
         let g:pymode_options_other = 0
