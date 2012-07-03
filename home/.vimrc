@@ -559,7 +559,8 @@
     " Python-Mode Plugin {{{
 
         " TODO: Figure out why rope is such a piece of shit.
-        let g:pymode_rope = 0
+        " let g:pymode_rope = 0
+
         " don't let pymode override relativenumber
         " FUCK. YOU. PYMODE.
         let g:pymode_options_other = 0
@@ -571,7 +572,7 @@
         let g:pymode_run = 0
         
         " I don't want pep8 all the time.
-        let g:pymode_lint_checker = "pyflakes"
+        let g:pymode_lint_checker = "pylint"
 
         " I have no clue what this does. But it says if you have a fast comp...
         " let g:pymode_syntax_slow_sync = 0
