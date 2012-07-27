@@ -859,7 +859,13 @@
 
     " }}}
     " CoffeeScript {{{
-        au FileType coffee nnoremap <c-c><c-c> vip:s/$/ \\<cr>vip<plug>SlimeRegionSend<cr>,\ u
+        augroup ft_coffeescript
+            au!
+
+            au FileType coffee nnoremap <c-c><c-c> vip:s/$/ \\<cr>vip<plug>SlimeRegionSend<cr>,\ u
+            au FileType coffee set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
+
+        augroup END
     " }}}
     " Plain Text {{{
 
