@@ -5,7 +5,8 @@
 " they're not in here.
 
 " Not sure if this one has all the right glyphs
-set guifont=Menlo\ for\ Powerline:h12
+" set guifont=Menlo\ for\ Powerline:h12
+set guifont=Mensch\ for\ Powerline:h12
 
 set transparency=3
 " Remove all the UI cruft
