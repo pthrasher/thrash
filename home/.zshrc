@@ -1,7 +1,7 @@
 # important things that need to be loaded first:
 # source /opt/Developer/cinderella.profile
 which virtualenvwrapper.sh > /dev/null && source `which virtualenvwrapper.sh`
-eval "$(rbenv init -)"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
 
 PATH=~/bin:/usr/local/n/current/bin:$PATH
