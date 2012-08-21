@@ -3,10 +3,9 @@
 "
 " I wish I didn't need this fucking file, but some settings get overridden if
 " they're not in here.
-
-" Not sure if this one has all the right glyphs
-" set guifont=Menlo\ for\ Powerline:h12
 set guifont=Mensch\ for\ Powerline:h12
+set bg=light
+colorscheme solarized
 
 set transparency=3
 " Remove all the UI cruft
@@ -35,4 +34,3 @@ nnoremap <D-Down> :set lines+=10<cr>
     " a fucking pile bricks on that plugin once I find out who it is.
     set relativenumber
 " }}}
-

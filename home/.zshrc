@@ -1,3 +1,5 @@
+export GPGKEY=A859BFB8
+#
 # important things that need to be loaded first:
 # source /opt/Developer/cinderella.profile
 which virtualenvwrapper.sh > /dev/null && source `which virtualenvwrapper.sh`
