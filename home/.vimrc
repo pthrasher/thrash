@@ -441,7 +441,7 @@
         augroup ft_html
             au!
 
-            au FileType html,jinja,htmldjango set softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79
+            " au FileType html,jinja,htmldjango set softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79
             au BufNewFile,BufRead *.html setlocal filetype=htmldjango
 
             " Use <localleader>f to fold the current tag.
