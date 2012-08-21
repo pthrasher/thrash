@@ -81,7 +81,7 @@
         Bundle 'tpope/vim-markdown'
         Bundle 'mattn/zencoding-vim'
 
-        Bundle 'gridaphobe/go.vim'
+        Bundle 'fsouza/go.vim'
 
         Bundle 'kchmck/vim-coffee-script'
 
