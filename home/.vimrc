@@ -70,6 +70,10 @@
         Bundle 'Shougo/neocomplcache-snippets-complete'
         Bundle 'Shougo/neocomplcache'
 
+        " On trial: (could be removed at any moment if they do not bring me
+        " exquisite pleasure)
+        Bundle 'tpope/vim-endwise'
+        Bundle 'tpope/vim-eunuch'
     " }}}
 
     " Extra Syntaxes {{{
@@ -281,7 +285,64 @@
     noremap j gj
     noremap k gk
 
+    " Ripped from unimpaired.vim -- didn't want the whole plugin, just these
+    " bindings:
+
+    function! s:BlankUp(count) abort
+        put!=repeat(nr2char(10), a:count)
+        ']+1
+        silent! call repeat#set("\<Plug>unimpairedBlankUp", a:count)
+    endfunction
+
+    function! s:BlankDown(count) abort
+        put =repeat(nr2char(10), a:count)
+        '[-1
+        silent! call repeat#set("\<Plug>unimpairedBlankDown", a:count)
+    endfunction
+
+    nnoremap <silent> <Plug>unimpairedBlankUp   :<C-U>call <SID>BlankUp(v:count1)<CR>
+    nnoremap <silent> <Plug>unimpairedBlankDown :<C-U>call <SID>BlankDown(v:count1)<CR>
+
+    nmap [<Space> <Plug>unimpairedBlankUp
+    nmap ]<Space> <Plug>unimpairedBlankDown
+
+    function! s:Move(cmd, count, map) abort
+        normal! m`
+        exe 'move'.a:cmd.a:count
+        norm! ``
+        silent! call repeat#set("\<Plug>unimpairedMove".a:map, a:count)
+    endfunction
+
+    nnoremap <silent> <Plug>unimpairedMoveUp   :<C-U>call <SID>Move('--',v:count1,'Up')<CR>
+    nnoremap <silent> <Plug>unimpairedMoveDown :<C-U>call <SID>Move('+',v:count1,'Down')<CR>
+    xnoremap <silent> <Plug>unimpairedMoveUp   :<C-U>exe 'normal! m`'<Bar>exe '''<,''>move--'.v:count1<CR>``
+    xnoremap <silent> <Plug>unimpairedMoveDown :<C-U>exe 'normal! m`'<Bar>exe '''<,''>move''>+'.v:count1<CR>``
+
+    nmap [e <Plug>unimpairedMoveUp
+    nmap ]e <Plug>unimpairedMoveDown
+    xmap [e <Plug>unimpairedMoveUp
+    xmap ]e <Plug>unimpairedMoveDown
+
+
+    " I don't really use folding except in this file, but I like these
+    " bindings.
+
+    " Make the current location sane.
+    nnoremap <c-cr> zvzt
+
+    " Space to toggle folds.
+    nnoremap <Space> za
+    vnoremap <Space> za
+
+    " Make zO recursively open whatever top level fold we're in, no matter where the
+    " cursor happens to be.
+    nnoremap zO zCzO
+
+    " Use ,z to "focus" the current fold.
+    nnoremap <leader>z zMzvzz
+
 " }}}
+
 " Plugin Settings {{{
 
     " indent-html {{{
@@ -576,5 +637,10 @@
         augroup END
 
     " }}}
+
+" Ruby {{{
+    " Okay you fuckin' hipsters, I give in... 2 spaces for ruby. Happy?
+    au FileType ruby set softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79
+" }}}
 
 " }}}
