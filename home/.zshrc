@@ -342,6 +342,8 @@ alias gmum='git merge upstream/master'
 alias gmom='git merge origin/master'
 alias gmud='git merge upstream/develop'
 alias gmod='git merge origin/develop'
+alias gl="git log --oneline -n"
+alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 
 # django aliases
 alias mpy='python manage.py'
