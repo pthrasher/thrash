@@ -344,12 +344,14 @@ alias gmud='git merge upstream/develop'
 alias gmod='git merge origin/develop'
 alias gl="git log --oneline -n"
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+alias gignored="git ls-files -o -i --exclude-standard"
 
 # django aliases
 alias mpy='python manage.py'
 alias mpys='python manage.py shell'
 alias mpydbs='python manage.py dbshell'
 alias mpyrs='python manage.py runserver'
+alias mpym='python manage.py migrate'
 alias mpysm='python manage.py schemamigration'
 alias mpysma='python manage.py schemamigration --auto'
 
