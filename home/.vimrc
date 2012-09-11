@@ -54,7 +54,6 @@
         Bundle 'godlygeek/tabular'
         Bundle 'mileszs/ack.vim'
 
-        Bundle 'YankRing.vim'
         Bundle 'scratch.vim'
         Bundle 'kien/ctrlp.vim'
 
