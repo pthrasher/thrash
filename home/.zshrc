@@ -143,7 +143,7 @@ export VIRTUAL_ENV_DISABLE_PROMPT='yeah'
 setopt PROMPT_SUBST
 
 # PROMPT='${FX[reset]}${FG[240]}[%n@%m]$(vcprompt)${venv_prompt} ${FX[reset]}${FG[102]}$paths $fill ${FX[reset]}${FG[245]}[%*]${FX[reset]}'
-PROMPT='${FX[reset]}${FG[093]}➤ ${FX[reset]}'
+PROMPT='${FX[reset]}${FG[093]}> ${FX[reset]}'
 
 precmd() {
     fill=""
