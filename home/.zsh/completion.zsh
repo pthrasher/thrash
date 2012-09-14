@@ -12,7 +12,7 @@ zmodload -i zsh/complist
 
 # Use caching so that commands like apt and dpkg complete are useable
 zstyle ':completion::complete:*' use-cache 1
-zstyle ':completion::complete:*' cache-path ~/.zshcomplcache/
+zstyle ':completion::complete:*' cache-path ~/.zsh/cache/
 
 ## case-insensitive (all),partial-word and then substring completion
 if [ "x$CASE_SENSITIVE" = "xtrue" ]; then
