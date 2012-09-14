@@ -1,3 +1,5 @@
+autoload -U add-zsh-hook
+
 venv_prompt=''
 fill=""
 paths=""

@@ -23,6 +23,8 @@
 #   * z -t foo  # cd to most recently accessed dir matching foo
 #   * z -l foo  # list all dirs matching foo (by frecency)
 
+autoload -U add-zsh-hook
+
 _z() {
 
  local datafile="${_Z_DATA:-$HOME/.z}"
