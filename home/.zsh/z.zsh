@@ -228,8 +228,9 @@ function chpwd () {
     _z --add "$(pwd -P)"
 }
 
-add-zsh-hook precmd z-precmd() {
+function z-precmd() {
     #z.sh stuff:
     _z --add "$(pwd -P)"
-
 }
+
+add-zsh-hook precmd z-precmd

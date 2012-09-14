@@ -8,7 +8,7 @@ setopt PROMPT_SUBST
 # PROMPT='${FX[reset]}${FG[240]}[%n@%m]$(vcprompt)${venv_prompt} ${FX[reset]}${FG[102]}$paths $fill ${FX[reset]}${FG[245]}[%*]${FX[reset]}'
 PROMPT='${FX[reset]}${FG[093]}> ${FX[reset]}'
 
-add-zsh-hook precmd prompt-precmd() {
+function prompt-precmd() {
     fill=""
     paths=""
     if [[ -z $VIRTUAL_ENV ]]; then
@@ -35,3 +35,5 @@ add-zsh-hook precmd prompt-precmd() {
 
     print -rP '${FX[reset]}${FG[240]}[%n@%m]${vcpout}${venv_prompt} ${FX[reset]}${FG[102]}$paths $fill ${FX[reset]}${FG[245]}[%*]${FX[reset]}' 
 }
+
+add-zsh-hook precmd prompt-precmd
