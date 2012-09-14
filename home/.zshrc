@@ -2,10 +2,10 @@ fortune
 
 HOME=/Users/pthrasher
 
-source $HOME/.zsh/env.zsh
 source $HOME/.zsh/options.zsh
-source $HOME/.zsh/prompt.zsh
+source $HOME/.zsh/env.zsh
 source $HOME/.zsh/funcs.zsh
+source $HOME/.zsh/prompt.zsh
 source $HOME/.zsh/aliases.zsh
 source $HOME/.zsh/bindings.zsh
 source $HOME/.zsh/z.zsh
