@@ -43,7 +43,7 @@ hosts=(
   "$HOST"
   localhost
 )
-zstyle ':completion:*:*:ssh' hosts $hosts
+zstyle ':completion:*:hosts' hosts $hosts
 
 
 # Don't complete uninteresting users
