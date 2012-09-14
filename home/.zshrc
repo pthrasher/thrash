@@ -262,7 +262,7 @@ zstyle ':completion:*:*:*:users' ignored-patterns \
         rpc rpcuser rpm shutdown squid sshd sync uucp vcsa xfs
 
 # ... unless we really want to.
-zstyle '*' single-ignored show
+# zstyle '*' single-ignored show
 
 if [ "x$COMPLETION_WAITING_DOTS" = "xtrue" ]; then
   expand-or-complete-with-dots() {
@@ -359,8 +359,23 @@ alias gvim='mvim'
 alias v='mvim'
 export EDITOR='mvim -f'
 
+alias cdblog='z er.gith'
+alias cdconf='z sh/ho'
+alias vimrc='z sh/ho && v .vimrc'
+alias zshrc='z sh/ho && v .zshrc'
+
+function man-preview() {
+    man -t "$@" | open -f -a Preview
+}
+
+alias pman='man-preview'
+
 function random () {
-    cat /dev/urandom | base64 | head -c$1
+    num=$1;
+    if [[ -z $1 ]]; then
+        num=8
+    fi
+    cat /dev/urandom | base64 | head -c4096 | sed 's/[+/]//g' | head -c$num
 }
 
 # Copyright (c) 2009 rupa deadwyler under the WTFPL license
