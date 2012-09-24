@@ -208,6 +208,9 @@
     vnoremap ; :
     inoremap jf <esc>
 
+    " Mapping for the switch plugin.
+    nnoremap - :Switch<cr>
+
     " Key bindings for the align plugin
     vnoremap <leader>a= :Tab /=<cr>
     nnoremap <leader>a= :Tab /=<cr>
