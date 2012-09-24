@@ -172,6 +172,10 @@
 
     set shell=/bin/zsh
 
+    " I know I have defaults here, but I like things to be explicit, and
+    " self-documenting.
+    set matchpairs=(:),{:},[:],<:>
+
     " for terminal vim:
     set bg=dark
     colorscheme wombat256
