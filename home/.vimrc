@@ -387,6 +387,15 @@
 
     " }}}
 
+    " delimitMate {{{
+
+
+        let delimitMate_expand_cr = 1
+        let delimitMate_expand_space = 1
+        
+
+    " }}}
+
     " neocomplecache {{{
 
         " NOTE: There are a lot of settings for this plugin. This config is
@@ -586,6 +595,8 @@
         augroup ft_markdown
             au!
 
+            " Don't load this shit... Srsly.
+            au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} let b:loaded_delimitMate = 1
             au BufNewFile,BufRead *.{md,markdown,mdown,mkd,mkdn} setlocal filetype=markdown
             au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
         augroup END
@@ -600,6 +611,7 @@
             au FileType python setlocal omnifunc=pythoncomplete#Complete
             au FileType python setlocal define=^\s*\\(def\\\\|class\\)
             au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
+            au FileType python let b:delimitMate_nesting_quotes = ['"']
         augroup END
 
 
@@ -640,9 +652,19 @@
 
     " }}}
 
-" Ruby {{{
-    " Okay you fuckin' hipsters, I give in... 2 spaces for ruby. Happy?
-    au FileType ruby set softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79
-" }}}
+    " CoffeeScript {{{
+
+        augroup ft_coffee
+            au!
+
+            au Filetype coffee let b:delimitMate_nesting_quotes = ['"', "'", '`']
+        augroup END
+
+    " }}}
+
+    " Ruby {{{
+        " Okay you fuckin' hipsters, I give in... 2 spaces for ruby. Happy?
+        au FileType ruby set softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79
+    " }}}
 
 " }}}
