@@ -73,6 +73,7 @@
         " exquisite pleasure)
         Bundle 'tpope/vim-endwise'
         Bundle 'tpope/vim-eunuch'
+        Bundle 'switch.vim'
     " }}}
 
     " Extra Syntaxes {{{
