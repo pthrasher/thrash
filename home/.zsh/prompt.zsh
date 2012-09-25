@@ -8,7 +8,7 @@ export VIRTUAL_ENV_DISABLE_PROMPT='yeah'
 setopt PROMPT_SUBST
 
 # PROMPT='${FX[reset]}${FG[240]}[%n@%m]$(vcprompt)${venv_prompt} ${FX[reset]}${FG[102]}$paths $fill ${FX[reset]}${FG[245]}[%*]${FX[reset]}'
-PROMPT='${FX[reset]}${FG[088]}> ${FX[reset]}'
+PROMPT='${FX[reset]}${FG[088]}✖ ${FX[reset]}'
 
 function prompt-precmd() {
     fill=""
@@ -28,14 +28,14 @@ function prompt-precmd() {
 
     vcpout=`vcprompt`
 
-    nofill=`print -P "%n@%m${vcpout}${venv_prompt} ${paths}  [%*]"`
+    nofill=`print -P "%n@%m${vcpout}${venv_prompt} ${paths}  %*"`
     (( pos = ${COLUMNS} - ${#nofill} ))
     while [[ $pos -gt 0 ]] {
         fill="━${fill}"
         (( pos = ${pos} - 1 ))
     }
 
-    print -rP '${FX[reset]}${FG[038]}%n@%m${vcpout}${venv_prompt} ${FX[reset]}${FG[130]}$paths${FX[reset]} ${FX[102]}$fill ${FX[reset]}${FG[245]}[%*]${FX[reset]}' 
+    print -rP '${FX[reset]}${FG[038]}%n@%m${vcpout}${venv_prompt} ${FX[reset]}${FG[130]}$paths${FX[reset]} ${FX[102]}$fill ${FX[reset]}${FG[245]}%*${FX[reset]}' 
 }
 
 add-zsh-hook precmd prompt-precmd
