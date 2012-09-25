@@ -28,7 +28,7 @@ function prompt-precmd() {
 
     vcpout=`vcprompt`
 
-    nofill=`print -P "%n@%m${vcpout}${venv_prompt} ${paths}  [%*]"`
+    nofill=`print -P "%n@%m ${vcpout} ${venv_prompt} ${paths}  [%*]"`
     (( pos = ${COLUMNS} - ${#nofill} ))
     while [[ $pos -gt 0 ]] {
         fill="━${fill}"
