@@ -6,6 +6,11 @@ function npm() {
     n npm $active $@
 }
 
+function backburn () {
+    for i in $@; do
+        mv "$i" /Users/pthrasher/Dropbox/code/backBurner/
+    done
+}
 
 function extract() {
   local remove_archive
