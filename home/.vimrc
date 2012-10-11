@@ -172,10 +172,6 @@
 
     set shell=/bin/zsh
 
-    " I know I have defaults here, but I like things to be explicit, and
-    " self-documenting.
-    set matchpairs=(:),{:},[:],<:>
-
     " for terminal vim:
     set bg=dark
     colorscheme wombat256
@@ -351,6 +347,13 @@
 " }}}
 " Plugin Settings {{{
 
+    " ack.vim {{{
+
+        " the_silver_surfer, no more ack!
+        let g:ackprg = 'ag --nogroup --nocolor --column'
+
+    " }}}
+
     " indent-html {{{
 
         let g:html_indent_inctags = "html,body,head,tbody"
@@ -396,7 +399,7 @@
 
         let delimitMate_expand_cr = 1
         let delimitMate_expand_space = 1
-        
+
 
     " }}}
 
@@ -567,6 +570,13 @@
 
     " Plain Text {{{
 
+        augroup ft_noft
+            au!
+
+            au Filetype noft call s:setupText()
+
+        augroup END
+
         function s:setupWrapping()
             set wrap
             set wm=2
@@ -576,7 +586,7 @@
         function s:setupText()
             setlocal spell
             " setlocal dictionary=/usr/share/dict/words
-            let b:delimitMate_autoclose = 0 
+            let b:loaded_delimitMate = 1 
             call s:setupWrapping()
         endfunction
 
@@ -599,8 +609,6 @@
         augroup ft_markdown
             au!
 
-            " Don't load this shit... Srsly.
-            au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} let b:loaded_delimitMate = 1
             au BufNewFile,BufRead *.{md,markdown,mdown,mkd,mkdn} setlocal filetype=markdown
             au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
         augroup END
@@ -615,7 +623,7 @@
             au FileType python setlocal omnifunc=pythoncomplete#Complete
             au FileType python setlocal define=^\s*\\(def\\\\|class\\)
             au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
-            au FileType python let b:delimitMate_nesting_quotes = ['"']
+            au FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
         augroup END
 
 
@@ -662,6 +670,7 @@
             au!
 
             au Filetype coffee let b:delimitMate_nesting_quotes = ['"', "'", '`']
+            au FileType coffee set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
         augroup END
 
     " }}}
