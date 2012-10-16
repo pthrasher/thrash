@@ -172,9 +172,12 @@
 
     set shell=/bin/zsh
 
-    " for terminal vim:
-    set bg=dark
-    colorscheme wombat256
+    if has("gui_running")
+        " I might put something in here at some point
+    else
+        set background="dark"
+        colorscheme solarized
+    endif
 
 " }}}
 " Generic au commands {{{
