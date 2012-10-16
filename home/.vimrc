@@ -176,6 +176,7 @@
         " I might put something in here at some point
     else
         set background="dark"
+        set t_Co=256
         colorscheme solarized
     endif
 
@@ -368,6 +369,7 @@
     " Powerline {{{
 
         let g:Powerline_symbols = 'fancy'
+        let g:Powerline_theme = 'skwp'
 
     " }}}
 
