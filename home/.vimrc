@@ -266,14 +266,12 @@
 
     " Quick buffer switching - like cmd-tab'ing
     nnoremap <leader><leader> <c-^>
-    
-    "quick buffer switching
-    nnoremap <leader><leader> <c-^>
 
     " Keep search matches in the middle of the window and pulse the line when moving
     " to them.
     nnoremap n nzzzv
     nnoremap N Nzzzv
+
     " Same when jumping around
     nnoremap g; g;zz
     nnoremap g, g,zz
@@ -369,7 +367,6 @@
     " Powerline {{{
 
         let g:Powerline_symbols = 'fancy'
-        let g:Powerline_theme = 'skwp'
 
     " }}}
 
