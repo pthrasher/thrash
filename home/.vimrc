@@ -57,6 +57,8 @@
         Bundle 'scratch.vim'
         Bundle 'kien/ctrlp.vim'
 
+        Bundle 'Conque-Shell'
+
     " }}}
 
     " Programming {{{
