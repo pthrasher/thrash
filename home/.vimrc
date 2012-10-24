@@ -32,30 +32,30 @@
     " Shared libs {{{
 
         Bundle 'gmarik/vundle'
-        Bundle 'L9'
+        " Bundle 'L9'
 
     " }}}
 
     " Colorschemes {{{
 
-        Bundle 'altercation/vim-colors-solarized'
+        " Bundle 'altercation/vim-colors-solarized'
         Bundle 'flazz/vim-colorschemes'
 
     " }}}
 
     " General {{{
 
-        Bundle 'tpope/vim-repeat'
-        Bundle 'tpope/vim-surround'
-        Bundle 'tpope/vim-git'
-        Bundle 'tpope/vim-fugitive'
+        " Bundle 'tpope/vim-repeat'
+        " Bundle 'tpope/vim-surround'
+        " Bundle 'tpope/vim-git'
+        " Bundle 'tpope/vim-fugitive'
 
-        Bundle 'Lokaltog/vim-powerline'
-        Bundle 'godlygeek/tabular'
-        Bundle 'mileszs/ack.vim'
+        " Bundle 'Lokaltog/vim-powerline'
+        " Bundle 'godlygeek/tabular'
+        " Bundle 'mileszs/ack.vim'
 
-        Bundle 'scratch.vim'
-        Bundle 'kien/ctrlp.vim'
+        " Bundle 'scratch.vim'
+        " Bundle 'kien/ctrlp.vim'
 
         Bundle 'Conque-Shell'
 
@@ -63,39 +63,39 @@
 
     " Programming {{{
 
-        Bundle 'Raimondi/delimitMate'
-        Bundle 'tpope/vim-commentary'
-        Bundle 'scrooloose/syntastic'
-        Bundle 'sjl/strftimedammit.vim'
+        " Bundle 'Raimondi/delimitMate'
+        " Bundle 'tpope/vim-commentary'
+        " Bundle 'scrooloose/syntastic'
+        " Bundle 'sjl/strftimedammit.vim'
 
-        Bundle 'Shougo/neocomplcache-snippets-complete'
-        Bundle 'Shougo/neocomplcache'
+        " Bundle 'Shougo/neocomplcache-snippets-complete'
+        " Bundle 'Shougo/neocomplcache'
 
         " On trial: (could be removed at any moment if they do not bring me
         " exquisite pleasure)
-        Bundle 'tpope/vim-endwise'
-        Bundle 'tpope/vim-eunuch'
-        Bundle 'switch.vim'
+        " Bundle 'tpope/vim-endwise'
+        " Bundle 'tpope/vim-eunuch'
+        " Bundle 'switch.vim'
     " }}}
 
     " Extra Syntaxes {{{
 
-        Bundle 'leshill/vim-json'
-        Bundle 'pangloss/vim-javascript'
-        Bundle 'indenthtml.vim'
+        " Bundle 'leshill/vim-json'
+        " Bundle 'pangloss/vim-javascript'
+        " Bundle 'indenthtml.vim'
 
-        Bundle 'tpope/vim-markdown'
-        Bundle 'mattn/zencoding-vim'
+        " Bundle 'tpope/vim-markdown'
+        " Bundle 'mattn/zencoding-vim'
 
-        Bundle 'fsouza/go.vim'
+        " Bundle 'fsouza/go.vim'
 
-        Bundle 'kchmck/vim-coffee-script'
+        " Bundle 'kchmck/vim-coffee-script'
 
-        Bundle 'skammer/vim-css-color'
-        Bundle 'hail2u/vim-css3-syntax'
-        Bundle 'groenewege/vim-less'
+        " Bundle 'skammer/vim-css-color'
+        " Bundle 'hail2u/vim-css3-syntax'
+        " Bundle 'groenewege/vim-less'
 
-        Bundle 'spf13/PIV'
+        " Bundle 'spf13/PIV'
 
     " }}}
 
