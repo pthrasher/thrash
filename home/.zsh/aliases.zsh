@@ -1,7 +1,6 @@
 alias serve='python -m SimpleHTTPServer'
 alias x=extract
 
-
 # Push and pop directories on directory stack
 alias pu='pushd'
 alias po='popd'
@@ -55,6 +54,6 @@ alias mpysm='python manage.py schemamigration'
 alias mpysma='python manage.py schemamigration --auto'
 
 alias gvim='mvim'
-alias v='mvim'
+alias v='vim'
 
 alias pman='man-preview'

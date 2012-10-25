@@ -1,5 +1,5 @@
 export GPGKEY=A859BFB8
-export EDITOR='mvim -f'
+export EDITOR='vim -f'
 export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
 PATH=~/bin:/usr/local/n/current/bin:/usr/local/bin:$PATH
 
@@ -30,9 +30,6 @@ then
   # Find the option for using colors in ls, depending on the version: Linux or BSD
   ls --color -d . &>/dev/null 2>&1 && alias ls='ls --color=tty' || alias ls='ls -G'
 fi
-
-export GREP_OPTIONS='--color=auto'
-export GREP_COLOR='1;32'
 
 # Less Colors for Man Pages
 # http://linuxtidbits.wordpress.com/2009/03/23/less-colors-for-man-pages/
