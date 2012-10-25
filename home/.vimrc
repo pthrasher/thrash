@@ -57,12 +57,11 @@
         Bundle 'scratch.vim'
         Bundle 'kien/ctrlp.vim'
 
-        Bundle 'pthrasher/conqueterm-vim'
-
     " }}}
 
     " Programming {{{
 
+        Bundle 'basilgor/vim-autotags'
         Bundle 'Raimondi/delimitMate'
         Bundle 'tpope/vim-commentary'
         Bundle 'scrooloose/syntastic'
@@ -178,7 +177,8 @@
     if has("gui_running")
         " I might put something in here at some point
     else
-        set background="dark"
+        set background="light"
+        colorscheme reliable
         set t_Co=256
         colorscheme solarized
     endif
