@@ -98,13 +98,13 @@ __ui_right() {
     local bg_right="$2"
     local fg_right="$3"
     local separator="$4"
-    local separator_fg="$5"
+    local separator_fg
     if [ -n "$5" ]; then
 	separator_fg="$5"
     else
 	separator_fg="$bg_right"
     fi
-    echo -n " #[fg=${separator_fg}, bg=${bg_left}]${separator}#[fg=${fg_right},bg=${bg_right}] "
+    echo -n "${separator} #[fg=${separator_fg}, bg=${bg_left}]${separator}#[fg=${fg_right},bg=${bg_right}] "
 }
 
 # Internal printer for left.
