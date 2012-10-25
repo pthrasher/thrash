@@ -5,7 +5,7 @@
 " they're not in here.
 set guifont=Mensch\ for\ Powerline:h12
 set bg=light
-colorscheme reliable
+colorscheme brackets2
 
 set transparency=3
 " Remove all the UI cruft

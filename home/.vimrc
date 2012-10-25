@@ -38,8 +38,9 @@
 
     " Colorschemes {{{
 
-        Bundle 'altercation/vim-colors-solarized'
-        Bundle 'flazz/vim-colorschemes'
+        " Bundle 'altercation/vim-colors-solarized'
+        " Bundle 'flazz/vim-colorschemes'
+        Bundle 'pthrasher/brackets2-vim'
 
     " }}}
 
@@ -178,9 +179,8 @@
         " I might put something in here at some point
     else
         set background="light"
-        colorscheme reliable
         set t_Co=256
-        colorscheme solarized
+        colorscheme brackets2
     endif
 
 " }}}
