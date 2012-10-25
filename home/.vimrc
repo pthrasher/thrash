@@ -38,9 +38,9 @@
 
     " Colorschemes {{{
 
-        " Bundle 'altercation/vim-colors-solarized'
+        Bundle 'altercation/vim-colors-solarized'
         " Bundle 'flazz/vim-colorschemes'
-        Bundle 'pthrasher/brackets2-vim'
+        " Bundle 'pthrasher/brackets2-vim'
 
     " }}}
 
@@ -178,9 +178,9 @@
     if has("gui_running")
         " I might put something in here at some point
     else
-        set background="light"
+        set background="dark"
         set t_Co=256
-        colorscheme brackets2
+        colorscheme solarized
     endif
 
 " }}}
