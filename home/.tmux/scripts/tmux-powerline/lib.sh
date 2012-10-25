@@ -35,30 +35,29 @@ register_segment() {
 
 print_status_line_right() {
     local prev_bg="colour235"
-    echo -n '#[fg=colour136, bg=colour235]${separator_left_thin}'
     for entry in ${entries[*]}; do
-        local script=$(eval echo \${${entry}["script"]})
-        local foreground=$(eval echo \${${entry}["foreground"]})
-        local background=$(eval echo \${${entry}["background"]})
-        local separator=$(eval echo \${${entry}["separator"]})
-        local separator_fg=""
-        if [ $(eval echo \${${entry}["separator_fg"]+_}) ];then
-            separator_fg=$(eval echo \${${entry}["separator_fg"]})
-        fi
+	local script=$(eval echo \${${entry}["script"]})
+	local foreground=$(eval echo \${${entry}["foreground"]})
+	local background=$(eval echo \${${entry}["background"]})
+	local separator=$(eval echo \${${entry}["separator"]})
+	local separator_fg=""
+	if [ $(eval echo \${${entry}["separator_fg"]+_}) ];then
+	    separator_fg=$(eval echo \${${entry}["separator_fg"]})
+	fi
 
-        # Can't be declared local if we want the exit code.
-        output=$(${script})
-        local exit_code="$?"
-        if [ "$exit_code" -ne 0 ]; then
-            echo "Segment ${script} exited with code ${exit_code}. Aborting."
-            exit 1
-        elif [ -z "$output" ]; then
-            continue
-        fi
-        __ui_right "$prev_bg" "$background" "$foreground" "$separator" "$separator_fg"
-        echo -n "$output"
-        unset output
-        prev_bg="$background"
+	# Can't be declared local if we want the exit code.
+	output=$(${script})
+	local exit_code="$?"
+	if [ "$exit_code" -ne 0 ]; then
+	    echo "Segment ${script} exited with code ${exit_code}. Aborting."
+	    exit 1
+	elif [ -z "$output" ]; then
+	    continue
+	fi
+	__ui_right "$prev_bg" "$background" "$foreground" "$separator" "$separator_fg"
+	echo -n "$output"
+	unset output
+	prev_bg="$background"
     done
     # End in a clean state.
     echo "#[default]"
@@ -68,17 +67,17 @@ first_segment_left=1
 print_status_line_left() {
     prev_bg="colour148"
     for entry in ${entries[*]}; do
-    local script=$(eval echo \${${entry}["script"]})
-    local foreground=$(eval echo \${${entry}["foreground"]})
-    local background=$(eval echo \${${entry}["background"]})
-    local separator=$(eval echo \${${entry}["separator"]})
-    local separator_fg=""
-    if [ $(eval echo \${${entry}["separator_fg"]+_}) ];then
-        separator_fg=$(eval echo \${${entry}["separator_fg"]})
-    fi
+	local script=$(eval echo \${${entry}["script"]})
+	local foreground=$(eval echo \${${entry}["foreground"]})
+	local background=$(eval echo \${${entry}["background"]})
+	local separator=$(eval echo \${${entry}["separator"]})
+	local separator_fg=""
+	if [ $(eval echo \${${entry}["separator_fg"]+_}) ];then
+	    separator_fg=$(eval echo \${${entry}["separator_fg"]})
+	fi
 
-    local output=$(${script})
-    if [ -n "$output" ]; then
+	local output=$(${script})
+	if [ -n "$output" ]; then
             __ui_left "$prev_bg" "$background" "$foreground" "$separator" "$separator_fg"
             echo -n "$output"
             prev_bg="$background"
@@ -99,11 +98,11 @@ __ui_right() {
     local bg_right="$2"
     local fg_right="$3"
     local separator="$4"
-    local separator_fg
+    local separator_fg="$5"
     if [ -n "$5" ]; then
-    separator_fg="$5"
+	separator_fg="$5"
     else
-    separator_fg="$bg_right"
+	separator_fg="$bg_right"
     fi
     echo -n " #[fg=${separator_fg}, bg=${bg_left}]${separator}#[fg=${fg_right},bg=${bg_right}] "
 }
@@ -115,27 +114,27 @@ __ui_left() {
     local fg_right="$3"
     local separator
     if [ "$first_segment_left" -eq "1" ]; then
-    separator=""
+	separator=""
     else
-    separator="$4"
+	separator="$4"
     fi
 
     local separator_bg
     if [ -n "$5" ]; then
-    bg_left="$5"
-    separator_bg="$bg_right"
+	bg_left="$5"
+	separator_bg="$bg_right"
     else
-    separator_bg="$bg_right"
+	separator_bg="$bg_right"
     fi
 
     if [ "$first_segment_left" -eq "1" ]; then
-    echo -n "#[bg=${bg_right}]"
+	echo -n "#[bg=${bg_right}]"
     fi
 
     echo -n " #[fg=${bg_left}, bg=${separator_bg}]${separator}#[fg=${fg_right},bg=${bg_right}]"
 
     if [ "$first_segment_left" -ne "1" ]; then
-    echo -n " "
+	echo -n " "
     fi
 }
 
@@ -147,8 +146,8 @@ get_tmux_cwd() {
     #local env_val=$(tmux show-environment "$env_name" 2>&1)
 
     if [[ ! $env_val =~ "unknown variable" ]]; then
-    local tmux_pwd=$(echo "$env_val" | sed 's/^.*=//')
-    echo "$tmux_pwd"
+	local tmux_pwd=$(echo "$env_val" | sed 's/^.*=//')
+	echo "$tmux_pwd"
     fi
 }
 
@@ -158,7 +157,7 @@ mute_status_check() {
     local tmux_session=$(tmux display -p "#S")
     local mute_file="${tp_tmpdir}/mute_${tmux_session}_${side}"
     if [ -e  "$mute_file" ]; then
-    exit
+	exit
     fi
 }
 
@@ -168,9 +167,9 @@ mute_status() {
     local tmux_session=$(tmux display -p "#S")
     local mute_file="${tp_tmpdir}/mute_${tmux_session}_${side}"
     if [ -e  "$mute_file" ]; then
-    rm "$mute_file"
+	rm "$mute_file"
     else
-    touch "$mute_file"
+	touch "$mute_file"
     fi
 }
 
@@ -179,34 +178,34 @@ mute_status() {
 # arg2: max length to display.
 # arg3: roll speed in characters per second.
 roll_stuff() {
-    local stuff="$1"    # Text to print
+    local stuff="$1"	# Text to print
     if [ -z "$stuff" ]; then
-        return;
+    	return;
     fi
-    local max_len="10"  # Default max length.
+    local max_len="10"	# Default max length.
     if [ -n "$2" ]; then
-        max_len="$2"
+    	max_len="$2"
     fi
-    local speed="1" # Default roll speed in chars per second.
+    local speed="1"	# Default roll speed in chars per second.
     if [ -n "$3" ]; then
-        speed="$3"
+    	speed="$3"
     fi
     # Anything starting with 0 is an Octal number in Shell,C or Perl,
     # so we must explicityly state the base of a number using base#number
     local offset=$((10#$(date +%s) * ${speed} % ${#stuff}))
     # Truncate stuff.
     stuff=${stuff:offset}
-    local char  # Character.
+    local char	# Character.
     local bytes # The bytes of one character.
     local index
     for ((index=0; index < max_len; index++)); do
-        char=${stuff:index:1}
-        bytes=$(echo -n $char | wc -c)
-        # The character will takes twice space
-        # of an alphabet if (bytes > 1).
-        if ((bytes > 1)); then
+      	char=${stuff:index:1}
+      	bytes=$(echo -n $char | wc -c)
+      	# The character will takes twice space
+      	# of an alphabet if (bytes > 1).
+      	if ((bytes > 1)); then
             max_len=$((max_len - 1))
-        fi
+      	fi
     done
     stuff=${stuff:0:max_len}
     #echo "index=${index} max=${max_len} len=${#stuff}"
@@ -214,7 +213,7 @@ roll_stuff() {
     # the length of stuff that will be shown?
     local fill_count=$((${index} - ${#stuff}))
     for ((index=0; index < fill_count; index++)); do
-        stuff="${stuff} "
+      	stuff="${stuff} "
     done
     echo "${stuff}"
 }
