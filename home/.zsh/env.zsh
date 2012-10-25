@@ -1,5 +1,5 @@
 export GPGKEY=A859BFB8
-export EDITOR='vim -f'
+export EDITOR='mvim -f'
 export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
 PATH=~/bin:/usr/local/n/current/bin:/usr/local/bin:$PATH
 

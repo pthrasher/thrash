@@ -54,6 +54,6 @@ alias mpysm='python manage.py schemamigration'
 alias mpysma='python manage.py schemamigration --auto'
 
 alias gvim='mvim'
-alias v='vim'
+alias v='mvim'
 
 alias pman='man-preview'
