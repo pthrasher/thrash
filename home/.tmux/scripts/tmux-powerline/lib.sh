@@ -35,6 +35,7 @@ register_segment() {
 
 print_status_line_right() {
     local prev_bg="colour235"
+    echo -n "#[fg=colour136, bg=colour235]${separator_left_thin}"
     for entry in ${entries[*]}; do
         local script=$(eval echo \${${entry}["script"]})
         local foreground=$(eval echo \${${entry}["foreground"]})
