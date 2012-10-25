@@ -104,7 +104,7 @@ __ui_right() {
     else
 	separator_fg="$bg_right"
     fi
-    echo -n " #[fg=${separator_fg}, bg=${bg_left}]${separator}#[fg=${fg_right},bg=${bg_right}] "
+    echo -n "${separator} #[fg=${separator_fg}, bg=${bg_left}]${separator}#[fg=${fg_right},bg=${bg_right}] "
 }
 
 # Internal printer for left.
