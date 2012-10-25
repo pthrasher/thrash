@@ -23,7 +23,7 @@ pwd+=(["script"]="${segments_path}/pwd.sh")
 pwd+=(["foreground"]="colour211")
 pwd+=(["background"]="colour89")
 pwd+=(["separator"]="${separator_left_bold}")
-register_segment "pwd"
+#register_segment "pwd"
 
 declare -A mail_count
 mail_count+=(["script"]="${segments_path}/mail_count_maildir.sh")
