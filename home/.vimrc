@@ -68,7 +68,7 @@
         Bundle 'scrooloose/syntastic'
         Bundle 'sjl/strftimedammit.vim'
 
-        Bundle 'Shougo/neocomplcache-snippets-complete'
+        Bundle 'Shougo/neosnippet'
         Bundle 'Shougo/neocomplcache'
 
         " On trial: (could be removed at any moment if they do not bring me
