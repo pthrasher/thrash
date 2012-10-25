@@ -40,7 +40,7 @@
 
         " Bundle 'altercation/vim-colors-solarized'
         " Bundle 'flazz/vim-colorschemes'
-        " Bundle 'pthrasher/brackets2-vim'
+        Bundle 'pthrasher/brackets2-vim'
 
     " }}}
 
