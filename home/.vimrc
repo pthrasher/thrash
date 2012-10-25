@@ -77,6 +77,9 @@
         Bundle 'tpope/vim-eunuch'
         Bundle 'switch.vim'
 
+        Bundle 'Shougo/vimproc'
+        Bundle 'Shougo/vimshell'
+
     " }}}
 
     " Extra Syntaxes {{{
