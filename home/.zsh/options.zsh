@@ -21,6 +21,3 @@ zle -N self-insert url-quote-magic
 
 ## jobs
 setopt long_list_jobs
-
-# Dircolors
-eval `dircolors ~/.zsh/dircolors.ansi-dark`
