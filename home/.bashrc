@@ -30,4 +30,4 @@ export HISTCONTROL=erasedups
 # resize history size
 export HISTSIZE=5000
 export LSCOLORS='Gxfxcxdxdxegedabagacad'
-PS1='\W)';
+PS1='<\W>$ ';
