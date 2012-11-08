@@ -296,7 +296,7 @@
     nnoremap k gk
 
     " conqueterm
-    nnoremap <leader>S :ConqueTermVSplit bash<cr>
+    nnoremap <silent><leader>S :ConqueTermVSplit bash<cr>
 
     " Ripped from unimpaired.vim -- didn't want the whole plugin, just these
     " bindings:
