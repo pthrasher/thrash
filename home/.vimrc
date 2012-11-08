@@ -292,8 +292,11 @@
     nnoremap <silent> <leader>? :execute "Ack! '" . substitute(substitute(substitute(@/, "\\\\<", "\\\\b", ""), "\\\\>", "\\\\b", ""), "\\\\v", "", "") . "'"<CR>
 
     " Visual line nav, not real line nav
-    noremap j gj
-    noremap k gk
+    nnoremap j gj
+    nnoremap k gk
+
+    " conqueterm
+    nnoremap <leader>S :ConqueTermVSplit bash -c 'source ~/.bash_profile'<cr>
 
     " Ripped from unimpaired.vim -- didn't want the whole plugin, just these
     " bindings:
@@ -387,8 +390,8 @@
 
     " Commentary {{{
 
-        nmap <leader>c <Plug>CommentaryLine
-        xmap <leader>c <Plug>Commentary
+        nnoremap <leader>c <Plug>CommentaryLine
+        vnoremap <leader>c <Plug>Commentary
 
     " }}}
 
