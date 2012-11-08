@@ -77,8 +77,7 @@
         Bundle 'tpope/vim-eunuch'
         Bundle 'switch.vim'
 
-        Bundle 'Shougo/vimproc'
-        Bundle 'Shougo/vimshell'
+        Bundle 'pthrasher/conqueterm-vim'
 
     " }}}
 
@@ -176,7 +175,7 @@
     set wildignore+=migrations                       " Django migrations
     set wildignore+=*.pyc                            " Python byte code
 
-    set shell=/bin/zsh
+    set shell=/bin/bash
 
     if has("gui_running")
         " I might put something in here at some point
