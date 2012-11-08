@@ -357,6 +357,10 @@
 " }}}
 " Plugin Settings {{{
 
+    " ConqueTerm {{{
+        let g:ConqueTerm_StartMessages = 0
+    " }}}
+
     " ack.vim {{{
 
         " the_silver_surfer, no more ack!
