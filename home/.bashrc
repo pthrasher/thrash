@@ -1,3 +1,4 @@
+set -o vi
 alias sl=ls
 alias ls='ls -G'        # Compact view, show colors
 alias la='ls -AF'       # Compact view, show hidden

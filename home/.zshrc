@@ -1,3 +1,6 @@
+# vim key bindings
+bindkey -v
+
 fortune
 
 HOME=/Users/pthrasher

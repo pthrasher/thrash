@@ -64,7 +64,6 @@
 
         Bundle 'basilgor/vim-autotags'
         Bundle 'Raimondi/delimitMate'
-        Bundle 'tpope/vim-commentary'
         Bundle 'scrooloose/syntastic'
         Bundle 'sjl/strftimedammit.vim'
 
@@ -101,6 +100,8 @@
         Bundle 'spf13/PIV'
 
     " }}}
+
+        Bundle 'tpope/vim-commentary'
 
 " }}}
 " General Config {{{
