@@ -1,3 +1,5 @@
+alias nw="/Applications/node-webkit.app/Contents/MacOS/node-webkit"
+
 alias serve='python -m SimpleHTTPServer'
 alias x=extract
 
