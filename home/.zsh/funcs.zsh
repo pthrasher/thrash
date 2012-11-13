@@ -6,6 +6,10 @@ function npm() {
     n npm $active $@
 }
 
+function groot() {
+    cd $(git rev-parse --show-cdup);
+}
+
 function backburn () {
     for i in $@; do
         mv "$i" /Users/pthrasher/Dropbox/code/backBurner/
