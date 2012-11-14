@@ -29,6 +29,7 @@ alias cdconf='z sh/ho'
 alias vimrc='z sh/ho && v .vimrc'
 alias zshrc='z sh/ho && v .zshrc'
 
+
 # GIT Aliases
 alias g='git'
 alias gcam='git add .; git commit -avm "$(scrape http://whatthecommit.com/ 'p:first-child')"'
