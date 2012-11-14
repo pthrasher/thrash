@@ -31,6 +31,7 @@ alias zshrc='z sh/ho && v .zshrc'
 
 # GIT Aliases
 alias g='git'
+alias gcam='git add .; git commit -avm "$(scrape http://whatthecommit.com/ 'p:first-child')"'
 alias gst='git status'
 alias gca='git commit -v -a -m'
 alias gco='git checkout'
