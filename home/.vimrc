@@ -64,7 +64,7 @@
 
         " Bundle 'basilgor/vim-autotags'
         Bundle 'Raimondi/delimitMate'
-        " Bundle 'scrooloose/syntastic'
+        Bundle 'scrooloose/syntastic'
         Bundle 'sjl/strftimedammit.vim'
         Bundle 'tpope/vim-commentary'
 
@@ -409,15 +409,6 @@
 
     " }}}
 
-    " delimitMate {{{
-
-
-        let delimitMate_expand_cr = 1
-        let delimitMate_expand_space = 1
-
-
-    " }}}
-
     " neocomplecache {{{
 
         " NOTE: There are a lot of settings for this plugin. This config is
@@ -635,8 +626,6 @@
         augroup ft_python
             au!
 
-            au FileType python setlocal omnifunc=pythoncomplete#Complete
-            au FileType python setlocal define=^\s*\\(def\\\\|class\\)
             au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
             au FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
         augroup END
