@@ -62,9 +62,9 @@
 
     " Programming {{{
 
-        Bundle 'basilgor/vim-autotags'
+        " Bundle 'basilgor/vim-autotags'
         Bundle 'Raimondi/delimitMate'
-        Bundle 'scrooloose/syntastic'
+        " Bundle 'scrooloose/syntastic'
         Bundle 'sjl/strftimedammit.vim'
         Bundle 'tpope/vim-commentary'
 
