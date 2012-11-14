@@ -66,6 +66,7 @@
         Bundle 'Raimondi/delimitMate'
         Bundle 'scrooloose/syntastic'
         Bundle 'sjl/strftimedammit.vim'
+        Bundle 'tpope/vim-commentary'
 
         Bundle 'Shougo/neosnippet'
         Bundle 'Shougo/neocomplcache'
@@ -100,8 +101,6 @@
         Bundle 'spf13/PIV'
 
     " }}}
-
-        Bundle 'tpope/vim-commentary'
 
 " }}}
 " General Config {{{
@@ -395,17 +394,18 @@
 
     " Commentary {{{
 
-        nnoremap <leader>c <Plug>CommentaryLine
-        vnoremap <leader>c <Plug>Commentary
+        nnoremap <leader>c :CommentaryLine<cr>
+        vnoremap <leader>c :Commentary<cr>
 
     " }}}
 
     " Syntastic {{{
 
         let g:syntastic_enable_signs = 1
-        let g:syntastic_disabled_filetypes = ['html', 'py']
+        let g:syntastic_disabled_filetypes = ['html', 'py', 'python', 'python.django']
         let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
         let g:syntastic_jsl_conf = '$HOME/.vim/jsl.conf'
+        let g:syntastic_error_symbol='✖'
 
     " }}}
 
