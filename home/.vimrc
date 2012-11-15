@@ -67,6 +67,7 @@
         Bundle 'scrooloose/syntastic'
         Bundle 'sjl/strftimedammit.vim'
         Bundle 'tpope/vim-commentary'
+        Bundle 'klen/python-mode'
 
         Bundle 'Shougo/neosnippet'
         Bundle 'Shougo/neocomplcache'
@@ -407,7 +408,6 @@
                                    \ 'passive_filetypes': ['python', 'python.django', 'html' ] }
         let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
         let g:syntastic_jsl_conf = '$HOME/.vim/jsl.conf'
-        let g:syntastic_error_symbol=' ✖'
 
     " }}}
 
