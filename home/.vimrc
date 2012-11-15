@@ -402,10 +402,12 @@
     " Syntastic {{{
 
         let g:syntastic_enable_signs = 1
-        let g:syntastic_disabled_filetypes = ['html', 'py', 'python', 'python.django']
+        let g:syntastic_mode_map = { 'mode': 'active',
+                                   \ 'active_filetypes': [],
+                                   \ 'passive_filetypes': ['python', 'python.django', 'html' ] }
         let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
         let g:syntastic_jsl_conf = '$HOME/.vim/jsl.conf'
-        let g:syntastic_error_symbol='✖'
+        let g:syntastic_error_symbol=' ✖'
 
     " }}}
 
