@@ -73,6 +73,8 @@
         Bundle 'Shougo/neosnippet'
         Bundle 'Shougo/neocomplcache'
 
+        Bundle 'guileen/vim-node'
+
         " On trial: (could be removed at any moment if they do not bring me
         " exquisite pleasure)
         Bundle 'tpope/vim-endwise'
@@ -167,6 +169,8 @@
 
     set wildmenu " cmd line completion a-la zsh
     set wildmode=list:longest " matches mimic that of bash or zsh
+    set wildignore+=node_modules                     " node_modules dir
+    set wildignore+=.ropeproject                     " py rope cache dir
     set wildignore+=.hg,.git,.svn                    " Version control
     set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
     set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
@@ -585,6 +589,7 @@
             " positioned inside of them AND the following code doesn't get unfolded.
             " au Filetype javascript inoremap <buffer> {<cr> {}<left><cr><space><space><space><space>.<cr><esc>kA<bs>
             au FileType javascript set softtabstop=4 tabstop=4 shiftwidth=4
+            au FileType javascript set dictionary+=$HOME/.vim/dict/node.dict
         augroup END
 
     " }}}
@@ -690,6 +695,7 @@
 
             au Filetype coffee let b:delimitMate_nesting_quotes = ['"', "'", '`']
             au FileType coffee set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
+            au FileType coffee set dictionary+=$HOME/.vim/dict/node.dict
         augroup END
 
     " }}}
