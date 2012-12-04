@@ -38,6 +38,7 @@
 
     " Colorschemes {{{
 
+        Bundle 'pthrasher/daylerees-vim-colours'
         Bundle 'altercation/vim-colors-solarized'
         " Bundle 'flazz/vim-colorschemes'
         " Bundle 'pthrasher/brackets2-vim'
