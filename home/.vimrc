@@ -214,6 +214,9 @@
     let mapleader = ","
     let maplocalleader = "\\"
 
+    " for python, auto-pep8
+    nnoremap <leader>8 :PyLintAuto<cr>
+
     " Less chording
     nnoremap ; :
     vnoremap ; :
@@ -487,6 +490,15 @@
 
         let g:ctrlp_map = '<c-t>'
         let g:ctrlp_max_height = 30
+
+    " }}}
+
+    " Python-Mode {{{
+
+        let g:pymode_doc = 0
+        let g:pymode_lint_ignore = "E2,W"
+        let g:pymode_lint_cwindow = 0
+        let g:pymode_folding = 0
 
     " }}}
 
