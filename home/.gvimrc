@@ -31,6 +31,6 @@ nnoremap <D-Down> :set lines+=10<cr>
     " Stuff here doesn't work properly unless called last.
 
     " Some stupid god damn plugin keeps overriding this. I'm going to shit
-    " a fucking pile bricks on that plugin once I find out who it is.
+    " a fucking pile of bricks on that plugin once I find out who it is.
     set relativenumber
 " }}}
