@@ -4,8 +4,8 @@
 " I wish I didn't need this fucking file, but some settings get overridden if
 " they're not in here.
 set guifont=Mensch\ for\ Powerline:h12
-set bg=light
-colorscheme SnappyLight
+set bg=dark
+colorscheme solarized
 
 set transparency=3
 " Remove all the UI cruft
