@@ -61,3 +61,9 @@ alias gvim='mvim'
 alias v='mvim'
 
 alias pman='man-preview'
+
+# js libs I grab often.
+alias jquery='wget http://code.jquery.com/jquery-1.8.3.min.js'
+alias underscore='wget http://underscorejs.org/underscore-min.js'
+alias backbone='wget http://backbonejs.org/backbone-min.js'
+
