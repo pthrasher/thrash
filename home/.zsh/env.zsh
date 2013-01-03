@@ -1,7 +1,7 @@
 export GPGKEY=A859BFB8
 export EDITOR='mvim -f'
 export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
-PATH=~/bin:/usr/local/n/current/bin:/usr/local/bin:~/bin/depot_tools:$PATH
+PATH=~/bin:/usr/local/n/current/bin:/usr/local/bin:~/bin/depot_tools:$PATH:/usr/local/go/bin
 
 # Command history configuration
 HISTFILE=$HOME/.zsh/cmdhistory
