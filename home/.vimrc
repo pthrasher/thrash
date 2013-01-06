@@ -82,6 +82,8 @@
         Bundle 'switch.vim'
 
         Bundle 'pthrasher/conqueterm-vim'
+        Bundle 'fsouza/go.vim'
+
 
     " }}}
 
