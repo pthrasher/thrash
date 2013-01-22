@@ -28,6 +28,7 @@ alias cdblog='z er.gith'
 alias cdconf='z sh/ho'
 alias vimrc='z sh/ho && v .vimrc'
 alias zshrc='z sh/ho && v .zshrc'
+alias confpush='gcam && gpo && homesick pull thrash'
 
 
 # GIT Aliases
