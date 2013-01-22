@@ -5,11 +5,11 @@ export VIRTUAL_ENV_DISABLE_PROMPT='yeah'
 PROMPT="    ${FG[240]}¬ %c:${FX[reset]} "
 
 function prompt-precmd() {
-    print -rP "\n"
+    echo "\n"
 }
 
 function prompt-preexec() {
-    print -rP "\n"
+    echo "\n"
 }
 
 add-zsh-hook precmd prompt-precmd
