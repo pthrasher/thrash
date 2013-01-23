@@ -6,7 +6,7 @@ export VCPROMPT_FORMAT=" %n:%b%m%u "
 venv_prompt=''
 
 PROMPT="    ¬${FG[240]} %c${FX[reset]}: "
-RPROMPT="$(vcprompt)${venv_prompt}"
+RPROMPT="${FG[240]}$(vcprompt)${venv_prompt}${FX[reset]}"
 
 function prompt-precmd() {
     echo ""
@@ -15,7 +15,7 @@ function prompt-precmd() {
     else
         venv_prompt="[$(basename "$VIRTUAL_ENV")]"
     fi
-    RPROMPT="$(vcprompt)${venv_prompt}"
+    RPROMPT="${FG[240]}$(vcprompt)${venv_prompt}${FX[reset]}"
 }
 
 function prompt-preexec() {
