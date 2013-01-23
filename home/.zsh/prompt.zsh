@@ -13,10 +13,10 @@ function prompt-precmd() {
     if [[ -z $VIRTUAL_ENV ]]; then
         venv_prompt=""
     else
-        venv_prompt=":$(basename "$VIRTUAL_ENV")"
+        venv_prompt="venv:$(basename "$VIRTUAL_ENV")"
     fi
     vcpout=`vcprompt`
-    RPROMPT="${FG[247]}${vcpout}${venv_prompt}${FX[reset]}"
+    RPROMPT="${FG[248]}${vcpout}${venv_prompt}${FX[reset]}"
 }
 
 function prompt-preexec() {
