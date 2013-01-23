@@ -2,8 +2,11 @@ autoload -U add-zsh-hook
 setopt PROMPT_SUBST
 
 export VIRTUAL_ENV_DISABLE_PROMPT='yeah'
+export VCPROMPT_FORMAT=" %n:%b%m%u "
+venv_prompt=''
+
 PROMPT="    ¬${FG[240]} %c${FX[reset]}: "
-RPROMPT="BOOM$(vcprompt)${venv_prompt}"
+RPROMPT="$(vcprompt)${venv_prompt}"
 
 function prompt-precmd() {
     echo ""
