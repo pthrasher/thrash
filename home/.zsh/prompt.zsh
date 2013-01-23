@@ -3,7 +3,7 @@ setopt PROMPT_SUBST
 
 export VIRTUAL_ENV_DISABLE_PROMPT='yeah'
 PROMPT="    ¬${FG[240]} %c${FX[reset]}: "
-RPROMPT="$(vcprompt)${venv_prompt}"
+RPROMPT="BOOM$(vcprompt)${venv_prompt}"
 
 function prompt-precmd() {
     echo ""
