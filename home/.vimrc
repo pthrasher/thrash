@@ -220,6 +220,9 @@
     let mapleader = ","
     let maplocalleader = "\\"
 
+    " Paste in insert mode.
+    inoremap <C-r> <C-r>"
+
     " for python, auto-pep8
     nnoremap <leader>8 :PyLintAuto<cr>
 
