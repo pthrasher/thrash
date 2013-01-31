@@ -1,10 +1,10 @@
 # I use `n` -- this makes npm always work for the current version of node I'm
 # running.
-function npm() {
-    active=$(node --version);
-    active=${active#v};
-    n npm $active $@
-}
+# function npm() {
+#     active=$(node --version);
+#     active=${active#v};
+#     n npm $active $@
+# }
 
 function groot() {
     cd $(git rev-parse --show-cdup);
