@@ -88,6 +88,7 @@
     " }}}
 
     " Extra Syntaxes {{{
+        Bundle 'digitaltoad/vim-jade'
 
         Bundle 'leshill/vim-json'
         Bundle 'pangloss/vim-javascript'
