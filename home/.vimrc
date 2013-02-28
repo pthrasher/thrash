@@ -64,14 +64,15 @@
     " Programming {{{
 
         " Bundle 'basilgor/vim-autotags'
+        Bundle 'Valloric/YouCompleteMe'
         Bundle 'Raimondi/delimitMate'
         Bundle 'scrooloose/syntastic'
         Bundle 'sjl/strftimedammit.vim'
         Bundle 'tpope/vim-commentary'
         Bundle 'klen/python-mode'
 
-        Bundle 'Shougo/neosnippet'
-        Bundle 'Shougo/neocomplcache'
+        " Bundle 'Shougo/neosnippet'
+        " Bundle 'Shougo/neocomplcache'
 
         Bundle 'guileen/vim-node'
 
@@ -422,77 +423,6 @@
                                    \ 'passive_filetypes': ['python', 'python.django', 'html' ] }
         let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
         let g:syntastic_jsl_conf = '$HOME/.vim/jsl.conf'
-
-    " }}}
-
-    " neocomplecache {{{
-
-        " NOTE: There are a lot of settings for this plugin. This config is
-        " very fragile. I don't exactly understand what everything in here
-        " does, but if you fuck with it, neocomplcache doesn't do what you
-        " want, so here it is. After much work / effort / trial and error, the
-        " below config works as closely to intellisense I could get it.
-
-        " Only show if I've stopped typing for a tenth second.
-        let g:neocomplcache_enable_cursor_hold_i = 1
-        let g:neocomplcache_cursor_hold_i_time = 100
-
-        let g:neocomplcache_enable_at_startup = 1
-        let g:neocomplcache_enable_camel_case_completion = 1
-        let g:neocomplcache_enable_smart_case = 1
-        let g:neocomplcache_enable_underbar_completion = 1
-        let g:neocomplcache_min_syntax_length = 3
-        let g:neocomplcache_enable_auto_delimiter = 1
-
-        " AutoComplPop like behavior.
-        let g:neocomplcache_enable_auto_select = 0
-
-        " Plugin key-mappings.
-        imap <C-k>     <Plug>(neocomplcache_snippets_expand)
-        smap <C-k>     <Plug>(neocomplcache_snippets_expand)
-        inoremap <expr><C-g>     neocomplcache#undo_completion()
-        inoremap <expr><C-l>     neocomplcache#complete_common_string()
-
-        " <CR>: close popup 
-        " <s-CR>: close popup and save indent.
-        " inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "\<CR>"
-        " inoremap <expr><s-CR> pumvisible() ? neocomplcache#close_popup() "\<CR>" : "\<CR>" 
-        " <TAB>: completion.
-        inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
-        " <C-h>, <BS>: close popup and delete backword char.
-        inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-        inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-        inoremap <expr><C-y>  neocomplcache#close_popup()
-        inoremap <expr><C-e>  neocomplcache#cancel_popup()
-
-        " Enable omni completion.
-        autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-        autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-        autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-        autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-        autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-        " Enable heavy omni completion.
-        if !exists('g:neocomplcache_omni_patterns')
-            let g:neocomplcache_omni_patterns = {}
-        endif
-        let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
-        "autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-        let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-        let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
-        let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
-
-        " For snippet_complete marker.
-        if has('conceal')
-            set conceallevel=2 concealcursor=i
-        endif
-
-        " User defined snippets
-        let g:neocomplcache_snippets_dir = '~/.vim/mysnippets/'
-
-        " SuperTab like snippets behavior.
-        imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 
     " }}}
 
