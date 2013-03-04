@@ -11,7 +11,7 @@ function groot() {
 }
 
 # function to execute built-in cd
-function fasd_cd() {
+fasd_cd() {
   if [ \$# -le 1 ]; then
     fasd "\$@"
   else
