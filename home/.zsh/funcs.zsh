@@ -10,6 +10,8 @@ function groot() {
     cd $(git rev-parse --show-cdup);
 }
 
+
+exec <<EOS
 # function to execute built-in cd
 fasd_cd() {
   if [ \$# -le 1 ]; then
@@ -20,6 +22,7 @@ fasd_cd() {
     [ -d "\$_fasd_ret" ] && cd "\$_fasd_ret" || printf %s\\n "\$_fasd_ret"
   fi
 }
+EOS
 
 function backburn () {
     for i in $@; do
