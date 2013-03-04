@@ -11,18 +11,16 @@ function groot() {
 }
 
 
-exec <<EOS
 # function to execute built-in cd
 fasd_cd() {
-  if [ \$# -le 1 ]; then
-    fasd "\$@"
+  if [ $# -le 1 ]; then
+    fasd "$@"
   else
-    local _fasd_ret="\$(fasd -e 'printf %s' "\$@")"
-    [ -z "\$_fasd_ret" ] && return
-    [ -d "\$_fasd_ret" ] && cd "\$_fasd_ret" || printf %s\\n "\$_fasd_ret"
+    local _fasd_ret="$(fasd -e 'printf %s' "$@")"
+    [ -z "$_fasd_ret" ] && return
+    [ -d "$_fasd_ret" ] && cd "$_fasd_ret" || printf %s\n "$_fasd_ret"
   fi
 }
-EOS
 
 function backburn () {
     for i in $@; do
