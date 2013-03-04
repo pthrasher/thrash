@@ -43,6 +43,7 @@ alias gfo='git fetch origin'
 alias gfu='git fetch upstream'
 alias gmum='git merge upstream/master'
 alias gmom='git merge origin/master'
+
 alias gmud='git merge upstream/develop'
 alias gmod='git merge origin/develop'
 alias gl="git log --oneline -n"
@@ -68,3 +69,4 @@ alias jquery='wget http://code.jquery.com/jquery-1.8.3.min.js'
 alias underscore='wget http://underscorejs.org/underscore-min.js'
 alias backbone='wget http://backbonejs.org/backbone-min.js'
 
+alias z='fasd -t'
