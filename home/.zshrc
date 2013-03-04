@@ -16,5 +16,5 @@ source $HOME/.zsh/bindings.zsh
 
 which virtualenvwrapper.sh > /dev/null && source `which virtualenvwrapper.sh`
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-eval "$(fasd --init auto)"
+eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
 

@@ -69,4 +69,4 @@ alias jquery='wget http://code.jquery.com/jquery-1.8.3.min.js'
 alias underscore='wget http://underscorejs.org/underscore-min.js'
 alias backbone='wget http://backbonejs.org/backbone-min.js'
 
-alias z='fasd -t'
+alias z='fasd_cd -t'
