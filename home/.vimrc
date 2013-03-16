@@ -64,7 +64,7 @@
     " Programming {{{
 
         " Bundle 'basilgor/vim-autotags'
-        Bundle 'Valloric/YouCompleteMe'
+        " Bundle 'Valloric/YouCompleteMe'
         Bundle 'Raimondi/delimitMate'
         Bundle 'scrooloose/syntastic'
         Bundle 'sjl/strftimedammit.vim'
