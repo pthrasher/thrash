@@ -69,7 +69,7 @@
         Bundle 'scrooloose/syntastic'
         Bundle 'sjl/strftimedammit.vim'
         Bundle 'tpope/vim-commentary'
-        Bundle 'klen/python-mode'
+        " Bundle 'klen/python-mode'
 
         " Bundle 'Shougo/neosnippet'
         " Bundle 'Shougo/neocomplcache'
