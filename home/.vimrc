@@ -68,6 +68,7 @@
 
         " Bundle 'basilgor/vim-autotags'
         Bundle 'davidhalter/jedi-vim'
+        Bundle 'undx/vim-gocode'
         Bundle 'Valloric/YouCompleteMe'
         Bundle 'Raimondi/delimitMate'
         Bundle 'scrooloose/syntastic'
