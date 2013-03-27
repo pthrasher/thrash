@@ -218,6 +218,7 @@
 " }}}
 " Keybindings {{{
 
+
     let mapleader = ","
     let maplocalleader = "\\"
 
@@ -376,6 +377,15 @@
         let g:ConqueTerm_StartMessages = 0
     " }}}
 
+    " YankRing.vim {{{
+
+        function! YRRunAfterMaps()                                                                                                      
+            " From Steve Losh, Preserve the yank post selection/put.    
+            vnoremap p :<c-u>YRPaste 'p', 'v'<cr>gv:YRYankRange 'v'<cr> 
+        endfunction 
+
+    " }}}
+
     " ack.vim {{{
 
         " the_silver_surfer, no more ack!
@@ -429,15 +439,6 @@
 
         let g:ctrlp_map = '<c-t>'
         let g:ctrlp_max_height = 30
-
-    " }}}
-
-    " Python-Mode {{{
-
-        let g:pymode_doc = 0
-        let g:pymode_lint_ignore = "E2,W"
-        let g:pymode_lint_cwindow = 0
-        let g:pymode_folding = 0
 
     " }}}
 
