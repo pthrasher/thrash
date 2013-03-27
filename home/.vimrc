@@ -58,21 +58,22 @@
 
         Bundle 'scratch.vim'
         Bundle 'kien/ctrlp.vim'
+        Bundle 'sjl/gundo.vim'
+        Bundle 'YankRing.vim'
+
 
     " }}}
 
     " Programming {{{
 
         " Bundle 'basilgor/vim-autotags'
-        " Bundle 'Valloric/YouCompleteMe'
+        Bundle 'davidhalter/jedi-vim'
+        Bundle 'Valloric/YouCompleteMe'
         Bundle 'Raimondi/delimitMate'
         Bundle 'scrooloose/syntastic'
         Bundle 'sjl/strftimedammit.vim'
         Bundle 'tpope/vim-commentary'
         " Bundle 'klen/python-mode'
-
-        " Bundle 'Shougo/neosnippet'
-        " Bundle 'Shougo/neocomplcache'
 
         Bundle 'guileen/vim-node'
 
@@ -81,9 +82,6 @@
         Bundle 'tpope/vim-endwise'
         Bundle 'tpope/vim-eunuch'
         Bundle 'switch.vim'
-
-        Bundle 'pthrasher/conqueterm-vim'
-        Bundle 'fsouza/go.vim'
 
 
     " }}}
