@@ -4,6 +4,7 @@ export GOPATH=/usr/local/go
 export GOBIN=$GOPATH/bin
 export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
 export PATH=~/bin:/usr/local/bin:~/bin/depot_tools:$PATH:$GOBIN
+export COFFEELINT_CONFIG=~/.coffeelintrc
 
 
 # Command history configuration
