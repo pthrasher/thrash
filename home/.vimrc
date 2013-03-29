@@ -522,8 +522,9 @@
 
         " We don't want to use coffee -c -- it yells about things I don't care
         " about.
-        let g:syntastic_coffee_checkers = [ 'coffeelint', 'coffee' ]
-        let g:syntastic_coffee_coffee_postargs = '2>&1 | ~/bin/coffeehintfilter'
+        let g:syntastic_coffee_coffee_exe = 'coffeehint'
+        let g:syntastic_coffee_coffee_args = ''
+        let g:syntastic_coffee_checkers = [ 'coffee' ]
 
 
     " }}}
