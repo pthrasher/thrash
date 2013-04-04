@@ -119,9 +119,7 @@
 " Settings {{{
 
     " Don't show the preview window when doing completions and shit.
-    set completeopt-=preview
-
-    set clipboard=unnamed
+    set completeopt=menuone,longest
 
     " We don't care about acting like vi
     set nocompatible " this is already set above -- only here for reference
@@ -230,7 +228,7 @@
     " Paste in insert mode.
     inoremap <C-r> <C-r>"
 
-    " "Uppercase word" mapping.
+    " 'Uppercase word' mapping.
     "
     " This mapping allows you to press <c-u> in insert mode to convert the current
     " word to uppercase.  It's handy when you're writing names of constants and
@@ -254,7 +252,7 @@
     "
     " Note that this will overwrite the contents of the z mark.  I never use it, but
     " if you do you'll probably want to use another mark.
-    inoremap <C-u> <esc>mzgUiw`za
+    inoremap <D-U> <esc>mzgUiw`za
 
     " for python, auto-pep8
     nnoremap <leader>8 :PyLintAuto<cr>
@@ -403,6 +401,12 @@
 
 " }}}
 " Plugin Settings {{{
+
+    " YouCompleteMe {{{
+
+        
+
+    " }}}
 
     " Highlight Word {{{
 
