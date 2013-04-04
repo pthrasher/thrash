@@ -410,7 +410,14 @@
 
     " Jedi {{{
 
+        " ycm already does this for me.
         let g:jedi#popup_on_dot = 0
+
+        " don't add preview to completeopt
+        let g:jedi#auto_vim_configuration = 0
+
+        " who uses tabs? they're silly.
+        let g:jedi#use_tabs_not_buffers = 0
 
     " }}}
 
