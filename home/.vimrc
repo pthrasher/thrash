@@ -69,8 +69,8 @@
         " Bundle 'basilgor/vim-autotags'
         Bundle 'davidhalter/jedi-vim'
         Bundle 'undx/vim-gocode'
-        Bundle 'Valloric/YouCompleteMe'
         Bundle 'Raimondi/delimitMate'
+        Bundle 'Valloric/YouCompleteMe'
         Bundle 'scrooloose/syntastic'
         Bundle 'sjl/strftimedammit.vim'
         Bundle 'tpope/vim-commentary'
@@ -89,6 +89,7 @@
 
     " Extra Syntaxes {{{
         Bundle 'digitaltoad/vim-jade'
+        Bundle 'wavded/vim-stylus'
 
         Bundle 'leshill/vim-json'
         Bundle 'pangloss/vim-javascript'
@@ -528,6 +529,12 @@
 
     " }}}
 
+    " DelimitMate {{{
+
+        
+
+    " }}}
+
     " Syntastic {{{
 
         let g:syntastic_enable_signs = 1
@@ -630,11 +637,6 @@
         augroup ft_javascript
             au!
 
-            au FileType javascript setlocal foldmarker={,}
-
-            " Make {<cr> insert a pair of brackets in such a way that the cursor is correctly
-            " positioned inside of them AND the following code doesn't get unfolded.
-            " au Filetype javascript inoremap <buffer> {<cr> {}<left><cr><space><space><space><space>.<cr><esc>kA<bs>
             au FileType javascript set softtabstop=4 tabstop=4 shiftwidth=4
             au FileType javascript set dictionary+=$HOME/.vim/dict/node.dict
         augroup END
@@ -740,9 +742,9 @@
         augroup ft_coffee
             au!
 
-            au Filetype coffee let b:delimitMate_nesting_quotes = ['"', "'", '`']
             au FileType coffee set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
             au FileType coffee set dictionary+=$HOME/.vim/dict/node.dict
+            au Filetype coffee let b:delimitMate_nesting_quotes = ["\"", "'", '`']
         augroup END
 
     " }}}
