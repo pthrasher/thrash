@@ -119,7 +119,7 @@
 " Settings {{{
 
     " Don't show the preview window when doing completions and shit.
-    set completeopt=menuone,longest
+    set completeopt-=preview
 
     " We don't care about acting like vi
     set nocompatible " this is already set above -- only here for reference
@@ -404,7 +404,13 @@
 
     " YouCompleteMe {{{
 
-        
+        let g:ycm_add_preview_to_completeopt = 0
+
+    " }}}
+
+    " Jedi {{{
+
+        let g:jedi#popup_on_dot = 0
 
     " }}}
 
