@@ -1,3 +1,5 @@
+set fish_greeting (fortune)
+
 function fish_prompt
     set color $fish_color_cwd
     echo -n '    ¬ '
