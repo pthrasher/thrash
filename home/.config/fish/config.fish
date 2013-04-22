@@ -21,9 +21,9 @@ function z
 
 end
 
-alias gst git status
-alias gpo git pull origin
-alias gpu git pull upstream
-alias gco git checkout
-alias gca git commit -avm
-alias gc git commit -v
+alias gst "git status"
+alias gpo "git pull origin"
+alias gpu "git pull upstream"
+alias gco "git checkout"
+alias gca "git commit -avm"
+alias gc "git commit -v"
