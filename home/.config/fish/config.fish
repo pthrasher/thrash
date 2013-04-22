@@ -6,8 +6,4 @@ function fish_prompt
     echo -n ': '
 end
 
-function -e fish_prompt make_new_line
-    echo ''
-end
-
 set fish_greeting (fortune)
