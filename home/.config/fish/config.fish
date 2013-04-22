@@ -6,8 +6,8 @@ function fish_prompt
     echo -n ': '
 end
 
-function fish_right_prompt
-    echo -n 'right'
+function -e fish_prompt make_new_line
+    echo ''
 end
 
 set fish_greeting (fortune)
