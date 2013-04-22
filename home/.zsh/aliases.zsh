@@ -24,11 +24,6 @@ alias l='ls -la'
 alias ll='ls -l'
 alias sl=ls # often screw this up
 
-alias cdblog='z er.gith'
-alias cdconf='z sh/ho'
-alias vimrc='z sh/ho && v .vimrc'
-alias zshrc='z sh/ho && v .zshrc'
-alias confpush='gcam && gpo && homesick pull thrash'
 
 
 # GIT Aliases
@@ -70,3 +65,9 @@ alias underscore='wget http://underscorejs.org/underscore-min.js'
 alias backbone='wget http://backbonejs.org/backbone-min.js'
 
 alias z='fasd_cd'
+
+alias cdblog='z er.gith'
+alias cdconf='z sh/ho'
+alias vimrc='z sh/ho && v .vimrc'
+alias zshrc='z sh/ho && v .zshrc'
+alias confpush='gcam && gpo && homesick pull thrash'
