@@ -13,13 +13,7 @@ function groot() {
 
 # function to execute built-in cd
 fasd_cd() {
-  if [ $# -le 1 ]; then
-    fasd -d -t "$@"
-  else
-    local _fasd_ret="$(fasd -d -t -e 'printf %s' "$@")"
-    [ -z "$_fasd_ret" ] && return
-    [ -d "$_fasd_ret" ] && cd "$_fasd_ret" || printf %s\n "$_fasd_ret"
-  fi
+    cd "$(fasd -t -d -1)"
 }
 
 function backburn () {
