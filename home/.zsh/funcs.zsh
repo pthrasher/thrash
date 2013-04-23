@@ -13,7 +13,7 @@ function groot() {
 
 # function to execute built-in cd
 fasd_cd() {
-    cd "$(fasd -t -d -1)"
+    cd "$(fasd -t -d -1 ${*})"
 }
 
 function backburn () {
