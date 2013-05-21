@@ -1,3 +1,12 @@
+set -x GPGKEY A859BFB8
+set -x PATH ~/bin /usr/local/bin $PATH
+set -x COFFEELINT_CONFIG ~/.coffeelintrc
+set -x EDITOR 'mvim -f'
+set -x GOPATH ~/Dropbox/code/Go /usr/local/go
+set -x NODE_PATH /usr/local/lib/node_modules $NODE_PATH
+set -x VIRTUAL_ENV_DISABLE_PROMPT 'yeah'
+set -x VCPROMPT_FORMAT '%n:%b%m%u'
+
 function fish_prompt
     set_color $fish_color_cwd
     echo ''
@@ -46,8 +55,8 @@ alias gc "git commit -v"
 alias gignored "git ls-files -o -i --exclude-standard"
 
 alias cdconf 'z sh/ho'
-alias vimrc 'z sh/ho && v .vimrc'
-alias zshrc 'z sh/ho && v .zshrc'
+alias vimrc 'z sh/ho; & v .vimrc'
+alias zshrc 'z sh/ho; & v .zshrc'
 
 alias serve 'python -m SimpleHTTPServer'
 alias .. 'cd ..'
@@ -63,12 +72,3 @@ alias mpysma 'python manage.py schemamigration --auto'
 alias gvim 'mvim'
 alias v 'mvim'
 
-
-set -x GPGKEY A859BFB8
-set -x PATH ~/bin /usr/local/bin $PATH
-set -x COFFEELINT_CONFIG ~/.coffeelintrc
-set -x EDITOR 'mvim -f'
-set -x GOPATH ~/Dropbox/code/Go /usr/local/go
-set -x NODE_PATH /usr/local/lib/node_modules $NODE_PATH
-set -x VIRTUAL_ENV_DISABLE_PROMPT='yeah'
-set -x VCPROMPT_FORMAT '%n:%b%m%u'
