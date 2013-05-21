@@ -54,6 +54,7 @@ alias gca "git commit -avm"
 alias gc "git commit -v"
 alias gignored "git ls-files -o -i --exclude-standard"
 
+
 alias cdconf 'z sh/ho'
 alias vimrc 'z sh/ho; and v .vimrc'
 alias zshrc 'z sh/ho; and v .zshrc'
