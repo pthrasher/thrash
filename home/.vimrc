@@ -38,10 +38,7 @@
 
     " Colorschemes {{{
 
-        Bundle 'pthrasher/daylerees-vim-colours'
         Bundle 'altercation/vim-colors-solarized'
-        " Bundle 'flazz/vim-colorschemes'
-        " Bundle 'pthrasher/brackets2-vim'
 
     " }}}
 
@@ -88,6 +85,7 @@
     " }}}
 
     " Extra Syntaxes {{{
+        Bundle 'aliva/vim-fish'
         Bundle 'digitaltoad/vim-jade'
         Bundle 'wavded/vim-stylus'
 
@@ -193,7 +191,7 @@
     if has("gui_running")
         " I might put something in here at some point
     else
-        set background="dark"
+        set background="light"
         set t_Co=256
         colorscheme solarized
     endif
