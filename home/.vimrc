@@ -17,6 +17,8 @@
 "    Twitter: @philipthrasher
 "    Blog:    http://philipthrasher.com/
 
+
+
 " Bundles (Plugins) {{{
 
     " Setup {{{
@@ -119,6 +121,8 @@
 
     " Don't show the preview window when doing completions and shit.
     set completeopt-=preview
+
+    set fillchars=vert:|
 
     " We don't care about acting like vi
     set nocompatible " this is already set above -- only here for reference
