@@ -38,6 +38,7 @@
 
     " Colorschemes {{{
 
+        Bundle 'pthrasher/vim-colors-solarized'
 
     " }}}
 
