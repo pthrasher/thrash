@@ -1,11 +1,11 @@
 [user]
-  name = pthrasher
-  email = philipthrasher@gmail.com
+    name = pthrasher
+    email = philipthrasher@gmail.com
 [core]
-  excludesfile = ~/.gitignore_global
-[github]
-  user = pthrasher
-  token = !sh echo $GITHUB_TOKEN
-[gist]
-  browse = no
-  private = yes
+    excludesfile = ~/.gitignore_global
+[push]
+    default = simple
+[branch "develop"]
+    mergeoptions = --no-edit
+[branch "master"]
+    mergeoptions = --no-edit
