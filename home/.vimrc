@@ -122,7 +122,11 @@
     " Don't show the preview window when doing completions and shit.
     set completeopt-=preview
 
-    set fillchars=vert:|
+    set fillchars=
+    set fillchars+=vert:┃
+    set fillchars+=diff:⣿
+    set fillchars+=fold:━
+    set fillchars+=stlnc:━
 
     " We don't care about acting like vi
     set nocompatible " this is already set above -- only here for reference
