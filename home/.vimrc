@@ -25,7 +25,7 @@
         set nocompatible
         filetype off
 
-        set rtp+=~/.vim/bundle/vundle.git/
+        set rtp+=~/.vim/bundle/vundle/
         call vundle#rc()
 
         " Let vundle manage vundle.
@@ -149,7 +149,7 @@
     " vim 7.3+ settings
     set relativenumber
     set undofile " keep a persistent undo file so we can undo even after a reboot
-    set undodir=~/.vimundo//
+    set undodir=~/.vim/tmp/undo/
     set undoreload=10000
 
     set list
@@ -189,6 +189,13 @@
     set wildignore+=*.DS_Store                       " OSX bullshit
     set wildignore+=migrations                       " Django migrations
     set wildignore+=*.pyc                            " Python byte code
+
+    " v2 project specific settings
+    set wildignore+=main_ui/static/partials
+    set wildignore+=main_ui/static/js
+    set wildignore+=main_ui/static/css
+    set wildignore+=main_ui/static/fonts
+    set wildignore+=main_ui/static/img
 
     set shell=/bin/bash
 
