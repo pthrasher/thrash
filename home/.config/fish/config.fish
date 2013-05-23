@@ -7,7 +7,7 @@ set -x GOPATH ~/Dropbox/code/Go /usr/local/go
 set -x NODE_PATH /usr/local/lib/node_modules $NODE_PATH
 set -x VIRTUAL_ENV_DISABLE_PROMPT 'yeah'
 set -x VCPROMPT_FORMAT '%n:%b%m%u'
-set -x WORKON_HOME ~/.virtualenvs
+set -x WORKON_HOME ~/.virtualenvs/
 
 function fish_prompt
     set_color $fish_color_cwd
