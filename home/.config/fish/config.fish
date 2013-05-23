@@ -81,4 +81,4 @@ alias gvim 'mvim'
 alias v 'mvim'
 
 # Other imports
-. ~/config/fish/virtual.fish # VirtualEnvWrapper for fish.
+. ~/.config/fish/virtual.fish # VirtualEnvWrapper for fish.
