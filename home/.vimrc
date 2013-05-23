@@ -1,10 +1,10 @@
 " vim: set foldmarker={{{,}}} foldlevel=0 foldmethod=marker spell:
-"            __  .__                        .__     
-"    _______/  |_|  |______________    _____|  |__  
-"    \____ \   __\  |  \_  __ \__  \  /  ___/  |  \ 
+"            __  .__                        .__
+"    _______/  |_|  |______________    _____|  |__
+"    \____ \   __\  |  \_  __ \__  \  /  ___/  |  \
 "    |  |_> >  | |   Y  \  | \// __ \_\___ \|   Y  \
 "    |   __/|__| |___|  /__|  (____  /____  >___|  /
-"    |__|             \/           \/     \/     \/ 
+"    |__|             \/           \/     \/     \/
 "
 "    https://github.com/pthrasher/thrash/blob/master/home/.vimrc
 "
@@ -15,8 +15,7 @@
 "
 "    Email:   philipthrasher@gmail.com
 "    Twitter: @philipthrasher
-"    Blog:    http://philipthrasher.com/
-
+"    Blog:    http://pthra.sh/
 
 
 " Bundles (Plugins) {{{
@@ -26,14 +25,16 @@
         set nocompatible
         filetype off
 
-        set rtp+=~/.vim/bundle/vundle/
+        set rtp+=~/.vim/bundle/vundle.git/
         call vundle#rc()
+
+        " Let vundle manage vundle.
+        Bundle 'gmarik/vundle'
 
     " }}}
 
     " Shared libs {{{
 
-        Bundle 'gmarik/vundle'
         Bundle 'L9'
 
     " }}}
@@ -51,7 +52,7 @@
         Bundle 'tpope/vim-git'
         Bundle 'tpope/vim-fugitive'
 
-        Bundle 'Lokaltog/powerline'
+        Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
         Bundle 'godlygeek/tabular'
         Bundle 'mileszs/ack.vim'
 
@@ -81,6 +82,7 @@
     " }}}
 
     " Extra Syntaxes {{{
+
         Bundle 'aliva/vim-fish'
         Bundle 'digitaltoad/vim-jade'
         Bundle 'wavded/vim-stylus'
