@@ -48,17 +48,16 @@ end
 
 
 alias gst "git status"
-alias gpo "git pull origin"
-alias gpu "git pull upstream"
+alias gpo "git push origin"
+alias gpull "git pull"
 alias gco "git checkout"
 alias gca "git commit -avm"
 alias gc "git commit -v"
 alias gignored "git ls-files -o -i --exclude-standard"
 
-
 alias cdconf 'z sh/ho'
 alias vimrc 'z sh/ho; and v .vimrc'
-alias zshrc 'z sh/ho; and v .zshrc'
+alias fishrc 'z sh/ho; and v .config/fish/config.fish'
 
 alias serve 'python -m SimpleHTTPServer'
 alias .. 'cd ..'
