@@ -34,8 +34,6 @@ if status --is-interactive
     end
 end
 
-
-
 function --on-variable PWD update_fasd
     fasd -A (pwd)
 end

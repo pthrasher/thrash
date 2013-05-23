@@ -28,7 +28,7 @@
         set rtp+=~/.vim/bundle/vundle/
         call vundle#rc()
 
-        " Let vundle manage vundle.
+        " Let Vundle manage Vundle.
         Bundle 'gmarik/vundle'
 
     " }}}
@@ -42,6 +42,7 @@
     " Colorschemes {{{
 
         Bundle 'pthrasher/vim-colors-solarized'
+        Bundle 'pthrasher/Toy-Chest-Theme'
 
     " }}}
 
