@@ -51,7 +51,7 @@
         Bundle 'tpope/vim-git'
         Bundle 'tpope/vim-fugitive'
 
-        Bundle 'Lokaltog/vim-powerline'
+        Bundle 'Lokaltog/powerline'
         Bundle 'godlygeek/tabular'
         Bundle 'mileszs/ack.vim'
 
@@ -65,7 +65,6 @@
 
     " Programming {{{
 
-        " Bundle 'basilgor/vim-autotags'
         Bundle 'davidhalter/jedi-vim'
         Bundle 'undx/vim-gocode'
         Bundle 'Raimondi/delimitMate'
@@ -73,12 +72,7 @@
         Bundle 'scrooloose/syntastic'
         Bundle 'sjl/strftimedammit.vim'
         Bundle 'tpope/vim-commentary'
-        " Bundle 'klen/python-mode'
-
         Bundle 'guileen/vim-node'
-
-        " On trial: (could be removed at any moment if they do not bring me
-        " exquisite pleasure)
         Bundle 'tpope/vim-endwise'
         Bundle 'tpope/vim-eunuch'
         Bundle 'switch.vim'
