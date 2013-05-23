@@ -7,6 +7,7 @@ set -x GOPATH ~/Dropbox/code/Go /usr/local/go
 set -x NODE_PATH /usr/local/lib/node_modules $NODE_PATH
 set -x VIRTUAL_ENV_DISABLE_PROMPT 'yeah'
 set -x VCPROMPT_FORMAT '%n:%b%m%u'
+set -x WORKON_HOME ~/.virtualenvs
 
 function fish_prompt
     set_color $fish_color_cwd
@@ -32,6 +33,44 @@ if status --is-interactive
     function fish_greeting
         fortune
     end
+end
+
+function workon -d "Activate virtual environment in $WORKON_HOME"
+  set tgt {$WORKON_HOME}$argv[1]
+  set curdir (pwd)
+  if [ -d $tgt ]
+    cd $tgt
+
+    deactivate
+
+    set -gx VIRTUAL_ENV "$tgt"
+    set -gx _OLD_VIRTUAL_PATH $PATH
+    set -gx PATH "$VIRTUAL_ENV/bin" $PATH
+
+    # unset PYTHONHOME if set
+    if set -q PYTHONHOME
+       set -gx _OLD_VIRTUAL_PYTHONHOME $PYTHONHOME
+       set -e PYTHONHOME
+    end
+    cd $curdir
+  else
+    echo "$tgt not found"
+  end
+end
+
+complete -c workon -a "(cd $WORKON_HOME; ls -d *)"
+
+function deactivate -d "Exit virtualenv and return to normal shell environment"
+    # reset old environment variables
+    if test -n "$_OLD_VIRTUAL_PATH"
+        set -gx PATH $_OLD_VIRTUAL_PATH
+        set -e _OLD_VIRTUAL_PATH
+    end
+    if test -n "$_OLD_VIRTUAL_PYTHONHOME"
+        set -gx PYTHONHOME $_OLD_VIRTUAL_PYTHONHOME
+        set -e _OLD_VIRTUAL_PYTHONHOME
+    end
+    set -e VIRTUAL_ENV
 end
 
 function --on-variable PWD update_fasd
