@@ -27,7 +27,12 @@ function fish_right_prompt -d "Write out the right prompt"
     set_color normal
 end
 
-set fish_greeting (fortune)
+set -e fish_greeting
+if status --is-interactive
+    function fish_greeting
+        echo (fortune)
+    end
+end
 
 function --on-variable PWD update_fasd
     fasd -A (pwd)
