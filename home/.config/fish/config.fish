@@ -1,7 +1,6 @@
 set -x GPGKEY A859BFB8
 set -x FDK_EXE ~/bin/FDK/Tools/osx
 set -x PATH ~/bin /usr/local/bin $PATH $FDK_EXE
-set -x PYTHONPATH /usr/local/lib/python2.7/site-packages $PYTHONPATH
 set -x COFFEELINT_CONFIG ~/.coffeelintrc
 set -x EDITOR 'mvim -f'
 set -x GOPATH ~/Dropbox/code/Go /usr/local/go
