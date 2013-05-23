@@ -7,7 +7,7 @@ set guifont=Source\ Code\ Pro\ for\ Powerline:h13
 set bg=dark
 colorscheme toychest
 
-set transparency=3
+set transparency=0
 " Remove all the UI cruft
 set go-=T
 set go-=l
