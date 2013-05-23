@@ -3,7 +3,7 @@
 "
 " I wish I didn't need this fucking file, but some settings get overridden if
 " they're not in here.
-set guifont=Menlo\ for\ Powerline:h12
+set guifont=Source\ Code\ Pro\ for\ Powerline:h12
 set bg=light
 colorscheme solarized
 
