@@ -7,6 +7,7 @@ set -x GOPATH ~/Dropbox/code/Go /usr/local/go
 set -x NODE_PATH /usr/local/lib/node_modules $NODE_PATH
 set -x VCPROMPT_FORMAT '%n:%b%m%u'
 set -x VIRTUALFISH_COMPAT_ALIASES 'on'
+set -x GREP_OPTIONS '--color-auto'
 
 function fish_prompt
     set_color $fish_color_cwd
@@ -27,11 +28,39 @@ function fish_right_prompt -d "Write out the right prompt"
     set_color normal
 end
 
+
+function reload_config -d "Reload the .config/fish shit."
+    . ~/.config/fish/config.fish
+end
+
+function fish_title
+    if [ $_ = "fish" ]
+        echo 'idle'
+    else
+        echo $_
+    end
+end
+
 set -e fish_greeting
 if status --is-interactive
     function fish_greeting
         fortune
     end
+end
+
+function wtc -d "Get random 'What the Commit' message."
+    echo (curl http://whatthecommit.com/index.txt)
+end
+
+function gcam -d "Git add .; and git commit -avm <what the commit msg>"
+    set msg (wtc)
+    git add .; and git commit -avm "$msg"
+end
+
+function confpush -d "add, commit, and push dotfiles, homesick pull, reload_config"
+    z "thrash/home"
+    cd ..
+    gcam; and git push origin; and homesick pull thrash; and reload_config
 end
 
 function --on-variable PWD update_fasd
