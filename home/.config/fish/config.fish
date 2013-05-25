@@ -65,8 +65,6 @@ end
 
 
 function confpush -d "add, commit, and push dotfiles, homesick pull, reload_config"
-    z "thrash/home"
-    cd ..
     gcam; and git push origin; and homesick pull thrash; and reload_config
 end
 
