@@ -6,6 +6,8 @@
 *.exe
 *.o
 *.so
+*.pyc
+*.pyo
 
 # Packages #
 ############
@@ -32,3 +34,11 @@
 ehthumbs.db
 Icon?
 Thumbs.db
+
+# Workspaces / Configs #
+########################
+.venv
+*.sublime-workspace
+*.sublime-project
+.ropeproject
+
