@@ -1,11 +1,11 @@
 
-. env.fish
-. rbenv.fish
-. ui.fish
-. fasd.fish
-. git-halp.fish
-. virtual.fish
-. django.fish
+. ~/.config/fish/env.fish
+. ~/.config/fish/rbenv.fish
+. ~/.config/fish/ui.fish
+. ~/.config/fish/fasd.fish
+. ~/.config/fish/git-halp.fish
+. ~/.config/fish/virtual.fish
+. ~/.config/fish/django.fish
 
 
 function reload_config -d "Reload the .config/fish shit."
