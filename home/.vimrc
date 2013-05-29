@@ -78,6 +78,7 @@
         Bundle 'tpope/vim-endwise'
         Bundle 'tpope/vim-eunuch'
         Bundle 'switch.vim'
+        Bundle 'closetag.vim'
 
 
     " }}}
