@@ -1,3 +1,4 @@
+
 set FDK_EXE ~/bin/FDK/Tools/osx
 set PATH ~/bin /usr/local/bin $PATH $FDK_EXE
 

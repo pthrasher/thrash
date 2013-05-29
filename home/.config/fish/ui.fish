@@ -1,3 +1,4 @@
+
 function fish_prompt
     set_color $fish_color_cwd
     echo ''
@@ -34,3 +35,4 @@ if status --is-interactive
         fortune
     end
 end
+
