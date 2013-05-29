@@ -1,5 +1,5 @@
 
-. git-util.fish
+. ~/.config/fish/git-util.fish
 
 alias gst "git status"
 alias gpo "git push origin"
