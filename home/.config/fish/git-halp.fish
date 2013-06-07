@@ -1,5 +1,5 @@
-
 . ~/.config/fish/git-util.fish
+
 
 alias gst "git status"
 alias gpo "git push origin"
@@ -8,6 +8,7 @@ alias gco "git checkout"
 alias gca "git commit -avm"
 alias gc "git commit -v"
 alias gignored "git ls-files -o -i --exclude-standard"
+
 
 function wtc -d "Get random 'What the Commit' message."
     echo (curl http://whatthecommit.com/index.txt)
@@ -24,11 +25,13 @@ function groot -d "cd's to the root of the current git repo."
     cd (git rev-parse --show-cdup)
 end
 
+
 ### git checkout aliases completion
 complete -f -c gco -a '(__fish_git_branches)' --description 'Branch'
 complete -f -c gco -a '(__fish_git_tags)' --description 'Tag'
 complete -f -c gco -s b -d 'Create a new branch'
 complete -f -c gco -s t -l track -d 'Track a new branch'
+
 
 ### git pull aliases completion
 complete -f -c gpull -s q -l quiet -d 'Be quiet'
