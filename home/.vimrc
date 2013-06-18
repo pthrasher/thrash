@@ -195,11 +195,8 @@
     set wildignore+=*.pyc                            " Python byte code
 
     " v2 project specific settings
-    set wildignore+=main_ui/static/partials
-    set wildignore+=main_ui/static/js
-    set wildignore+=main_ui/static/css
-    set wildignore+=main_ui/static/fonts
-    set wildignore+=main_ui/static/img
+    set wildignore+=assets/
+    set wildignore+=static/
 
     set shell=/bin/bash
 
