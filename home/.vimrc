@@ -49,6 +49,7 @@
 
     " General {{{
 
+        Bundle 'MarcWeber/vim-addon-local-vimrc'
         Bundle 'tpope/vim-repeat'
         Bundle 'tpope/vim-surround'
         Bundle 'tpope/vim-git'
