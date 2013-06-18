@@ -185,12 +185,6 @@
     set wildmode=list:longest " matches mimic that of bash or zsh
     set wildignore=*/node_modules/*
     set wildignore+=*/npm_cache/*
-    set wildignore+=*/gears-cache/*
-    set wildignore+=*/cache/*
-    set wildignore+=*/assets/*
-    set wildignore+=*/static/*
-    set wildignore+=*/coverage/*
-    set wildignore+=*/docs/*
     set wildignore+=*/.ropeproject/*
     set wildignore+=.hg,.git,.svn                    " Version control
     set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
