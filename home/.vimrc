@@ -182,10 +182,10 @@
 
     set wildmenu " cmd line completion a-la zsh
     set wildmode=list:longest " matches mimic that of bash or zsh
-    set wildignore=*/node_modules/*                      " node_modules dir
-    set wildignore=*/npm_cache/*                      " node_modules dir
-    set wildignore=*/gears-cache/*                      " node_modules dir
-    set wildignore=*/cache/*                      " node_modules dir
+    set wildignore=node_modules                      " node_modules dir
+    set wildignore=npm_cache                      " node_modules dir
+    set wildignore=gears-cache                      " node_modules dir
+    set wildignore=cache                      " node_modules dir
     set wildignore+=.ropeproject                     " py rope cache dir
     set wildignore+=.hg,.git,.svn                    " Version control
     set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
@@ -194,12 +194,14 @@
     set wildignore+=*.spl                            " compiled spelling word lists
     set wildignore+=*.sw?                            " Vim swap files
     set wildignore+=*.DS_Store                       " OSX bullshit
-    set wildignore+=*/migrations/*                       " Django migrations
+    set wildignore+=migrations                       " Django migrations
     set wildignore+=*.pyc                            " Python byte code
 
     " v2 project specific settings
-    set wildignore+=*/assets/*
-    set wildignore+=*/static/*
+    set wildignore+=assets
+    set wildignore+=static
+    set wildignore+=coverage
+    set wildignore+=docs
 
     set shell=/bin/bash
 
