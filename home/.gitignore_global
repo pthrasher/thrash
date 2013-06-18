@@ -41,4 +41,4 @@ Thumbs.db
 *.sublime-workspace
 *.sublime-project
 .ropeproject
-
+.local-vimrc

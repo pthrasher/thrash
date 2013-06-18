@@ -419,6 +419,12 @@
 " }}}
 " Plugin Settings {{{
 
+    " vim-addon-local-vimrc {{{
+
+        let g:local_vimrc = {'names':['.local-vimrc'],'hash_fun':'LVRHashOfFile'}
+
+    " }}}
+
     " YouCompleteMe {{{
 
         let g:ycm_add_preview_to_completeopt = 0
