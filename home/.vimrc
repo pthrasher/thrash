@@ -183,6 +183,9 @@
     set wildmenu " cmd line completion a-la zsh
     set wildmode=list:longest " matches mimic that of bash or zsh
     set wildignore=*/node_modules/*                      " node_modules dir
+    set wildignore=*/npm_cache/*                      " node_modules dir
+    set wildignore=*/gears-cache/*                      " node_modules dir
+    set wildignore=*/cache/*                      " node_modules dir
     set wildignore+=.ropeproject                     " py rope cache dir
     set wildignore+=.hg,.git,.svn                    " Version control
     set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
