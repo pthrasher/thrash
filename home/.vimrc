@@ -195,8 +195,8 @@
     set wildignore+=*.pyc                            " Python byte code
 
     " v2 project specific settings
-    set wildignore+=assets/
-    set wildignore+=static/
+    set wildignore+=assets/*
+    set wildignore+=static/*
 
     set shell=/bin/bash
 
