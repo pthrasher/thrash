@@ -10,7 +10,7 @@ end
 
 
 function fish_right_prompt -d "Write out the right prompt"
-    set_color $fish_color_comment
+    set_color $fish_color_cwd
     echo -n (vcprompt)
     if [ ! -z "$VIRTUAL_ENV" ]
         set venv (basename "$VIRTUAL_ENV")
