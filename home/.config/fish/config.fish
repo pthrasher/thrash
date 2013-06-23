@@ -6,6 +6,7 @@
 . ~/.config/fish/git-halp.fish
 . ~/.config/fish/virtual.fish
 . ~/.config/fish/django.fish
+. ~/.config/fish/golang.fish
 
 
 function reload_config -d "Reload the .config/fish shit."
