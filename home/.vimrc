@@ -49,6 +49,7 @@
 
     " General {{{
 
+        Bundle 'wakatime/vim-wakatime'
         Bundle 'MarcWeber/vim-addon-local-vimrc'
         Bundle 'tpope/vim-repeat'
         Bundle 'tpope/vim-surround'
@@ -317,7 +318,7 @@
 
     " Sudo to write
     cnoremap w!! w !sudo tee % >/dev/null
-    
+
     " Use sane regex's when searching
     nnoremap / /\v
     vnoremap / /\v
@@ -350,9 +351,6 @@
     " Visual line nav, not real line nav
     nnoremap j gj
     nnoremap k gk
-
-    " conqueterm
-    nnoremap <silent><leader>S :ConqueTermVSplit bash<cr>
 
     " Ripped from unimpaired.vim -- didn't want the whole plugin, just these
     " bindings:
