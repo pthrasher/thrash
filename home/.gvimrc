@@ -4,8 +4,8 @@
 " I wish I didn't need this fucking file, but some settings get overridden if
 " they're not in here.
 set guifont=Source\ Code\ Pro\ for\ Powerline:h13
-set bg=dark
-colorscheme toychest
+set bg=light
+colorscheme solarized
 
 set transparency=0
 " Remove all the UI cruft

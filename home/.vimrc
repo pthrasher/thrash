@@ -64,6 +64,7 @@
         Bundle 'kien/ctrlp.vim'
         Bundle 'sjl/gundo.vim'
         Bundle 'YankRing.vim'
+        Bundle 'terryma/vim-multiple-cursors'
 
 
     " }}}
@@ -71,6 +72,7 @@
     " Programming {{{
 
         Bundle 'davidhalter/jedi-vim'
+        Bundle 'django.vim'
         Bundle 'undx/vim-gocode'
         Bundle 'Raimondi/delimitMate'
         Bundle 'Valloric/YouCompleteMe'
