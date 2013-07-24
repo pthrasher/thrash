@@ -71,6 +71,7 @@
 
     " Programming {{{
 
+        Bundle 'michaeljsmith/vim-indent-object'
         Bundle 'davidhalter/jedi-vim'
         Bundle 'django.vim'
         Bundle 'undx/vim-gocode'
