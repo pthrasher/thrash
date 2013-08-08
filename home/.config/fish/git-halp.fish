@@ -25,6 +25,16 @@ function groot -d "cd's to the root of the current git repo."
     cd (git rev-parse --show-cdup)
 end
 
+function gpud -d "git pull upstream develop with guard to ensure im on local/develop"
+    set __branch (git branch --no-color | head -n1 | awk '{print $2}')
+    echo ""
+    if [ __branch = "develop" ]
+        git pull upstream develop
+    else
+        echo "You're not on branch develop, aborting."
+    end
+end
+
 
 ### git checkout aliases completion
 complete -f -c gco -a '(__fish_git_branches)' --description 'Branch'

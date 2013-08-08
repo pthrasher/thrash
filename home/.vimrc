@@ -43,7 +43,7 @@
     " Colorschemes {{{
 
         Bundle 'pthrasher/vim-colors-solarized'
-        Bundle 'pthrasher/Toy-Chest-Theme'
+        " Bundle 'pthrasher/Toy-Chest-Theme'
 
     " }}}
 
@@ -119,6 +119,12 @@
 
     filetype plugin indent on
     syntax on
+
+    " Add extra TODO style syntax
+    syn match myBasicTodo contained "\<\(TODO\|FIXME\|XXX\|NOTE\):"
+    syn match myExtraTodo contained "\<\(PERF\|DOCTHIS\|ONSCOPE\):"
+    hi def link myBasicTodo Todo
+    hi def link myExtraTodo Todo
 
 " }}}
 " Settings {{{
