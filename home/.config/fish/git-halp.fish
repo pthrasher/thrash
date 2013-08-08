@@ -26,9 +26,9 @@ function groot -d "cd's to the root of the current git repo."
 end
 
 function gpud -d "git pull upstream develop with guard to ensure im on local/develop"
-    set __branch (git branch --no-color | head -n1 | awk '{print $2}')
+    set __branch (git branch --no-color | grep '*' | head -n1 | awk '{print $2}')
     echo ""
-    if [ __branch = "develop" ]
+    if [ $__branch = "develop" ]
         git pull upstream develop
     else
         echo "You're not on branch develop, aborting."
