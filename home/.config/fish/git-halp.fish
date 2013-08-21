@@ -37,8 +37,8 @@ end
 
 
 ### git checkout aliases completion
-complete -f -c gco -a '(__fish_git_branches)' --description 'Branch'
-complete -f -c gco -a '(__fish_git_tags)' --description 'Tag'
+complete -f -c gco -a '(__fish_git_branches)' --description 'branch'
+complete -f -c gco -a '(__fish_git_tags)' --description 'tag'
 complete -f -c gco -s b -d 'Create a new branch'
 complete -f -c gco -s t -l track -d 'Track a new branch'
 
