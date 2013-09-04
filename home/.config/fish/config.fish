@@ -24,7 +24,7 @@ function take -d "Creates a named directory and then cd's to it."
     cd $argv[1]
 end
 
-function nginx-restart -c "Restart nginx."
+function nginx-restart -d "Restart nginx."
     launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist
     launchctl load ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist
 end
