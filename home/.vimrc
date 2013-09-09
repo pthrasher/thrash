@@ -37,6 +37,7 @@
     " Shared libs {{{
 
         Bundle 'L9'
+        Bundle 'rizzatti/funcoo.vim'
 
     " }}}
 
@@ -49,6 +50,7 @@
 
     " General {{{
 
+        Bundle 'rizzatti/dash.vim'
         Bundle 'wakatime/vim-wakatime'
         Bundle 'MarcWeber/vim-addon-local-vimrc'
         Bundle 'tpope/vim-repeat'
