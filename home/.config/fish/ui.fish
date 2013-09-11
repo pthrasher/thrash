@@ -6,7 +6,6 @@ function fish_prompt
     echo -n (basename (prompt_pwd))
     set_color normal
     echo -n ': '
-    set_color reset
 end
 
 
