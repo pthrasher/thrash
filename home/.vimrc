@@ -153,7 +153,11 @@
     set smarttab " let's tab key insert 'tab stops', and bksp deletes tabs.
     set shiftround " tab / shifting moves to closest tabstop.
     set autoindent " Match indents on new lines.
-    set smartindent " Intellegently dedent / indent new lines based on rules.
+
+    " This is good to have on for some comments, but bad for everything else...
+    " So, I just turn it off altogether. All of my syntax files have good
+    " indentation support built-in. This is not *needed*.
+    set nosmartindent
 
     set hidden " keep buffers around when not in view.
     set visualbell " Don't beep, do visual bell, which is disabled in my gvimrc
@@ -205,7 +209,7 @@
     set wildignore+=*.spl                            " compiled spelling word lists
     set wildignore+=*.sw?                            " Vim swap files
     set wildignore+=*.DS_Store                       " OSX bullshit
-    set wildignore+=*/migrations/*                       " Django migrations
+    set wildignore+=*/migrations/*                   " Django migrations
     set wildignore+=*.pyc                            " Python byte code
 
     " v2 project specific settings
@@ -248,8 +252,16 @@
     let mapleader = ","
     let maplocalleader = "\\"
 
+    " Dash.vim mappings
+    nmap <silent> <leader>d <Plug>DashSearch
+    vmap <silent> <leader>d <Plug>DashSearch
+
     " Paste in insert mode.
     inoremap <C-r> <C-r>"
+
+    " NO FUCKING SHIFT-K DOCS!
+    nnoremap K <NOP>
+    vnoremap K <NOP>
 
     " 'Uppercase word' mapping.
     "
@@ -275,10 +287,7 @@
     "
     " Note that this will overwrite the contents of the z mark.  I never use it, but
     " if you do you'll probably want to use another mark.
-    inoremap <D-U> <esc>mzgUiw`za
-
-    " for python, auto-pep8
-    nnoremap <leader>8 :PyLintAuto<cr>
+    inoremap <D-u> <esc>mzgUiw`za
 
     " Less chording
     nnoremap ; :
@@ -422,6 +431,18 @@
 " }}}
 " Plugin Settings {{{
 
+    " dash.vim {{{
+
+        let g:dash_map = {
+        \ 'python'       : 'py',
+        \ 'pythondjango' : 'py',
+        \ 'javascript'   : 'js',
+        \ 'coffeescript' : 'js'
+        \ } 
+
+
+
+    " }}}
     " vim-addon-local-vimrc {{{
 
         let g:local_vimrc = {'names':['.local-vimrc'],'hash_fun':'LVRHashOfFile'}
@@ -436,7 +457,7 @@
 
     " Jedi {{{
 
-        " ycm already does this for me.
+        " yim already does this for me.
         let g:jedi#popup_on_dot = 0
 
         " don't add preview to completeopt
@@ -602,19 +623,6 @@
             au!
 
             au BufNewFile,BufRead urls.py           setlocal nowrap
-            au BufNewFile,BufRead urls.py           normal! zR
-            au BufNewFile,BufRead dashboard.py      normal! zR
-            au BufNewFile,BufRead local_settings.py normal! zR
-
-            au BufNewFile,BufRead admin.py     setlocal filetype=python.django
-            au BufNewFile,BufRead urls.py      setlocal filetype=python.django
-            au BufNewFile,BufRead models.py    setlocal filetype=python.django
-            au BufNewFile,BufRead views.py     setlocal filetype=python.django
-            au BufNewFile,BufRead settings.py  setlocal filetype=python.django
-            au BufNewFile,BufRead settings.py  setlocal foldmethod=marker
-            au BufNewFile,BufRead forms.py     setlocal filetype=python.django
-            au BufNewFile,BufRead common_settings.py  setlocal filetype=python.django
-            au BufNewFile,BufRead common_settings.py  setlocal foldmethod=marker
         augroup END
 
     " }}}
