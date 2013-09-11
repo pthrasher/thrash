@@ -27,6 +27,10 @@ alias gmud='git merge upstream/develop';
 export HISTCONTROL="ignoredups"
 export HISTCONTROL=erasedups
 
+export PATH=~/.rbenv/bin:$PATH
+export PATH=~/.rbenv/shims:$PATH
+rbenv rehash > /dev/null 2>&1
+
 # resize history size
 export HISTSIZE=5000
 export LSCOLORS='Gxfxcxdxdxegedabagacad'
