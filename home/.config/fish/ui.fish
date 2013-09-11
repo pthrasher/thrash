@@ -17,7 +17,6 @@ function fish_right_prompt -d "Write out the right prompt"
         set venv (basename "$VIRTUAL_ENV")
         echo -n " venv:$venv"
     end
-    set_color reset
 end
 
 
