@@ -138,8 +138,8 @@
     set fillchars+=vert:┃
     set fillchars+=diff:⣿
     set fillchars+=fold:━
-    set fillchars+=stlnc:\ 
-    set fillchars+=stl:\ 
+    set fillchars+=stlnc:\
+    set fillchars+=stl:\
 
     " We don't care about acting like vi
     set nocompatible " this is already set above -- only here for reference
@@ -226,6 +226,17 @@
 
 " }}}
 " Generic au commands {{{
+    function! <SID>StripTrailingWhitespaces()
+        " Preparation: save last search, and cursor position.
+        let _s=@/
+        let l = line(".")
+        let c = col(".")
+        " Do the business:
+        %s/\s\+$//e
+        " Clean up: restore previous search history, and cursor position
+        let @/=_s
+        call cursor(l, c)
+    endfunction
 
     " save on focus lost
     au FocusLost * :silent! wa
@@ -234,7 +245,7 @@
     au VimResized * :wincmd =
 
     " auto-trim trailing white-space on save
-    autocmd BufWritePre * :%s/\s\+$//e
+    autocmd BufWritePre * <SID>StripTrailingWhitespaces()
 
     " always go to top of commit messages
     autocmd BufReadPost COMMIT_EDITMSG exec "normal! gg"
@@ -247,7 +258,7 @@
         \     execute 'normal! g`"zvzz' |
         \ endif
     augroup END
-    
+
 " }}}
 " Keybindings {{{
 
@@ -323,13 +334,13 @@
 
     " Easier linewise reselection
     nnoremap <leader>V V`]
-    
+
     " Acking current word under cursor
     map <Leader>f :execute "Ack " . expand("<cword>") <Bar> cw<CR>
 
     " create new vsplit, and switch to it.
     noremap <leader>v <C-w>v
-    
+
     " bindings for easy split nav
     nnoremap <C-h> <C-w>h
     nnoremap <C-j> <C-w>j
@@ -441,7 +452,7 @@
         \ 'pythondjango' : 'py',
         \ 'javascript'   : 'js',
         \ 'coffeescript' : 'js'
-        \ } 
+        \ }
 
 
 
@@ -537,7 +548,7 @@
         function! YRRunAfterMaps()
             " From Steve Losh, Preserve the yank post selection/put.
             vnoremap p :<c-u>YRPaste 'p', 'v'<cr>gv:YRYankRange 'v'<cr>
-        endfunction 
+        endfunction
 
     " }}}
 
@@ -583,7 +594,7 @@
 
     " DelimitMate {{{
 
-        
+
 
     " }}}
 
@@ -665,7 +676,7 @@
         augroup END
 
     " }}}
-    
+
     " Javascript {{{
 
         augroup ft_json
@@ -700,7 +711,7 @@
         function s:setupText()
             setlocal spell
             " setlocal dictionary=/usr/share/dict/words
-            let b:loaded_delimitMate = 1 
+            let b:loaded_delimitMate = 1
             call s:setupWrapping()
         endfunction
 
@@ -770,7 +781,7 @@
             au!
 
             au FileType help setlocal textwidth=78
-            let b:delimitMate_autoclose = 0 
+            let b:delimitMate_autoclose = 0
             au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
         augroup END
 
