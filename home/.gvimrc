@@ -3,17 +3,30 @@
 "
 " I wish I didn't need this fucking file, but some settings get overridden if
 " they're not in here.
+
+" Color scheme config
 set guifont=Source\ Code\ Pro\ for\ Powerline:h13
 set bg=light
+call togglebg#map("<F6>")
+let g:solarized_hitrail = 1 " hilight trailing whitespace
+
 colorscheme solarized
 
-set transparency=0
+set transparency=0 " don't want it. want to get shit done instead.
 " Remove all the UI cruft
 set go-=T
 set go-=l
 set go-=L
 set go-=r
 set go-=R
+
+" hilight row in current buffer only
+augroup CursorLine
+  au!
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline cc=80
+  au WinLeave * setlocal nocursorline cc=0
+augroup END
+
 
 highlight SpellBad term=underline gui=undercurl
 

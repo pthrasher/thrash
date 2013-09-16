@@ -226,26 +226,20 @@
 
 " }}}
 " Generic au commands {{{
-    function! <SID>StripTrailingWhitespaces()
-        " Preparation: save last search, and cursor position.
-        let _s=@/
-        let l = line(".")
-        let c = col(".")
-        " Do the business:
-        %s/\s\+$//e
-        " Clean up: restore previous search history, and cursor position
-        let @/=_s
-        call cursor(l, c)
+    function! StripTrailingWS()
+        let l:winview = winsaveview()
+        silent! %s/\s\+$//
+        call winrestview(l:winview)
     endfunction
+
+    " auto-trim trailing white-space on save
+    autocmd BufWritePre *.* :call StripTrailingWS()
 
     " save on focus lost
     au FocusLost * :silent! wa
 
     " Resize splits when the window is resized
     au VimResized * :wincmd =
-
-    " auto-trim trailing white-space on save
-    autocmd BufWritePre * <SID>StripTrailingWhitespaces()
 
     " always go to top of commit messages
     autocmd BufReadPost COMMIT_EDITMSG exec "normal! gg"
