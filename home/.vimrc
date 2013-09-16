@@ -102,7 +102,7 @@
         Bundle 'indenthtml.vim'
 
         Bundle 'tpope/vim-markdown'
-        Bundle 'mattn/zencoding-vim'
+        Bundle 'mattn/emmet-vim'
 
         Bundle 'fsouza/go.vim'
 
@@ -160,7 +160,7 @@
     set nosmartindent
 
     set hidden " keep buffers around when not in view.
-    set visualbell " Don't beep, do visual bell, which is disabled in my gvimrc
+    set visualbell " Don't beep, do visual bell -- and I've disabled visual bell in .gvimrc
     set laststatus=2 " always show a status line.
     set history=1000 " cmd-mode history, and search history
     set nobackup " We have vcs, we don't need backups.
@@ -233,6 +233,9 @@
     " Resize splits when the window is resized
     au VimResized * :wincmd =
 
+    " auto-trim trailing white-space on save
+    autocmd BufWritePre * :%s/\s\+$//e
+
     " always go to top of commit messages
     autocmd BufReadPost COMMIT_EDITMSG exec "normal! gg"
 
@@ -255,6 +258,7 @@
     " Dash.vim mappings
     nmap <silent> <leader>d <Plug>DashSearch
     vmap <silent> <leader>d <Plug>DashSearch
+
 
     " Paste in insert mode.
     inoremap <C-r> <C-r>"
@@ -353,7 +357,6 @@
     " to them.
     nnoremap n nzzzv
     nnoremap N Nzzzv
-
     " Same when jumping around
     nnoremap g; g;zz
     nnoremap g, g,zz
@@ -372,49 +375,49 @@
     nnoremap j gj
     nnoremap k gk
 
-    " Ripped from unimpaired.vim -- didn't want the whole plugin, just these
-    " bindings:
+    " ripped from unimpaird.vim {{{
+        function! s:BlankUp(count) abort
+            put!=repeat(nr2char(10), a:count)
+            ']+1
+            silent! call repeat#set("\<Plug>unimpairedBlankUp", a:count)
+        endfunction
 
-    function! s:BlankUp(count) abort
-        put!=repeat(nr2char(10), a:count)
-        ']+1
-        silent! call repeat#set("\<Plug>unimpairedBlankUp", a:count)
-    endfunction
+        function! s:BlankDown(count) abort
+            put =repeat(nr2char(10), a:count)
+            '[-1
+            silent! call repeat#set("\<Plug>unimpairedBlankDown", a:count)
+        endfunction
 
-    function! s:BlankDown(count) abort
-        put =repeat(nr2char(10), a:count)
-        '[-1
-        silent! call repeat#set("\<Plug>unimpairedBlankDown", a:count)
-    endfunction
-
-    nnoremap <silent> <Plug>unimpairedBlankUp   :<C-U>call <SID>BlankUp(v:count1)<CR>
-    nnoremap <silent> <Plug>unimpairedBlankDown :<C-U>call <SID>BlankDown(v:count1)<CR>
-
-    nmap [<Space> <Plug>unimpairedBlankUp
-    nmap ]<Space> <Plug>unimpairedBlankDown
-
-    function! s:Move(cmd, count, map) abort
-        normal! m`
-        exe 'move'.a:cmd.a:count
-        norm! ``
-        silent! call repeat#set("\<Plug>unimpairedMove".a:map, a:count)
-    endfunction
-
-    nnoremap <silent> <Plug>unimpairedMoveUp   :<C-U>call <SID>Move('--',v:count1,'Up')<CR>
-    nnoremap <silent> <Plug>unimpairedMoveDown :<C-U>call <SID>Move('+',v:count1,'Down')<CR>
-    xnoremap <silent> <Plug>unimpairedMoveUp   :<C-U>exe 'normal! m`'<Bar>exe '''<,''>move--'.v:count1<CR>``
-    xnoremap <silent> <Plug>unimpairedMoveDown :<C-U>exe 'normal! m`'<Bar>exe '''<,''>move''>+'.v:count1<CR>``
-
-    nmap [e <Plug>unimpairedMoveUp
-    nmap ]e <Plug>unimpairedMoveDown
-    xmap [e <Plug>unimpairedMoveUp
-    xmap ]e <Plug>unimpairedMoveDown
+        function! s:Move(cmd, count, map) abort
+            normal! m`
+            exe 'move'.a:cmd.a:count
+            norm! ``
+            silent! call repeat#set("\<Plug>unimpairedMove".a:map, a:count)
+        endfunction
 
 
-    " I don't really use folding except in this file, but I like these
-    " bindings.
+        " These are here to support the below key-bindings.
+        nnoremap <silent> <Plug>unimpairedBlankUp   :<C-U>call <SID>BlankUp(v:count1)<CR>
+        nnoremap <silent> <Plug>unimpairedBlankDown :<C-U>call <SID>BlankDown(v:count1)<CR>
+        nnoremap <silent> <Plug>unimpairedMoveUp   :<C-U>call <SID>Move('--',v:count1,'Up')<CR>
+        nnoremap <silent> <Plug>unimpairedMoveDown :<C-U>call <SID>Move('+',v:count1,'Down')<CR>
+        xnoremap <silent> <Plug>unimpairedMoveUp   :<C-U>exe 'normal! m`'<Bar>exe '''<,''>move--'.v:count1<CR>``
+        xnoremap <silent> <Plug>unimpairedMoveDown :<C-U>exe 'normal! m`'<Bar>exe '''<,''>move''>+'.v:count1<CR>``
 
-    " Make the current location sane.
+        " Create a blank line above current one
+        nmap [<Space> <Plug>unimpairedBlankUp
+        " Create a blank line below current one
+        nmap ]<Space> <Plug>unimpairedBlankDown
+
+        " Bubble current line / selection up
+        nmap [e <Plug>unimpairedMoveUp
+        xmap [e <Plug>unimpairedMoveUp
+        " Bubble current line / selection up
+        nmap ]e <Plug>unimpairedMoveDown
+        xmap ]e <Plug>unimpairedMoveDown
+    " }}}
+
+    " Put current line to the top of the window
     nnoremap <c-cr> zvzt
 
     " Space to toggle folds.
@@ -425,7 +428,7 @@
     " cursor happens to be.
     nnoremap zO zCzO
 
-    " Use ,z to "focus" the current fold.
+    " Close all folds but my current one.
     nnoremap <leader>z zMzvzz
 
 " }}}
@@ -443,6 +446,7 @@
 
 
     " }}}
+
     " vim-addon-local-vimrc {{{
 
         let g:local_vimrc = {'names':['.local-vimrc'],'hash_fun':'LVRHashOfFile'}
@@ -560,11 +564,13 @@
 
     " Zen Coding {{{
 
-        let g:user_zen_leader_key = '<c-e>'
+        let g:user_emmet_leader_key = '<c-e>'
 
         " 4 space soft tabs
-        let g:user_zen_settings = {'indentation' : '    '}
-        let g:use_zen_complete_tag = 1
+        let g:user_emmet_settings = {'indentation' : '    '}
+
+        " complete tags from omnifunc
+        let g:use_emmet_complete_tag = 1
 
     " }}}
 
@@ -622,7 +628,8 @@
         augroup ft_django
             au!
 
-            au BufNewFile,BufRead urls.py           setlocal nowrap
+            au BufNewFile,BufRead urls.py setlocal nowrap
+            au BufNewFile,BufRead tests.py setlocal nowrap
         augroup END
 
     " }}}
@@ -632,7 +639,7 @@
         augroup ft_html
             au!
 
-            " au FileType html,jinja,htmldjango set softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79
+            au FileType html,jinja,htmldjango set textwidth=0 nowrap
             au BufNewFile,BufRead *.html setlocal filetype=htmldjango
 
             " Use <localleader>f to fold the current tag.
@@ -687,7 +694,6 @@
 
         function s:setupWrapping()
             set wrap
-            set wm=2
             set textwidth=79
         endfunction
 
