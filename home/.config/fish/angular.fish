@@ -5,7 +5,7 @@ function ngboot -d "Clone an angular playground and name it to your liking."
     else
         git clone git@github.com:pthrasher/ng-boot.git $argv
         cd $argv
-        sed -i \._ngboot 's/TITLETITLETITLE/test_sed/' index.html
+        sed -i \._ngboot 's/TITLETITLETITLE/'$argv'/' index.html
         rm index.html._ngboot
         npm i
     end

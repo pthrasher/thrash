@@ -272,6 +272,10 @@
     nnoremap K <NOP>
     vnoremap K <NOP>
 
+
+    nnoremap <leader>q O+<esc>80a-<esc>080lhhxC+<esc>yyjpk^lli<bar><space><esc>80A<space><esc>080lhhC<bar><esc>jj
+
+
     " 'Uppercase word' mapping.
     "
     " This mapping allows you to press <c-u> in insert mode to convert the current
