@@ -6,6 +6,7 @@ function fish_prompt
     echo -n (basename (prompt_pwd))
     set_color normal
     echo -n ': '
+    set_color normal
 end
 
 
@@ -16,6 +17,7 @@ function fish_right_prompt -d "Write out the right prompt"
         set venv (basename "$VIRTUAL_ENV")
         echo -n " venv:$venv"
     end
+    set_color normal
 end
 
 
