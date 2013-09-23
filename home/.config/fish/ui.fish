@@ -1,8 +1,11 @@
 
 function fish_prompt
-    set_color $fish_color_cwd
+    set_color normal
     echo ''
-    echo -n '    ¬ '
+    echo -n '    '
+    set_color $fish_color_cwd
+    echo -n '¬'
+    echo -n ' '
     echo -n (basename (prompt_pwd))
     set_color normal
     echo -n ': '
