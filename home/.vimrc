@@ -543,10 +543,16 @@
 
     " YankRing.vim {{{
 
-        function! YRRunAfterMaps()
-            " From Steve Losh, Preserve the yank post selection/put.
-            vnoremap p :<c-u>YRPaste 'p', 'v'<cr>gv:YRYankRange 'v'<cr>
-        endfunction
+        " function! YRRunAfterMaps()
+        "     " From Steve Losh, Preserve the yank post selection/put.
+        "     vnoremap p :<c-u>YRPaste 'p', 'v'<cr>gv:YRYankRange 'v'<cr>
+        " endfunction
+
+    " }}}
+
+    " YankRing.vim {{{
+
+        let g:EasyClipDoSystemSync=0
 
     " }}}
 
