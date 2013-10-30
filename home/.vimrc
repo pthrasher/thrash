@@ -138,9 +138,7 @@
     set fillchars=
     set fillchars+=vert:┃
     set fillchars+=diff:⣿
-    set fillchars+=fold:━
-    set fillchars+=stlnc:\
-    set fillchars+=stl:\
+    set fillchars+=stlnc:\ ,stl:\ ,fold:━
 
     " We don't care about acting like vi
     set nocompatible " this is already set above -- only here for reference
