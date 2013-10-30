@@ -1,6 +1,6 @@
 
 set FDK_EXE ~/bin/FDK/Tools/osx
-set PATH ~/bin /usr/local/bin $PATH $FDK_EXE
+set PATH /Applications/Postgres.app/Contents/MacOS/bin ~/bin /usr/local/bin $PATH $FDK_EXE
 
 # export is required for these I think.
 set -x GPGKEY A859BFB8
