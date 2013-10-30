@@ -58,7 +58,8 @@
         Bundle 'tpope/vim-git'
         Bundle 'tpope/vim-fugitive'
 
-        Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+        Bundle 'bling/vim-airline'
+        Bundle 'airblade/vim-gitgutter'
         Bundle 'godlygeek/tabular'
         Bundle 'mileszs/ack.vim'
 

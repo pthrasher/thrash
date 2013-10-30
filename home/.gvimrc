@@ -1,9 +1,6 @@
 " .gvimrc Author: Philip Thrasher Source:
 " https://github.com/pthrasher/thrash/blob/master/home/.vimrc
 "
-" I wish I didn't need this fucking file, but some settings get overridden if
-" they're not in here.
-
 " Color scheme config
 set guifont=Source\ Code\ Pro\ for\ Powerline:h13
 set bg=light
