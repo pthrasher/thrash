@@ -62,11 +62,12 @@
         Bundle 'airblade/vim-gitgutter'
         Bundle 'godlygeek/tabular'
         Bundle 'mileszs/ack.vim'
+        Bundle 'svermeulen/vim-easyclip'
 
         Bundle 'scratch.vim'
         Bundle 'kien/ctrlp.vim'
         Bundle 'sjl/gundo.vim'
-        Bundle 'YankRing.vim'
+        " Bundle 'YankRing.vim'
         Bundle 'terryma/vim-multiple-cursors'
 
 
@@ -75,6 +76,7 @@
     " Programming {{{
 
         Bundle 'michaeljsmith/vim-indent-object'
+        Bundle 'terryma/vim-multiple-cursors'
         Bundle 'davidhalter/jedi-vim'
         Bundle 'django.vim'
         Bundle 'undx/vim-gocode'
@@ -88,7 +90,6 @@
         Bundle 'tpope/vim-eunuch'
         Bundle 'switch.vim'
         Bundle 'closetag.vim'
-
 
     " }}}
 
