@@ -1,6 +1,7 @@
 
 . ~/.config/fish/env.fish
 . ~/.config/fish/rbenv.fish
+. ~/.config/fish/solarized_colors.fish
 . ~/.config/fish/ui.fish
 . ~/.config/fish/fasd.fish
 . ~/.config/fish/git-halp.fish
