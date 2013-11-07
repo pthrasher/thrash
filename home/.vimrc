@@ -62,12 +62,11 @@
         Bundle 'airblade/vim-gitgutter'
         Bundle 'godlygeek/tabular'
         Bundle 'mileszs/ack.vim'
-        Bundle 'svermeulen/vim-easyclip'
 
         Bundle 'scratch.vim'
         Bundle 'kien/ctrlp.vim'
         Bundle 'sjl/gundo.vim'
-        " Bundle 'YankRing.vim'
+        Bundle 'YankRing.vim'
         Bundle 'terryma/vim-multiple-cursors'
 
 
