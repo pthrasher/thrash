@@ -9,3 +9,5 @@
     mergeoptions = --no-edit
 [branch "master"]
     mergeoptions = --no-edit
+[color]
+    ui = true
