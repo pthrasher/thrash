@@ -7,7 +7,6 @@
 . ~/.config/fish/git-halp.fish
 . ~/.config/fish/virtual.fish
 . ~/.config/fish/django.fish
-. ~/.config/fish/golang.fish
 . ~/.config/fish/angular.fish
 
 
