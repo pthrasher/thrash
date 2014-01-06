@@ -10,6 +10,7 @@ let g:solarized_hitrail = 1 " hilight trailing whitespace
 colorscheme solarized
 
 set transparency=0 " don't want it. want to get shit done instead.
+
 " Remove all the UI cruft
 set go-=T
 set go-=l

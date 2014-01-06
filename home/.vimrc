@@ -94,6 +94,7 @@
 
     " Extra Syntaxes {{{
 
+        Bundle 'emezeske/vimclojure', {'rtp': 'vim/'}
         Bundle 'aliva/vim-fish'
         Bundle 'digitaltoad/vim-jade'
         Bundle 'wavded/vim-stylus'
@@ -365,6 +366,7 @@
     " to them.
     nnoremap n nzzzv
     nnoremap N Nzzzv
+
     " Same when jumping around
     nnoremap g; g;zz
     nnoremap g, g,zz
@@ -542,14 +544,10 @@
 
     " YankRing.vim {{{
 
-        " function! YRRunAfterMaps()
-        "     " From Steve Losh, Preserve the yank post selection/put.
-        "     vnoremap p :<c-u>YRPaste 'p', 'v'<cr>gv:YRYankRange 'v'<cr>
-        " endfunction
-
-    " }}}
-
-    " YankRing.vim {{{
+        function! YRRunAfterMaps()
+            " From Steve Losh, Preserve the yank post selection/put.
+            vnoremap p :<c-u>YRPaste 'p', 'v'<cr>gv:YRYankRange 'v'<cr>
+        endfunction
 
         let g:EasyClipDoSystemSync=0
 
