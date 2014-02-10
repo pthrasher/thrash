@@ -2,6 +2,11 @@
 set FDK_EXE ~/bin/FDK/Tools/osx
 set PATH /Applications/Postgres.app/Contents/MacOS/bin ~/bin /usr/local/bin $PATH $FDK_EXE
 
+# rbenv
+set PATH $HOME/.rbenv/bin $PATH
+set PATH $HOME/.rbenv/shims $PATH
+rbenv rehash >/dev/null ^&1
+
 # export is required for these I think.
 set -x GPGKEY A859BFB8
 set -x GOPATH ~/Dropbox/code/Go /usr/local/go
