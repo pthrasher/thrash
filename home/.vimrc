@@ -114,7 +114,14 @@
         Bundle 'hail2u/vim-css3-syntax'
         Bundle 'groenewege/vim-less'
 
+        " PHP Syntax + refactoring stuff
         Bundle 'spf13/PIV'
+
+        Bundle 'java.vim'
+        Bundle 'ruby.vim'
+        Bundle 'groovy.vim'
+
+
 
     " }}}
 
