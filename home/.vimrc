@@ -74,6 +74,7 @@
 
     " Programming {{{
 
+        Bundle 'editorconfig/editorconfig-vim'
         Bundle 'michaeljsmith/vim-indent-object'
         Bundle 'terryma/vim-multiple-cursors'
         Bundle 'davidhalter/jedi-vim'
