@@ -90,6 +90,7 @@
         Bundle 'tpope/vim-eunuch'
         Bundle 'switch.vim'
         Bundle 'closetag.vim'
+        Bundle 'dart-lang/dart-vim-plugin'
 
     " }}}
 
