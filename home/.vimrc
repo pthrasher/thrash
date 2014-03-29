@@ -50,7 +50,7 @@
 
     " General {{{
 
-        Bundle 'rizzatti/dash.vim'
+        " Bundle 'rizzatti/dash.vim'
         Bundle 'wakatime/vim-wakatime'
         Bundle 'MarcWeber/vim-addon-local-vimrc'
         Bundle 'tpope/vim-repeat'
@@ -455,12 +455,12 @@
 
     " dash.vim {{{
 
-        let g:dash_map = {
-        \ 'python'       : 'py',
-        \ 'pythondjango' : 'py',
-        \ 'javascript'   : 'js',
-        \ 'coffeescript' : 'js'
-        \ }
+        " let g:dash_map = {
+        " \ 'python'       : 'py',
+        " \ 'pythondjango' : 'py',
+        " \ 'javascript'   : 'js',
+        " \ 'coffeescript' : 'js'
+        " \ }
 
 
 
