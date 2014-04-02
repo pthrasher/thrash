@@ -456,10 +456,18 @@
     " dash.vim {{{
 
         let g:dash_map = {
-        \ 'python'       : 'py',
-        \ 'pythondjango' : 'py',
-        \ 'javascript'   : 'js',
-        \ 'coffeescript' : 'js'
+            \ 'python'       : 'py',
+            \ 'pythondjango' : 'py',
+
+            \ 'javascript'   : 'js',
+            \ 'coffeescript' : 'js',
+
+            \ 'less'         : 'css',
+            \ 'css'          : 'css',
+
+            \ 'go'           : 'golang',
+
+            \ 'html'         : 'html'
         \ }
 
 
