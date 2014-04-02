@@ -2,6 +2,9 @@
 set FDK_EXE ~/bin/FDK/Tools/osx
 set PATH /Applications/Postgres.app/Contents/Versions/9.3/bin ~/bin /usr/local/bin $PATH $FDK_EXE
 
+# Un-fuck xcode's bullshitty shitty-ness.
+set -x ARCHFLAGS -Wno-error=unused-command-line-argument-hard-error-in-future
+
 # rbenv
 set PATH $HOME/.rbenv/bin $PATH
 set PATH $HOME/.rbenv/shims $PATH
