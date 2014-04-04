@@ -11,14 +11,6 @@
 . ~/.priv-env.fish
 
 
-function sudo -d "I JUST WANT BANG BANG BANG"
-    if test "$argv" = !!
-        eval command sudo $history[1]
-    else
-        command sudo $argv
-    end
-end
-
 function reload_config -d "Reload the .config/fish shit."
     . ~/.config/fish/config.fish
 end
