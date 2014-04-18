@@ -1,6 +1,11 @@
 
 set FDK_EXE ~/bin/FDK/Tools/osx
-set PATH /Applications/Postgres.app/Contents/Versions/9.3/bin ~/bin /usr/local/bin $PATH $FDK_EXE
+
+set PATH $PATH $FDK_EXE
+set PATH /usr/local/bin $PATH
+set PATH /Users/pthrasher/bin $PATH
+set PATH /Applications/Postgres.app/Contents/Versions/9.3/bin $PATH
+set PATH /usr/local/Cellar/go/1.2.1/libexec/bin $PATH
 
 # Un-fuck xcode's bullshitty shitty-ness.
 set -x ARCHFLAGS -Wno-error=unused-command-line-argument-hard-error-in-future
