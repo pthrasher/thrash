@@ -19,109 +19,108 @@
 
 
 
-" Bundles (Plugins) {{{
+" Plugins {{{
 
     " Setup {{{
 
         set nocompatible
         filetype off
 
-        set rtp+=~/.vim/bundle/vundle/
-        call vundle#rc()
+        set rtp+=~/.vim/bundle/Vundle.vim
+        call vundle#begin()
 
         " Let Vundle manage Vundle.
-        Bundle 'gmarik/vundle'
+        Plugin 'gmarik/vundle'
 
     " }}}
 
     " Shared libs {{{
 
-        Bundle 'L9'
-        Bundle 'rizzatti/funcoo.vim'
+        Plugin 'L9'
+        Plugin 'rizzatti/funcoo.vim'
 
     " }}}
 
     " Colorschemes {{{
 
-        Bundle 'pthrasher/vim-colors-solarized'
-        " Bundle 'pthrasher/Toy-Chest-Theme'
+        Plugin 'pthrasher/vim-colors-solarized'
+        " Plugin 'pthrasher/Toy-Chest-Theme'
 
     " }}}
 
     " General {{{
 
-        Bundle 'rizzatti/dash.vim'
-        Bundle 'wakatime/vim-wakatime'
-        Bundle 'MarcWeber/vim-addon-local-vimrc'
-        Bundle 'tpope/vim-repeat'
-        Bundle 'tpope/vim-surround'
-        Bundle 'tpope/vim-git'
-        Bundle 'tpope/vim-fugitive'
+        Plugin 'rizzatti/dash.vim'
+        Plugin 'wakatime/vim-wakatime'
+        Plugin 'MarcWeber/vim-addon-local-vimrc'
+        Plugin 'tpope/vim-repeat'
+        Plugin 'tpope/vim-surround'
+        Plugin 'tpope/vim-git'
+        Plugin 'tpope/vim-fugitive'
 
-        Bundle 'bling/vim-airline'
-        Bundle 'airblade/vim-gitgutter'
-        Bundle 'godlygeek/tabular'
-        Bundle 'mileszs/ack.vim'
+        Plugin 'bling/vim-airline'
+        Plugin 'airblade/vim-gitgutter'
+        Plugin 'godlygeek/tabular'
+        Plugin 'mileszs/ack.vim'
 
-        Bundle 'scratch.vim'
-        Bundle 'kien/ctrlp.vim'
-        Bundle 'sjl/gundo.vim'
-        Bundle 'YankRing.vim'
-        Bundle 'terryma/vim-multiple-cursors'
+        Plugin 'scratch.vim'
+        Plugin 'kien/ctrlp.vim'
+        Plugin 'sjl/gundo.vim'
+        Plugin 'YankRing.vim'
 
 
     " }}}
 
     " Programming {{{
 
-        Bundle 'editorconfig/editorconfig-vim'
-        Bundle 'michaeljsmith/vim-indent-object'
-        Bundle 'terryma/vim-multiple-cursors'
-        Bundle 'davidhalter/jedi-vim'
-        Bundle 'django.vim'
-        Bundle 'undx/vim-gocode'
-        Bundle 'Raimondi/delimitMate'
-        Bundle 'Valloric/YouCompleteMe'
-        Bundle 'scrooloose/syntastic'
-        Bundle 'sjl/strftimedammit.vim'
-        Bundle 'tpope/vim-commentary'
-        Bundle 'guileen/vim-node'
-        Bundle 'tpope/vim-endwise'
-        Bundle 'tpope/vim-eunuch'
-        Bundle 'switch.vim'
-        Bundle 'closetag.vim'
-        Bundle 'dart-lang/dart-vim-plugin'
+        Plugin 'editorconfig/editorconfig-vim'
+        Plugin 'michaeljsmith/vim-indent-object'
+        Plugin 'terryma/vim-multiple-cursors'
+        Plugin 'davidhalter/jedi-vim'
+        Plugin 'django.vim'
+        Plugin 'undx/vim-gocode'
+        Plugin 'Raimondi/delimitMate'
+        Plugin 'Valloric/YouCompleteMe'
+        Plugin 'scrooloose/syntastic'
+        Plugin 'sjl/strftimedammit.vim'
+        Plugin 'tpope/vim-commentary'
+        Plugin 'guileen/vim-node'
+        Plugin 'tpope/vim-endwise'
+        Plugin 'tpope/vim-eunuch'
+        Plugin 'switch.vim'
+        Plugin 'closetag.vim'
+        Plugin 'dart-lang/dart-vim-plugin'
 
     " }}}
 
     " Extra Syntaxes {{{
 
-        Bundle 'emezeske/vimclojure', {'rtp': 'vim/'}
-        Bundle 'aliva/vim-fish'
-        Bundle 'digitaltoad/vim-jade'
-        Bundle 'wavded/vim-stylus'
+        Plugin 'emezeske/vimclojure', {'rtp': 'vim/'}
+        Plugin 'aliva/vim-fish'
+        Plugin 'digitaltoad/vim-jade'
+        Plugin 'wavded/vim-stylus'
 
-        Bundle 'leshill/vim-json'
-        Bundle 'pangloss/vim-javascript'
-        Bundle 'indenthtml.vim'
+        Plugin 'leshill/vim-json'
+        Plugin 'pangloss/vim-javascript'
+        Plugin 'indenthtml.vim'
 
-        Bundle 'tpope/vim-markdown'
-        Bundle 'mattn/emmet-vim'
+        Plugin 'tpope/vim-markdown'
+        Plugin 'mattn/emmet-vim'
 
-        Bundle 'fsouza/go.vim'
+        Plugin 'fsouza/go.vim'
 
-        Bundle 'kchmck/vim-coffee-script'
+        Plugin 'kchmck/vim-coffee-script'
 
-        Bundle 'skammer/vim-css-color'
-        Bundle 'hail2u/vim-css3-syntax'
-        Bundle 'groenewege/vim-less'
+        Plugin 'skammer/vim-css-color'
+        Plugin 'hail2u/vim-css3-syntax'
+        Plugin 'groenewege/vim-less'
 
         " PHP Syntax + refactoring stuff
-        Bundle 'spf13/PIV'
+        Plugin 'spf13/PIV'
 
-        Bundle 'java.vim'
-        Bundle 'ruby.vim'
-        Bundle 'groovy.vim'
+        Plugin 'java.vim'
+        Plugin 'ruby.vim'
+        Plugin 'groovy.vim'
 
 
 
@@ -130,6 +129,7 @@
 " }}}
 " General Config {{{
 
+    call vundle#end()
     filetype plugin indent on
     syntax on
 
