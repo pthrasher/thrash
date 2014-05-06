@@ -154,9 +154,9 @@
     set nocompatible " this is already set above -- only here for reference
 
     " Default tabstop / spacing
-    set tabstop=4
-    set shiftwidth=4
-    set softtabstop=4
+    set tabstop=2
+    set shiftwidth=2
+    set softtabstop=2
 
     set expandtab " use spaces instead of tabs.
     set smarttab " let's tab key insert 'tab stops', and bksp deletes tabs.
@@ -593,7 +593,7 @@
         let g:user_emmet_leader_key = '<c-e>'
 
         " 4 space soft tabs
-        let g:user_emmet_settings = {'indentation' : '    '}
+        let g:user_emmet_settings = {'indentation' : '  '}
 
         " complete tags from omnifunc
         let g:use_emmet_complete_tag = 1
@@ -703,7 +703,7 @@
         augroup ft_javascript
             au!
 
-            au FileType javascript set softtabstop=4 tabstop=4 shiftwidth=4
+            au FileType javascript set softtabstop=2 tabstop=2 shiftwidth=2
             au FileType javascript set dictionary+=$HOME/.vim/dict/node.dict
         augroup END
 
@@ -772,7 +772,7 @@
         augroup ft_php
             au!
 
-            au FileType php set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
+            au FileType php set softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79
         augroup END
 
     " }}}
@@ -807,7 +807,7 @@
         augroup ft_coffee
             au!
 
-            au FileType coffee set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
+            au FileType coffee set softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79
             au FileType coffee set dictionary+=$HOME/.vim/dict/node.dict
             au Filetype coffee let b:delimitMate_nesting_quotes = ["\"", "'", '`']
         augroup END
