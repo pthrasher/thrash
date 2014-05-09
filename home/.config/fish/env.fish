@@ -3,6 +3,7 @@ set FDK_EXE ~/bin/FDK/Tools/osx
 
 set PATH $PATH $FDK_EXE
 set PATH /usr/local/bin $PATH
+set PATH /usr/local/sbin $PATH
 set PATH /Users/pthrasher/bin $PATH
 set PATH /Applications/Postgres.app/Contents/Versions/9.3/bin $PATH
 set PATH /Users/pthrasher/Dropbox/code/Go/bin $PATH
