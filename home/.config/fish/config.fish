@@ -10,6 +10,8 @@
 . ~/.config/fish/angular.fish
 . ~/.priv-env.fish
 
+# important
+ulimit -n 1024000
 
 function reload_config -d "Reload the .config/fish shit."
     . ~/.config/fish/config.fish
