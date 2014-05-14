@@ -68,6 +68,8 @@
         Plugin 'sjl/gundo.vim'
         Plugin 'YankRing.vim'
 
+        Plugin 'tpope/vim-vinegar'
+
 
     " }}}
 
@@ -133,11 +135,6 @@
     filetype plugin indent on
     syntax on
 
-    " Add extra TODO style syntax
-    syn match myBasicTodo contained "\<\(TODO\|FIXME\|XXX\|NOTE\):"
-    syn match myExtraTodo contained "\<\(PERF\|DOCTHIS\|ONSCOPE\):"
-    hi def link myBasicTodo Todo
-    hi def link myExtraTodo Todo
 
 " }}}
 " Settings {{{
@@ -260,6 +257,16 @@
         \ if line("'\"") > 0 && line("'\"") <= line("$") |
         \     execute 'normal! g`"zvzz' |
         \ endif
+    augroup END
+
+    augroup highlight_additions
+      au!
+
+      " Add extra TODO style syntax
+      au BufReadPost * syn match myBasicTodo contained "\<\(TODO\|FIXME\|XXX\|NOTE\):"
+      au BufReadPost * syn match myExtraTodo contained "\<\(PERF\|DOCTHIS\|ONSCOPE\):"
+      au BufReadPost * hi def link myBasicTodo Todo
+      au BufReadPost * hi def link myExtraTodo Todo
     augroup END
 
 " }}}
@@ -621,13 +628,6 @@
                                    \ 'passive_filetypes': ['python', 'python.django', 'html' ] }
         let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
         let g:syntastic_jsl_conf = '$HOME/.vim/jsl.conf'
-
-        " We don't want to use coffee -c -- it yells about things I don't care
-        " about.
-        let g:syntastic_coffee_coffee_exe = 'coffeehint'
-        let g:syntastic_coffee_coffee_args = ''
-        let g:syntastic_coffee_checkers = [ 'coffee' ]
-
 
     " }}}
 

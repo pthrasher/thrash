@@ -46,3 +46,4 @@ alias ll 'ls -lah'
 alias gvim 'mvim'
 alias v 'mvim'
 
+alias vssh 'vagrant ssh'
