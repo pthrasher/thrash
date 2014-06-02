@@ -47,3 +47,5 @@ alias gvim 'mvim'
 alias v 'mvim'
 
 alias vssh 'vagrant ssh'
+
+alias getit 'axel -avn 8'
