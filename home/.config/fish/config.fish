@@ -8,7 +8,9 @@
 . ~/.config/fish/virtual.fish
 . ~/.config/fish/django.fish
 . ~/.config/fish/angular.fish
+. ~/.config/fish/golang.fish
 . ~/.priv-env.fish
+
 
 # important
 ulimit -n 1024000
