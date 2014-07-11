@@ -20,6 +20,7 @@ rbenv rehash >/dev/null ^&1
 # export is required for these I think.
 set -x GPGKEY A859BFB8
 set -x GOPATH ~/Dropbox/code/Go /usr/local/go
+set -x BASEGOPATH $GOPATH
 set -x COFFEELINT_CONFIG ~/.coffeelintrc
 set -x EDITOR 'mvim -f'
 
