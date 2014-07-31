@@ -101,6 +101,7 @@
         Plugin 'aliva/vim-fish'
         Plugin 'digitaltoad/vim-jade'
         Plugin 'wavded/vim-stylus'
+        Plugin 'mxw/vim-jsx'
 
         Plugin 'leshill/vim-json'
         Plugin 'pangloss/vim-javascript'
