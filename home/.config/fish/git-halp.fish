@@ -11,7 +11,7 @@ alias gignored "git ls-files -o -i --exclude-standard"
 
 
 function wtc -d "Get random 'What the Commit' message."
-    echo (curl http://whatthecommit.com/index.txt)
+    echo (curl http://whatthecommit.com/index.txt ^/dev/null)
 end
 
 
