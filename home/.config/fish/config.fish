@@ -29,12 +29,6 @@ function take -d "Creates a named directory and then cd's to it."
     cd $argv[1]
 end
 
-function nginx-restart -d "Restart nginx."
-    launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist
-    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist
-end
-
-
 alias cdconf 'z sh/ho'
 alias vimrc 'z sh/ho; and v .vimrc'
 alias fishrc 'z sh/ho; and v .config/fish/config.fish'
@@ -43,6 +37,7 @@ alias fishrc 'z sh/ho; and v .config/fish/config.fish'
 alias serve 'python -m SimpleHTTPServer'
 alias .. 'cd ..'
 alias ll 'ls -lah'
+alias lsp 'lsp -p'
 
 
 alias gvim 'mvim'
