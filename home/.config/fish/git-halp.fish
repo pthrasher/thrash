@@ -9,6 +9,7 @@ alias gca "git commit -avm"
 alias gc "git commit -v"
 alias gignored "git ls-files -o -i --exclude-standard"
 alias gg "git log --oneline --abbrev-commit --all --graph --decorate --color"
+alias gaa "git add --all ."
 
 
 function wtc -d "Get random 'What the Commit' message."
