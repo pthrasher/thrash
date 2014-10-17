@@ -808,7 +808,7 @@
         augroup ft_coffee
             au!
 
-            au FileType coffee set softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79
+            au FileType coffee set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
             au FileType coffee set dictionary+=$HOME/.vim/dict/node.dict
             au Filetype coffee let b:delimitMate_nesting_quotes = ["\"", "'", '`']
         augroup END
