@@ -34,7 +34,8 @@ alias vimrc 'z sh/ho; and v .vimrc'
 alias fishrc 'z sh/ho; and v .config/fish/config.fish'
 
 
-alias serve 'python -m SimpleHTTPServer'
+# alias serve 'python -m SimpleHTTPServer'
+alias serve 'http-server . -p 8000 -a 0.0.0.0 -i'
 alias .. 'cd ..'
 alias ll 'ls -lah'
 alias lsp 'lsp -p'
