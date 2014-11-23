@@ -97,6 +97,8 @@
 
     " Extra Syntaxes {{{
 
+        Plugin 'jplaut/vim-arduino-ino'
+        Plugin 'sudar/vim-arduino-syntax'
         Plugin 'emezeske/vimclojure', {'rtp': 'vim/'}
         Plugin 'aliva/vim-fish'
         Plugin 'digitaltoad/vim-jade'
