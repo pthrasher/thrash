@@ -79,6 +79,7 @@
         Plugin 'michaeljsmith/vim-indent-object'
         Plugin 'terryma/vim-multiple-cursors'
         Plugin 'davidhalter/jedi-vim'
+        Plugin 'marijnh/tern_for_vim'
         Plugin 'django.vim'
         Plugin 'undx/vim-gocode'
         Plugin 'Raimondi/delimitMate'
