@@ -12,7 +12,6 @@
 . ~/.priv-env.fish
 
 
-set -x PYTHONPATH /usr/local/lib/python2.7/site-packages $PYTHONPATH
 
 # important
 ulimit -n 65536
