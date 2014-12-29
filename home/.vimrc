@@ -92,12 +92,12 @@
         Plugin 'tpope/vim-eunuch'
         Plugin 'switch.vim'
         Plugin 'closetag.vim'
-        Plugin 'dart-lang/dart-vim-plugin'
 
     " }}}
 
     " Extra Syntaxes {{{
 
+        Plugin 'dart-lang/dart-vim-plugin'
         Plugin 'jplaut/vim-arduino-ino'
         Plugin 'sudar/vim-arduino-syntax'
         Plugin 'emezeske/vimclojure', {'rtp': 'vim/'}
@@ -105,6 +105,7 @@
         Plugin 'digitaltoad/vim-jade'
         Plugin 'wavded/vim-stylus'
         Plugin 'mxw/vim-jsx'
+        Plugin 'tikhomirov/vim-glsl'
 
         Plugin 'leshill/vim-json'
         Plugin 'pangloss/vim-javascript'
@@ -644,7 +645,6 @@
 
 
 " }}}
-
 " Unite Customizations {{{
 
   " Ack using the_platinum_searcher
@@ -657,7 +657,6 @@
   endif
 
 " }}}
-
 " Syntax Settings {{{
 
     " C++ {{{
