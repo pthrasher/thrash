@@ -92,6 +92,7 @@
         Plugin 'tpope/vim-eunuch'
         Plugin 'switch.vim'
         Plugin 'closetag.vim'
+        Plugin 'SirVer/ultisnips'
 
     " }}}
 
@@ -104,8 +105,8 @@
         Plugin 'aliva/vim-fish'
         Plugin 'digitaltoad/vim-jade'
         Plugin 'wavded/vim-stylus'
-        Plugin 'mxw/vim-jsx'
         Plugin 'tikhomirov/vim-glsl'
+
 
         Plugin 'leshill/vim-json'
         Plugin 'pangloss/vim-javascript'
@@ -129,7 +130,16 @@
         Plugin 'ruby.vim'
         Plugin 'groovy.vim'
 
+        " react-related
+        Plugin 'mxw/vim-jsx'
+        Plugin 'mtscout6/vim-cjsx'
 
+    " }}}
+
+    " Snippet Bundles {{{
+
+        Plugin 'honza/vim-snippets'
+        Plugin 'justinj/vim-react-snippets'
 
     " }}}
 
@@ -643,6 +653,13 @@
 
     " }}}
 
+    " Ultisnips {{{
+
+      let g:UltiSnipsExpandTrigger="<cr>"
+      let g:UltiSnipsJumpForwardTrigger="<c-b>"
+      let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+    " }}}
 
 " }}}
 " Unite Customizations {{{
