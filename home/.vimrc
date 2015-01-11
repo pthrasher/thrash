@@ -657,9 +657,7 @@
 
       let g:UltiSnipsJumpForwardTrigger="<c-b>"
       let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-      let g:UltiSnipsExpandTrigger = "<nop>"
-      inoremap <expr> <CR> pumvisible() ? "<C-R>=UltiSnips#ExpandSnippetOrJump()<CR>" : "\<CR>"
+      let g:UltiSnipsExpandTrigger = "<c-f>"
 
     " }}}
 
