@@ -93,7 +93,7 @@
         Plugin 'switch.vim'
         Plugin 'closetag.vim'
         Plugin 'SirVer/ultisnips'
-        Plugin 'astashov/vim-ruby-debugger'
+        Plugin 'joonty/vdebug'
 
     " }}}
 
@@ -659,12 +659,6 @@
       let g:UltiSnipsJumpForwardTrigger="<c-b>"
       let g:UltiSnipsJumpBackwardTrigger="<c-z>"
       let g:UltiSnipsExpandTrigger = "<c-d>"
-
-    " }}}
-
-    " Ruby Debugger {{{
-
-      let g:ruby_debugger_progname = 'mvim'
 
     " }}}
 
