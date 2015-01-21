@@ -662,6 +662,12 @@
 
     " }}}
 
+    " Ruby Debugger {{{
+
+      let g:ruby_debugger_progname = 'mvim'
+
+    " }}}
+
 " }}}
 " Unite Customizations {{{
 
