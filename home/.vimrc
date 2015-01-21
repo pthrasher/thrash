@@ -93,6 +93,7 @@
         Plugin 'switch.vim'
         Plugin 'closetag.vim'
         Plugin 'SirVer/ultisnips'
+        Plugin 'astashov/vim-ruby-debugger'
 
     " }}}
 
