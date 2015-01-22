@@ -659,7 +659,7 @@
       let g:UltiSnipsJumpForwardTrigger="<c-b>"
       let g:UltiSnipsJumpBackwardTrigger="<c-z>"
       let g:UltiSnipsExpandTrigger = "<c-d>"
-      let g:UltiSnipsSnippetsDir = "~/.my-ultisnips"
+      let g:UltiSnipsSnippetsDir = "/Users/pthrasher/.my-ultisnips/UltiSnips"
 
     " }}}
 
