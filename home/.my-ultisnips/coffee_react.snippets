@@ -1,0 +1,15 @@
+priority -50
+
+extends coffee
+
+priority -49
+
+snippet rcc "React.createClass (coffee)" b
+${1:name} = React.createClass
+	displayName: '$1'
+	mixins: []
+
+	render: ->
+		$0
+		return
+endsnippet
