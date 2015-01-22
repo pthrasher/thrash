@@ -659,7 +659,8 @@
       let g:UltiSnipsJumpForwardTrigger="<c-b>"
       let g:UltiSnipsJumpBackwardTrigger="<c-z>"
       let g:UltiSnipsExpandTrigger = "<c-d>"
-      let g:UltiSnipsSnippetsDir = "/Users/pthrasher/.vim/my-ultisnips/UltiSnips"
+      let g:UltiSnipsSnippetsDir = "/Users/pthrasher/.vim/mysnippets/"
+      let g:UltiSnipsSnippetDirectories  = ['UltiSnips', 'mysnippets']
 
     " }}}
 
