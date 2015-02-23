@@ -18,7 +18,6 @@
 "    Blog:    http://pthra.sh/
 
 
-
 " Plugins {{{
 
     " Setup {{{
