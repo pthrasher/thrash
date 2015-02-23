@@ -99,6 +99,7 @@
 
     " Extra Syntaxes {{{
 
+        Plugin 'slim-template/vim-slim'
         Plugin 'dart-lang/dart-vim-plugin'
         Plugin 'jplaut/vim-arduino-ino'
         Plugin 'sudar/vim-arduino-syntax'
@@ -669,8 +670,8 @@
 
   " Ack using the_platinum_searcher
   nnoremap <silent> ,g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
-  if executable('pt')
-    let g:unite_source_grep_command = 'pt'
+  if executable('ag')
+    let g:unite_source_grep_command = 'ag'
     let g:unite_source_grep_default_opts = '--nogroup --nocolor'
     let g:unite_source_grep_recursive_opt = ''
     let g:unite_source_grep_encoding = 'utf-8'
