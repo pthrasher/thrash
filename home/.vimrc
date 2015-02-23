@@ -131,6 +131,7 @@
         Plugin 'java.vim'
         Plugin 'ruby.vim'
         Plugin 'groovy.vim'
+        Plugin 'alunny/pegjs-vim'
 
         " react-related
         Plugin 'mxw/vim-jsx'
