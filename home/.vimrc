@@ -74,6 +74,7 @@
 
     " Programming {{{
 
+        Plugin 'robotvert/vim-nginx'
         Plugin 'editorconfig/editorconfig-vim'
         Plugin 'michaeljsmith/vim-indent-object'
         Plugin 'terryma/vim-multiple-cursors'
