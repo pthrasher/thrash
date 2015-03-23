@@ -1,16 +1,15 @@
 
-. ~/.config/fish/env.fish
-. ~/.config/fish/rbenv.fish
-. ~/.config/fish/ui.fish
-# . ~/.config/fish/solarized_colors.fish
-. ~/.config/fish/solarized.fish
-. ~/.config/fish/fasd.fish
-. ~/.config/fish/git-halp.fish
-. ~/.config/fish/virtual.fish
-. ~/.config/fish/django.fish
-. ~/.config/fish/angular.fish
-. ~/.config/fish/golang.fish
-. ~/.priv-env.fish
+source ~/.config/fish/env.fish
+source ~/.config/fish/rbenv.fish
+source ~/.config/fish/ui.fish
+source ~/.config/fish/solarized.fish
+source ~/.config/fish/fasd.fish
+source ~/.config/fish/git-halp.fish
+source ~/.config/fish/virtual.fish
+source ~/.config/fish/django.fish
+source ~/.config/fish/angular.fish
+source ~/.config/fish/golang.fish
+source ~/.priv-env.fish
 
 
 
@@ -18,7 +17,7 @@
 # ulimit -n 65536
 
 function reload_config -d "Reload the .config/fish shit."
-    . ~/.config/fish/config.fish
+    source ~/.config/fish/config.fish
 end
 
 function confpush -d "add, commit, and push dotfiles, homesick pull, reload_config"
@@ -31,6 +30,20 @@ function take -d "Creates a named directory and then cd's to it."
     cd $argv[1]
 end
 
+function path
+  set PATH (pwd)/$argv $PATH
+end
+
+function redraw
+  clear; fish_prompt
+end
+
+
+function fish_menu_history
+  fish --command "eval (history | unique | $argv)"
+end
+
+
 alias cdconf 'z sh/ho'
 alias vimrc 'z sh/ho; and v .vimrc'
 alias fishrc 'z sh/ho; and v .config/fish/config.fish'
@@ -40,9 +53,12 @@ alias fishrc 'z sh/ho; and v .config/fish/config.fish'
 alias serve 'http-server . -p 8000 -a 0.0.0.0 -i'
 alias .. 'cd ..'
 # alias ls 'gls --color=auto'
-alias ll 'ls -lah'
-alias lsp 'lsp -p'
+alias seq gseq
 
+for i in (seq 1 6)
+  alias  l$i "tree --dirsfirst -ChFL     $i" ;; alias  l  l1
+  alias ll$i "tree --dirsfirst -ChFupDaL $i" ;; alias ll ll1
+end
 
 alias gvim 'mvim'
 alias v 'mvim'
