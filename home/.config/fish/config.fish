@@ -14,7 +14,7 @@
 
 
 # important
-ulimit -n 65536
+# ulimit -n 65536
 
 function reload_config -d "Reload the .config/fish shit."
     . ~/.config/fish/config.fish
@@ -38,6 +38,7 @@ alias fishrc 'z sh/ho; and v .config/fish/config.fish'
 # alias serve 'python -m SimpleHTTPServer'
 alias serve 'http-server . -p 8000 -a 0.0.0.0 -i'
 alias .. 'cd ..'
+alias ls 'gls --color=auto'
 alias ll 'ls -lah'
 alias lsp 'lsp -p'
 
