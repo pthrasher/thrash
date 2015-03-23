@@ -43,7 +43,6 @@
     " Colorschemes {{{
 
         Plugin 'pthrasher/vim-colors-solarized'
-        " Plugin 'pthrasher/Toy-Chest-Theme'
 
     " }}}
 
@@ -645,7 +644,7 @@
                                    \ 'active_filetypes': [],
                                    \ 'passive_filetypes': ['python', 'python.django', 'html', 'coffee' ] }
         let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
-        let g:syntastic_jsl_conf = '$HOME/.vim/jsl.conf'
+        let g:syntastic_javascript_checkers = ['eslint', 'flow']
 
     " }}}
 
@@ -658,10 +657,10 @@
 
     " Ultisnips {{{
 
-      let g:UltiSnipsJumpForwardTrigger="<c-b>"
-      let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-      let g:UltiSnipsExpandTrigger = "<c-d>"
-      let g:UltiSnipsSnippetsDir = "/Users/pthrasher/.vim/mysnippets/"
+      let g:UltiSnipsJumpForwardTrigger='<c-b>'
+      let g:UltiSnipsJumpBackwardTrigger='<c-z>'
+      let g:UltiSnipsExpandTrigger = '<c-d>'
+      let g:UltiSnipsSnippetsDir = '/Users/pthrasher/.vim/mysnippets/'
       let g:UltiSnipsSnippetDirectories  = ['UltiSnips', 'mysnippets']
 
     " }}}
