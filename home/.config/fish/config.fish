@@ -1,8 +1,9 @@
 
 . ~/.config/fish/env.fish
 . ~/.config/fish/rbenv.fish
-. ~/.config/fish/solarized_colors.fish
 . ~/.config/fish/ui.fish
+# . ~/.config/fish/solarized_colors.fish
+. ~/.config/fish/solarized.fish
 . ~/.config/fish/fasd.fish
 . ~/.config/fish/git-halp.fish
 . ~/.config/fish/virtual.fish
@@ -38,7 +39,7 @@ alias fishrc 'z sh/ho; and v .config/fish/config.fish'
 # alias serve 'python -m SimpleHTTPServer'
 alias serve 'http-server . -p 8000 -a 0.0.0.0 -i'
 alias .. 'cd ..'
-alias ls 'gls --color=auto'
+# alias ls 'gls --color=auto'
 alias ll 'ls -lah'
 alias lsp 'lsp -p'
 
