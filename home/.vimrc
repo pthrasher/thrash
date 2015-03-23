@@ -22,6 +22,7 @@
 
     " Setup {{{
 
+        set shell=/bin/bash
         set nocompatible
         filetype off
 
@@ -235,14 +236,11 @@
     set wildignore+=*/migrations/*                   " Django migrations
     set wildignore+=*.pyc                            " Python byte code
 
-    " v2 project specific settings
-
-    set shell=/bin/bash
 
     if has("gui_running")
         " I might put something in here at some point
     else
-        set background="light"
+        set background="dark"
         set t_Co=256
         colorscheme solarized
     endif
