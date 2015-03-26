@@ -3,7 +3,7 @@
 "
 " Color scheme config
 set guifont=Source\ Code\ Pro\ for\ Powerline:h13
-set bg=light
+set bg=dark
 call togglebg#map("<F6>")
 let g:solarized_hitrail = 1 " hilight trailing whitespace
 

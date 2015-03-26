@@ -94,6 +94,7 @@
         Plugin 'closetag.vim'
         Plugin 'SirVer/ultisnips'
         Plugin 'joonty/vdebug'
+        Plugin 'nathanaelkane/vim-indent-guides'
 
     " }}}
 
@@ -152,7 +153,6 @@
     call vundle#end()
     filetype plugin indent on
     syntax on
-
 
 " }}}
 " Settings {{{
@@ -278,10 +278,15 @@
       au!
 
       " Add extra TODO style syntax
-      au BufReadPost * syn match myBasicTodo contained "\<\(TODO\|FIXME\|XXX\|NOTE\):"
-      au BufReadPost * syn match myExtraTodo contained "\<\(PERF\|DOCTHIS\|ONSCOPE\):"
-      au BufReadPost * hi def link myBasicTodo Todo
-      au BufReadPost * hi def link myExtraTodo Todo
+
+      let g:indent_guides_auto_colors = 0
+      au VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
+      au VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey
+
+      au VimEnter,Colorscheme * :syn match myBasicTodo contained "\<\(TODO\|FIXME\|XXX\|NOTE\):"
+      au VimEnter,Colorscheme * :syn match myExtraTodo contained "\<\(PERF\|DOCTHIS\|ONSCOPE\):"
+      au VimEnter,Colorscheme * :hi def link myBasicTodo Todo
+      au VimEnter,Colorscheme * :hi def link myExtraTodo Todo
     augroup END
 
 " }}}
@@ -643,6 +648,14 @@
                                    \ 'passive_filetypes': ['python', 'python.django', 'html', 'coffee' ] }
         let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
         let g:syntastic_javascript_checkers = ['eslint', 'flow']
+
+    " }}}
+
+    " GitGutter {{{
+
+      let g:gitgutter_enabled = 0
+      let g:gitgutter_max_signs = 999
+      highlight clear SignColumn
 
     " }}}
 
