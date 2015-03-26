@@ -279,9 +279,9 @@
 
       " Add extra TODO style syntax
 
-      let g:indent_guides_auto_colors = 0
-      au VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
-      au VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey
+      " let g:indent_guides_auto_colors = 0
+      " au VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
+      " au VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey
 
       au VimEnter,Colorscheme * :syn match myBasicTodo contained "\<\(TODO\|FIXME\|XXX\|NOTE\):"
       au VimEnter,Colorscheme * :syn match myExtraTodo contained "\<\(PERF\|DOCTHIS\|ONSCOPE\):"
