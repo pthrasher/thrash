@@ -58,7 +58,6 @@
         Plugin 'tpope/vim-fugitive'
 
         Plugin 'bling/vim-airline'
-        Plugin 'airblade/vim-gitgutter'
         Plugin 'godlygeek/tabular'
         Plugin 'Shougo/unite.vim'
 
@@ -283,10 +282,12 @@
       " au VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
       " au VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey
 
-      au VimEnter,Colorscheme * :syn match myBasicTodo contained "\<\(TODO\|FIXME\|XXX\|NOTE\):"
-      au VimEnter,Colorscheme * :syn match myExtraTodo contained "\<\(PERF\|DOCTHIS\|ONSCOPE\):"
-      au VimEnter,Colorscheme * :hi def link myBasicTodo Todo
-      au VimEnter,Colorscheme * :hi def link myExtraTodo Todo
+      au VimEnter,Colorscheme * highlight clear SignColumn
+
+      au VimEnter,Colorscheme * syntax match myBasicTodo contained "\<\(TODO\|FIXME\|XXX\|NOTE\):"
+      au VimEnter,Colorscheme * syntax match myExtraTodo contained "\<\(PERF\|DOCTHIS\|ONSCOPE\):"
+      au VimEnter,Colorscheme * highlight def link myBasicTodo Todo
+      au VimEnter,Colorscheme * highlight def link myExtraTodo Todo
     augroup END
 
 " }}}
