@@ -283,7 +283,6 @@
       " au VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey
 
       au VimEnter,Colorscheme * highlight clear SignColumn
-
       au VimEnter,Colorscheme * syntax match myBasicTodo contained "\<\(TODO\|FIXME\|XXX\|NOTE\):"
       au VimEnter,Colorscheme * syntax match myExtraTodo contained "\<\(PERF\|DOCTHIS\|ONSCOPE\):"
       au VimEnter,Colorscheme * highlight def link myBasicTodo Todo

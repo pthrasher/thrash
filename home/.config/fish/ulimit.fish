@@ -21,8 +21,9 @@
 ulimit -n 524288
 
 
-echo 'limit maxfiles 524288 1048576' | sudo tee -a /etc/launchd.conf
-echo kern.maxfilesperproc=524288 | sudo tee -a /etc/sysctl.conf
-echo kern.maxfiles=1048576 | sudo tee -a /etc/sysctl.conf
-sudo sysctl -w kern.maxfilesperproc=524288
-sudo sysctl -w kern.maxfiles=1048576
+# If someone else wants to do it:
+# echo 'limit maxfiles 524288 1048576' | sudo tee -a /etc/launchd.conf
+# echo kern.maxfilesperproc=524288 | sudo tee -a /etc/sysctl.conf
+# echo kern.maxfiles=1048576 | sudo tee -a /etc/sysctl.conf
+# sudo sysctl -w kern.maxfilesperproc=524288
+# sudo sysctl -w kern.maxfiles=1048576
