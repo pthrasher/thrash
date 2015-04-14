@@ -51,7 +51,7 @@
 
         Plugin 'rizzatti/dash.vim'
         Plugin 'wakatime/vim-wakatime'
-        Plugin 'MarcWeber/vim-addon-local-vimrc'
+        Plugin 'pthrasher/vim-addon-local-vimrc'
         Plugin 'tpope/vim-repeat'
         Plugin 'tpope/vim-surround'
         Plugin 'tpope/vim-git'
@@ -649,6 +649,13 @@
 
     " Syntastic {{{
 
+        let g:syntastic_always_populate_loc_list = 1
+        let g:syntastic_auto_loc_list = 1
+        let g:syntastic_check_on_open = 1
+
+        let g:syntastic_error_symbol = "✗"
+        let g:syntastic_warning_symbol = "⚠"
+
         let g:syntastic_enable_signs = 1
         let g:syntastic_mode_map = { 'mode': 'active',
                                    \ 'active_filetypes': [],
@@ -670,6 +677,7 @@
 
         let g:ctrlp_map = '<c-t>'
         let g:ctrlp_max_height = 30
+        let g:ctrlp_match_window = 'top,order:ttb,min:1,max:30,results:30'
 
     " }}}
 
