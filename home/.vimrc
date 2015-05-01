@@ -141,8 +141,7 @@
 
     " Snippet Bundles {{{
 
-        Plugin 'honza/vim-snippets'
-        Plugin 'justinj/vim-react-snippets'
+        Plugin 'pthrasher/vim-snippets'
 
     " }}}
 
@@ -308,10 +307,6 @@
     nnoremap K <NOP>
     vnoremap K <NOP>
 
-
-    nnoremap <leader>q O+<esc>80a-<esc>080lhhxC+<esc>yyjpk^lli<bar><space><esc>80A<space><esc>080lhhC<bar><esc>jj
-
-
     " 'Uppercase word' mapping.
     "
     " This mapping allows you to press <c-u> in insert mode to convert the current
@@ -336,7 +331,7 @@
     "
     " Note that this will overwrite the contents of the z mark.  I never use it, but
     " if you do you'll probably want to use another mark.
-    inoremap <D-u> <esc>mzgUiw`za
+    inoremap <C-u> <esc>mzgUiw`za
 
     " Less chording
     nnoremap ; :
@@ -347,12 +342,12 @@
     nnoremap - :Switch<cr>
 
     " Key bindings for the align plugin
-    vnoremap <leader>a= :Tab /=<cr>
-    nnoremap <leader>a= :Tab /=<cr>
-    vnoremap <leader>a: :Tab /:\zs<cr>
-    nnoremap <leader>a: :Tab /:\zs<cr>
-    vnoremap <leader>a/ :Tab /\/\/<cr>
-    nnoremap <leader>a/ :Tab /\/\/<cr>
+    vnoremap <leader>a= :Tabularize /=<cr>
+    nnoremap <leader>a= :Tabularize /=<cr>
+    vnoremap <leader>a: :Tabularize /:\zs/l0l1<cr>
+    nnoremap <leader>a: :Tabularize /:\zs/l0l1<cr>
+    vnoremap <leader>a/ :Tabularize /\/\/<cr>
+    nnoremap <leader>a/ :Tabularize /\/\/<cr>
 
     " Substitute shortcut
     nnoremap <leader>s :%s//<left>
@@ -579,7 +574,9 @@
     " }}}
 
     " ConqueTerm {{{
+
         let g:ConqueTerm_StartMessages = 0
+
     " }}}
 
     " YankRing.vim {{{
@@ -634,13 +631,6 @@
 
     " }}}
 
-    " Commentary {{{
-
-        nnoremap <leader>c :CommentaryLine<cr>
-        vnoremap <leader>c :Commentary<cr>
-
-    " }}}
-
     " DelimitMate {{{
 
 
@@ -675,7 +665,7 @@
 
         let g:ctrlp_map = '<c-t>'
         let g:ctrlp_max_height = 30
-        let g:ctrlp_match_window = 'top,order:ttb,min:1,max:30,results:30'
+        let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:30,results:30'
 
     " }}}
 
