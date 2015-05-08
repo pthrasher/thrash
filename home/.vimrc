@@ -655,7 +655,7 @@
                                    \ 'active_filetypes': [],
                                    \ 'passive_filetypes': ['python', 'python.django', 'html', 'coffee' ] }
         let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
-        let g:syntastic_javascript_checkers = ['eslint', 'flow']
+        let g:syntastic_javascript_checkers = ['eslint']
 
     " }}}
 
