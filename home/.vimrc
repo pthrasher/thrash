@@ -74,25 +74,16 @@
     " Programming {{{
 
         Plugin 'robotvert/vim-nginx'
-        Plugin 'editorconfig/editorconfig-vim'
         Plugin 'michaeljsmith/vim-indent-object'
-        Plugin 'terryma/vim-multiple-cursors'
         Plugin 'davidhalter/jedi-vim'
-        Plugin 'marijnh/tern_for_vim'
         Plugin 'django.vim'
         Plugin 'undx/vim-gocode'
         Plugin 'Raimondi/delimitMate'
         Plugin 'Valloric/YouCompleteMe'
         Plugin 'scrooloose/syntastic'
-        Plugin 'sjl/strftimedammit.vim'
         Plugin 'tpope/vim-commentary'
-        Plugin 'guileen/vim-node'
         Plugin 'tpope/vim-endwise'
-        Plugin 'tpope/vim-eunuch'
-        Plugin 'switch.vim'
-        Plugin 'closetag.vim'
         Plugin 'SirVer/ultisnips'
-        Plugin 'joonty/vdebug'
         Plugin 'nathanaelkane/vim-indent-guides'
 
     " }}}
@@ -100,15 +91,10 @@
     " Extra Syntaxes {{{
 
         Plugin 'slim-template/vim-slim'
-        Plugin 'dart-lang/dart-vim-plugin'
         Plugin 'jplaut/vim-arduino-ino'
         Plugin 'sudar/vim-arduino-syntax'
-        Plugin 'emezeske/vimclojure', {'rtp': 'vim/'}
         Plugin 'aliva/vim-fish'
-        Plugin 'digitaltoad/vim-jade'
-        Plugin 'wavded/vim-stylus'
         Plugin 'tikhomirov/vim-glsl'
-
 
         Plugin 'leshill/vim-json'
         Plugin 'pangloss/vim-javascript'
@@ -125,17 +111,11 @@
         Plugin 'hail2u/vim-css3-syntax'
         Plugin 'groenewege/vim-less'
 
-        " PHP Syntax + refactoring stuff
-        Plugin 'spf13/PIV'
-
-        Plugin 'java.vim'
         Plugin 'ruby.vim'
-        Plugin 'groovy.vim'
         Plugin 'alunny/pegjs-vim'
 
         " react-related
         Plugin 'mxw/vim-jsx'
-        Plugin 'mtscout6/vim-cjsx'
 
     " }}}
 
@@ -338,9 +318,6 @@
     vnoremap ; :
     inoremap jf <esc>
 
-    " Mapping for the switch plugin.
-    nnoremap - :Switch<cr>
-
     " Key bindings for the align plugin
     vnoremap <leader>a= :Tabularize /=<cr>
     nnoremap <leader>a= :Tabularize /=<cr>
@@ -488,6 +465,7 @@
             \ 'pythondjango' : 'py',
             \ 'javascript'   : 'js',
             \ 'coffeescript' : 'js',
+            \ 'scss'         : 'css',
             \ 'less'         : 'css',
             \ 'css'          : 'css',
             \ 'go'           : 'golang',
@@ -579,12 +557,6 @@
 
     " }}}
 
-    " ConqueTerm {{{
-
-        let g:ConqueTerm_StartMessages = 0
-
-    " }}}
-
     " YankRing.vim {{{
 
         function! YRRunAfterMaps()
@@ -625,7 +597,7 @@
 
     " }}}
 
-    " Zen Coding {{{
+    " Emmet {{{
 
         let g:user_emmet_leader_key = '<c-e>'
 
@@ -637,18 +609,12 @@
 
     " }}}
 
-    " DelimitMate {{{
-
-
-
-    " }}}
-
     " Syntastic {{{
 
         let g:syntastic_check_on_open = 1
 
-        let g:syntastic_error_symbol = "✗"
-        let g:syntastic_warning_symbol = "⚠"
+        let g:syntastic_error_symbol = "✗ "
+        let g:syntastic_warning_symbol = "⌇ "
 
         let g:syntastic_enable_signs = 1
         let g:syntastic_mode_map = { 'mode': 'active',
@@ -657,13 +623,7 @@
         let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
         let g:syntastic_javascript_checkers = ['eslint']
 
-    " }}}
-
-    " GitGutter {{{
-
-      let g:gitgutter_enabled = 0
-      let g:gitgutter_max_signs = 999
-      highlight clear SignColumn
+        highlight clear SignColumn
 
     " }}}
 
@@ -684,18 +644,6 @@
       let g:UltiSnipsSnippetDirectories  = ['UltiSnips', 'mysnippets']
 
     " }}}
-
-" }}}
-" Unite Customizations {{{
-
-  " Ack using the_platinum_searcher
-  nnoremap <silent> ,g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
-  if executable('ag')
-    let g:unite_source_grep_command = 'ag'
-    let g:unite_source_grep_default_opts = '--nogroup --nocolor'
-    let g:unite_source_grep_recursive_opt = ''
-    let g:unite_source_grep_encoding = 'utf-8'
-  endif
 
 " }}}
 " Syntax Settings {{{
@@ -766,7 +714,6 @@
             au BufNewFile,BufRead *.es6 setlocal filetype=javascript
 
             au FileType javascript set softtabstop=2 tabstop=2 shiftwidth=2
-            au FileType javascript set dictionary+=$HOME/.vim/dict/node.dict
         augroup END
 
     " }}}
@@ -870,7 +817,6 @@
             au!
 
             au FileType coffee set softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79
-            au FileType coffee set dictionary+=$HOME/.vim/dict/node.dict
             au Filetype coffee let b:delimitMate_nesting_quotes = ["\"", "'", '`']
         augroup END
 
