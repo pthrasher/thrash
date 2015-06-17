@@ -218,7 +218,7 @@
     if has("gui_running")
         " I might put something in here at some point
     else
-        set background="dark"
+        set background="light"
         set t_Co=256
         colorscheme solarized
     endif
