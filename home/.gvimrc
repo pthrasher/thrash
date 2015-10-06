@@ -2,7 +2,7 @@
 " https://github.com/pthrasher/thrash/blob/master/home/.vimrc
 "
 " Color scheme config
-set guifont=Source\ Code\ Pro\ for\ Powerline:h13
+set guifont=Monofur\ for\ Powerline:h14
 set bg=light
 call togglebg#map("<F6>")
 let g:solarized_hitrail = 1 " hilight trailing whitespace

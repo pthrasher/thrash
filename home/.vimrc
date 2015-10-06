@@ -347,6 +347,8 @@
     " create new vsplit, and switch to it.
     noremap <leader>v <C-w>v
 
+    noremap <leader>8 :vertical resize 84
+
     " bindings for easy split nav
     nnoremap <C-h> <C-w>h
     nnoremap <C-j> <C-w>j
