@@ -1,1 +1,1 @@
-eval (python -m virtualfish)
+eval (python -m virtualfish compat_aliases auto_activation)
