@@ -5,11 +5,11 @@ source ~/.config/fish/ui.fish
 source ~/.config/fish/solarized.fish
 source ~/.config/fish/fasd.fish
 source ~/.config/fish/git-halp.fish
-source ~/.config/fish/virtual.fish
 source ~/.config/fish/django.fish
 source ~/.config/fish/angular.fish
 source ~/.config/fish/golang.fish
 source ~/.config/fish/rails.fish
+source ~/.config/fish/virtual.fish
 source ~/.priv-env.fish
 
 function reload_config -d "Reload the .config/fish shit."
