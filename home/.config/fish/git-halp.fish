@@ -11,6 +11,9 @@ alias gignored "git ls-files -o -i --exclude-standard"
 alias gg "git log --oneline --abbrev-commit --all --graph --decorate --color"
 alias gaa "git add --all ."
 
+alias master "git checkout master"
+alias staging "git checkout staging"
+
 
 function wtc -d "Get random 'What the Commit' message."
     echo (curl http://whatthecommit.com/index.txt ^/dev/null)
@@ -34,6 +37,31 @@ function gpush -d "Ensure we're not being dumb."
     git push $argv
   end
 end
+
+function pull -d "git pull the branch you're on"
+  set __branch (git branch --no-color | grep '*' | head -n1 | awk '{print $2}')
+  echo ""
+  git pull origin $__branch;
+end
+
+function push -d "git push the branch you're on"
+  set __branch (git branch --no-color | grep '*' | head -n1 | awk '{print $2}')
+  if [ $__branch = 'master' ]
+    echo 'You must explicitly type `git push origin master`'
+  else if [ $__branch = 'staging' ]
+    echo 'You must explicitly type `git push origin staging`'
+  else if [ $__branch = 'production' ]
+    echo 'You must explicitly type `git push origin production`'
+  else
+    echo ""
+    if [ $argv[1] = '--force' ]
+      git push origin $__branch --force;
+    else
+      git push origin $__branch;
+    end
+  end
+end
+
 
 function gpud -d "git pull upstream develop/development with guard to ensure im on local/develop or local/development"
     set __branch (git branch --no-color | grep '*' | head -n1 | awk '{print $2}')
