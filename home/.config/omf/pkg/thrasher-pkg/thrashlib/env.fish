@@ -25,6 +25,7 @@ set -x GOPATH ~/Dropbox/code/Go
 set -x BASEGOPATH $GOPATH
 set -x COFFEELINT_CONFIG ~/.coffeelintrc
 set -x EDITOR 'mvim -f'
+set -x ANDROID_HOME /usr/local/opt/android-sdk
 
 # export is required for these I think.
 set -x JAVA_HOME (/usr/libexec/java_home)

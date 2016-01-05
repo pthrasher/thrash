@@ -825,8 +825,14 @@
     " }}}
 
     " Ruby {{{
-        " Okay you fuckin' hipsters, I give in... 2 spaces for ruby. Happy?
-        au FileType ruby set softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79
+        augroup ft_vim
+            au!
+
+            " Okay you fuckin' hipsters, I give in... 2 spaces for ruby. Happy?
+            au FileType ruby set softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79
+
+            au BufRead,BufNewFile *.arb set filetype=ruby
+        augroup END
     " }}}
 
 " }}}

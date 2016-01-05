@@ -1,3 +1,5 @@
+alias be 'bundle exec';
+
 function bers -d "Runs: bundle exec rails s"
   bundle exec rails s
 end
