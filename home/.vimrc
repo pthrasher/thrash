@@ -58,6 +58,7 @@
         Plugin 'tpope/vim-fugitive'
 
         Plugin 'bling/vim-airline'
+        Plugin 'bling/vim-airline-themes'
         Plugin 'godlygeek/tabular'
         Plugin 'Shougo/unite.vim'
 
