@@ -1,0 +1,9 @@
+home/.atom/.apm/
+home/.atom/.node-gyp/
+home/.atom/blob-store/
+home/.atom/compile-cache/
+home/.atom/packages/
+home/.atom/storage/
+home/.atom/recovery/
+home/.vim/tmp/backup/
+home/.vim/tmp/undo/
