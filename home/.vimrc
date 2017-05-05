@@ -8,132 +8,21 @@
 "
 "    https://github.com/pthrasher/thrash/blob/master/home/.vimrc
 "
-"    I'm more than happy to answer questions about this config. I just recently
-"    removed a ton of stuff, trying to make it smaller / more readable. Take
-"    whatever you want, and hit me up if you need to know anything / just want
-"    to say thanks. :-)
+"    This is a stripped down version of my original vimrc
 "
 "    Email:   philipthrasher@gmail.com
 "    Twitter: @philipthrasher
-"    Blog:    http://pthra.sh/
 
-
-" Plugins {{{
-
-    " Setup {{{
-
-        set shell=/bin/bash
-        set nocompatible
-        filetype off
-
-        set rtp+=~/.vim/bundle/Vundle.vim
-        call vundle#begin()
-
-        " Let Vundle manage Vundle.
-        Plugin 'gmarik/vundle'
-
-    " }}}
-
-    " Shared libs {{{
-
-        Plugin 'L9'
-        Plugin 'rizzatti/funcoo.vim'
-
-    " }}}
-
-    " Colorschemes {{{
-
-        Plugin 'pthrasher/vim-colors-solarized'
-
-    " }}}
-
-    " General {{{
-
-        Plugin 'rizzatti/dash.vim'
-        Plugin 'wakatime/vim-wakatime'
-        Plugin 'pthrasher/vim-addon-local-vimrc'
-        Plugin 'tpope/vim-repeat'
-        Plugin 'tpope/vim-surround'
-        Plugin 'tpope/vim-git'
-        Plugin 'tpope/vim-fugitive'
-
-        Plugin 'vim-airline/vim-airline'
-        Plugin 'vim-airline/vim-airline-themes'
-        Plugin 'godlygeek/tabular'
-        Plugin 'Shougo/unite.vim'
-
-        Plugin 'scratch.vim'
-        Plugin 'kien/ctrlp.vim'
-        Plugin 'sjl/gundo.vim'
-        Plugin 'YankRing.vim'
-
-        Plugin 'tpope/vim-vinegar'
-
-
-    " }}}
-
-    " Programming {{{
-
-        Plugin 'robotvert/vim-nginx'
-        Plugin 'michaeljsmith/vim-indent-object'
-        Plugin 'davidhalter/jedi-vim'
-        Plugin 'django.vim'
-        Plugin 'undx/vim-gocode'
-        Plugin 'Raimondi/delimitMate'
-        Plugin 'Valloric/YouCompleteMe'
-        Plugin 'scrooloose/syntastic'
-        Plugin 'tpope/vim-commentary'
-        Plugin 'tpope/vim-endwise'
-        Plugin 'SirVer/ultisnips'
-        Plugin 'nathanaelkane/vim-indent-guides'
-
-    " }}}
-
-    " Extra Syntaxes {{{
-
-        Plugin 'slim-template/vim-slim'
-        Plugin 'jplaut/vim-arduino-ino'
-        Plugin 'sudar/vim-arduino-syntax'
-        Plugin 'aliva/vim-fish'
-        Plugin 'tikhomirov/vim-glsl'
-
-        Plugin 'leshill/vim-json'
-        Plugin 'pangloss/vim-javascript'
-        Plugin 'indenthtml.vim'
-
-        Plugin 'tpope/vim-markdown'
-        Plugin 'mattn/emmet-vim'
-
-        Plugin 'fsouza/go.vim'
-
-        Plugin 'kchmck/vim-coffee-script'
-
-        Plugin 'skammer/vim-css-color'
-        Plugin 'hail2u/vim-css3-syntax'
-        Plugin 'groenewege/vim-less'
-
-        Plugin 'ruby.vim'
-        Plugin 'alunny/pegjs-vim'
-
-        " react-related
-        Plugin 'mxw/vim-jsx'
-
-    " }}}
-
-    " Snippet Bundles {{{
-
-        Plugin 'pthrasher/vim-snippets'
-
-    " }}}
-
-" }}}
 " General Config {{{
 
-    call vundle#end()
+    set shell=/bin/bash
+    set nocompatible
+    filetype off
     filetype plugin indent on
     syntax on
 
 " }}}
+
 " Settings {{{
 
     " Don't show the preview window when doing completions and shit.
@@ -215,15 +104,6 @@
     set wildignore+=*/migrations/*                   " Django migrations
     set wildignore+=*.pyc                            " Python byte code
 
-
-    if has("gui_running")
-        " I might put something in here at some point
-    else
-        set background="light"
-        set t_Co=256
-        colorscheme solarized
-    endif
-
 " }}}
 " Generic au commands {{{
     function! StripTrailingWS()
@@ -234,12 +114,6 @@
 
     " auto-trim trailing white-space on save
     autocmd BufWritePre *.* :call StripTrailingWS()
-
-    " save on focus lost
-    au FocusLost * :silent! wa
-
-    " Resize splits when the window is resized
-    au VimResized * :wincmd =
 
     " always go to top of commit messages
     autocmd BufReadPost COMMIT_EDITMSG exec "normal! gg"
@@ -253,33 +127,12 @@
         \ endif
     augroup END
 
-    augroup highlight_additions
-      au!
-
-      " Add extra TODO style syntax
-
-      " let g:indent_guides_auto_colors = 0
-      " au VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
-      " au VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey
-
-      au VimEnter,Colorscheme * highlight clear SignColumn
-      au VimEnter,Colorscheme * syntax match myBasicTodo contained "\<\(TODO\|FIXME\|XXX\|NOTE\):"
-      au VimEnter,Colorscheme * syntax match myExtraTodo contained "\<\(PERF\|DOCTHIS\|ONSCOPE\):"
-      au VimEnter,Colorscheme * highlight def link myBasicTodo Todo
-      au VimEnter,Colorscheme * highlight def link myExtraTodo Todo
-    augroup END
-
 " }}}
 " Keybindings {{{
 
 
     let mapleader = ","
     let maplocalleader = "\\"
-
-    " Dash.vim mappings
-    nmap <silent> <leader>d <Plug>DashSearch
-    vmap <silent> <leader>d <Plug>DashSearch
-
 
     " Paste in insert mode.
     inoremap <C-r> <C-r>"
@@ -318,14 +171,6 @@
     nnoremap ; :
     vnoremap ; :
     inoremap jf <esc>
-
-    " Key bindings for the align plugin
-    vnoremap <leader>a= :Tabularize /=<cr>
-    nnoremap <leader>a= :Tabularize /=<cr>
-    vnoremap <leader>a: :Tabularize /:\zs/l0l1<cr>
-    nnoremap <leader>a: :Tabularize /:\zs/l0l1<cr>
-    vnoremap <leader>a/ :Tabularize /\/\/<cr>
-    nnoremap <leader>a/ :Tabularize /\/\/<cr>
 
     " Substitute shortcut
     nnoremap <leader>s :%s//<left>
@@ -396,48 +241,6 @@
     nnoremap j gj
     nnoremap k gk
 
-    " ripped from unimpaird.vim {{{
-        function! s:BlankUp(count) abort
-            put!=repeat(nr2char(10), a:count)
-            ']+1
-            silent! call repeat#set("\<Plug>unimpairedBlankUp", a:count)
-        endfunction
-
-        function! s:BlankDown(count) abort
-            put =repeat(nr2char(10), a:count)
-            '[-1
-            silent! call repeat#set("\<Plug>unimpairedBlankDown", a:count)
-        endfunction
-
-        function! s:Move(cmd, count, map) abort
-            normal! m`
-            exe 'move'.a:cmd.a:count
-            norm! ``
-            silent! call repeat#set("\<Plug>unimpairedMove".a:map, a:count)
-        endfunction
-
-
-        " These are here to support the below key-bindings.
-        nnoremap <silent> <Plug>unimpairedBlankUp   :<C-U>call <SID>BlankUp(v:count1)<CR>
-        nnoremap <silent> <Plug>unimpairedBlankDown :<C-U>call <SID>BlankDown(v:count1)<CR>
-        nnoremap <silent> <Plug>unimpairedMoveUp   :<C-U>call <SID>Move('--',v:count1,'Up')<CR>
-        nnoremap <silent> <Plug>unimpairedMoveDown :<C-U>call <SID>Move('+',v:count1,'Down')<CR>
-        xnoremap <silent> <Plug>unimpairedMoveUp   :<C-U>exe 'normal! m`'<Bar>exe '''<,''>move--'.v:count1<CR>``
-        xnoremap <silent> <Plug>unimpairedMoveDown :<C-U>exe 'normal! m`'<Bar>exe '''<,''>move''>+'.v:count1<CR>``
-
-        " Create a blank line above current one
-        nmap [<Space> <Plug>unimpairedBlankUp
-        " Create a blank line below current one
-        nmap ]<Space> <Plug>unimpairedBlankDown
-
-        " Bubble current line / selection up
-        nmap [e <Plug>unimpairedMoveUp
-        xmap [e <Plug>unimpairedMoveUp
-        " Bubble current line / selection up
-        nmap ]e <Plug>unimpairedMoveDown
-        xmap ]e <Plug>unimpairedMoveDown
-    " }}}
-
     " Put current line to the top of the window
     nnoremap <c-cr> zvzt
 
@@ -451,202 +254,6 @@
 
     " Close all folds but my current one.
     nnoremap <leader>z zMzvzz
-
-" }}}
-" Plugin Settings {{{
-
-    " vim-jsx {{{
-
-      let g:jsx_ext_required = 0
-
-    " }}}
-
-    " dash.vim {{{
-
-        let g:dash_map = {
-            \ 'python'       : 'py',
-            \ 'pythondjango' : 'py',
-            \ 'javascript'   : 'js',
-            \ 'coffeescript' : 'js',
-            \ 'scss'         : 'css',
-            \ 'less'         : 'css',
-            \ 'css'          : 'css',
-            \ 'go'           : 'golang',
-            \ 'html'         : 'html'
-        \ }
-
-
-
-    " }}}
-
-    " vim-addon-local-vimrc {{{
-
-        let g:local_vimrc = {'names':['.local-vimrc'],'hash_fun':'LVRHashOfFile'}
-
-    " }}}
-
-    " YouCompleteMe {{{
-
-        let g:ycm_add_preview_to_completeopt = 0
-
-    " }}}
-
-    " Jedi {{{
-
-        " yim already does this for me.
-        let g:jedi#popup_on_dot = 0
-
-        " don't add preview to completeopt
-        let g:jedi#auto_vim_configuration = 0
-
-        " who uses tabs? they're silly.
-        let g:jedi#use_tabs_not_buffers = 0
-
-    " }}}
-
-    " Highlight Word {{{
-
-        " This mini-plugin provides a few mappings for highlighting words temporarily.
-        "
-        " Sometimes you're looking at a hairy piece of code and would like a certain
-        " word or two to stand out temporarily.  You can search for it, but that only
-        " gives you one color of highlighting.  Now you can use <leader>N where N is
-        " a number from 1-6 to highlight the current word in a specific color.
-
-        function! HiInterestingWord(n)
-            " Save our location.
-            normal! mz
-
-            " Yank the current word into the z register.
-            normal! "zyiw
-
-            " Calculate an arbitrary match ID.  Hopefully nothing else is using it.
-            let mid = 86750 + a:n
-
-            " Clear existing matches, but don't worry if they don't exist.
-            silent! call matchdelete(mid)
-
-            " Construct a literal pattern that has to match at boundaries.
-            let pat = '\V\<' . escape(@z, '\') . '\>'
-
-            " Actually match the words.
-            call matchadd("InterestingWord" . a:n, pat, 1, mid)
-
-            " Move back to our original location.
-            normal! `z
-        endfunction
-
-        " Mappings {{{
-
-            nnoremap <silent> <leader>1 :call HiInterestingWord(1)<cr>
-            nnoremap <silent> <leader>2 :call HiInterestingWord(2)<cr>
-            nnoremap <silent> <leader>3 :call HiInterestingWord(3)<cr>
-            nnoremap <silent> <leader>4 :call HiInterestingWord(4)<cr>
-            nnoremap <silent> <leader>5 :call HiInterestingWord(5)<cr>
-            nnoremap <silent> <leader>6 :call HiInterestingWord(6)<cr>
-
-        " }}}
-
-        " Default Highlights {{{
-
-            hi def InterestingWord1 guifg=#000000 ctermfg=16 guibg=#ffa724 ctermbg=214
-            hi def InterestingWord2 guifg=#000000 ctermfg=16 guibg=#aeee00 ctermbg=154
-            hi def InterestingWord3 guifg=#000000 ctermfg=16 guibg=#8cffba ctermbg=121
-            hi def InterestingWord4 guifg=#000000 ctermfg=16 guibg=#b88853 ctermbg=137
-            hi def InterestingWord5 guifg=#000000 ctermfg=16 guibg=#ff9eb8 ctermbg=211
-            hi def InterestingWord6 guifg=#000000 ctermfg=16 guibg=#ff2c4b ctermbg=195
-
-        " }}}
-
-    " }}}
-
-    " YankRing.vim {{{
-
-        function! YRRunAfterMaps()
-            " From Steve Losh, Preserve the yank post selection/put.
-            vnoremap p :<c-u>YRPaste 'p', 'v'<cr>gv:YRYankRange 'v'<cr>
-        endfunction
-
-        let g:EasyClipDoSystemSync=0
-
-    " }}}
-
-    " ack.vim {{{
-
-        " the_silver_surfer, no more ack!
-        let g:ackprg = 'ag --nogroup --nocolor --column'
-
-    " }}}
-
-    " indent-guides {{{
-
-      let g:indent_guides_start_level = 2
-      let g:indent_guides_guide_size = 1
-
-    " }}}
-
-    " indent-html {{{
-
-        let g:html_indent_inctags = "html,body,head,tbody"
-        let g:html_indent_script1 = "inc"
-        let g:html_indent_style1 = "inc"
-
-    " }}}
-
-    " Airline {{{
-
-        let g:airline_powerline_fonts=1
-        let g:airline_section_c = '%t'
-
-    " }}}
-
-    " Emmet {{{
-
-        let g:user_emmet_leader_key = '<c-e>'
-
-        " 4 space soft tabs
-        let g:user_emmet_settings = {'indentation' : '  '}
-
-        " complete tags from omnifunc
-        let g:use_emmet_complete_tag = 1
-
-    " }}}
-
-    " Syntastic {{{
-
-        let g:syntastic_check_on_open = 1
-
-        let g:syntastic_error_symbol = "✗ "
-        let g:syntastic_warning_symbol = "⌇ "
-
-        let g:syntastic_enable_signs = 1
-        let g:syntastic_mode_map = { 'mode': 'active',
-                                   \ 'active_filetypes': [],
-                                   \ 'passive_filetypes': ['python', 'python.django', 'html', 'coffee' ] }
-        let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
-        let g:syntastic_javascript_checkers = ['eslint']
-
-        highlight clear SignColumn
-
-    " }}}
-
-    " CtrlP {{{
-
-        let g:ctrlp_map = '<c-t>'
-        let g:ctrlp_max_height = 30
-        let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:30,results:30'
-
-    " }}}
-
-    " Ultisnips {{{
-
-      let g:UltiSnipsJumpForwardTrigger='<c-b>'
-      let g:UltiSnipsJumpBackwardTrigger='<c-z>'
-      let g:UltiSnipsExpandTrigger = '<c-d>'
-      let g:UltiSnipsSnippetsDir = '/Users/pthrasher/.vim/mysnippets/'
-      let g:UltiSnipsSnippetDirectories  = ['UltiSnips', 'mysnippets']
-
-    " }}}
 
 " }}}
 " Syntax Settings {{{
@@ -773,7 +380,6 @@
             au!
 
             au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
-            au FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
         augroup END
 
 
@@ -820,7 +426,6 @@
             au!
 
             au FileType coffee set softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79
-            au Filetype coffee let b:delimitMate_nesting_quotes = ["\"", "'", '`']
         augroup END
 
     " }}}

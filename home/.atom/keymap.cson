@@ -1,0 +1,75 @@
+# Your keymap
+#
+# Atom keymaps work similarly to style sheets. Just as style sheets use
+# selectors to apply styles to elements, Atom keymaps use selectors to associate
+# keystrokes with events in specific contexts. Unlike style sheets however,
+# each selector can only be declared once.
+#
+# You can create a new keybinding in this file by typing "key" and then hitting
+# tab.
+#
+# Here's an example taken from Atom's built-in keymap:
+#
+# 'atom-text-editor':
+#   'enter': 'editor:newline'
+#
+# 'atom-workspace':
+#   'ctrl-shift-p': 'core:move-up'
+#   'ctrl-p': 'core:move-down'
+#
+# You can find more information about keymaps in these guides:
+# * https://atom.io/docs/latest/using-atom-basic-customization#customizing-key-bindings
+# * https://atom.io/docs/latest/behind-atom-keymaps-in-depth
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# https://atom.io/docs/latest/using-atom-basic-customization#cson
+
+'.platform-darwin, .platform-darwin .command-palette atom-text-editor':
+  'ctrl-p': 'command-palette:toggle'
+
+'.platform-darwin atom-text-editor.vim-mode-plus.normal-mode':
+  'ctrl-t': 'nuclide-quick-open:find-anything-via-omni-search'
+
+'atom-text-editor.vim-mode-plus':
+  'ctrl-h': 'window:focus-pane-on-left'
+  'ctrl-j': 'window:focus-pane-below'
+  'ctrl-k': 'window:focus-pane-below'
+  'ctrl-l': 'window:focus-pane-on-right'
+
+'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+  'H': 'vim-mode-plus:move-to-first-character-of-line',
+  'L': 'vim-mode-plus:move-to-last-character-of-line',
+
+'atom-text-editor.vim-mode-plus.insert-mode':
+  'j f': 'vim-mode-plus:activate-normal-mode'
+
+'atom-text-editor.vim-mode-plus.visual-mode':
+  'g c': 'vim-mode-plus:toggle-line-comments'
+
+
+'atom-text-editor.vim-mode-plus.normal-mode':
+  'y s': 'vim-mode-plus:surround'
+  'y s w': 'vim-mode-plus:surround-word'
+
+  'g ;': 'cursor-history:prev-within-editor'
+
+  'd s': 'vim-mode-plus:delete-surround'
+  # 'd s': 'vim-mode-plus:delete-surround-any-pair'
+  # 'd s': 'vim-mode-plus:delete-surround-any-pair-allow-forwarding'
+
+  'c s': 'vim-mode-plus:change-surround'
+  # 'c s': 'vim-mode-plus:change-surround-any-pair'
+  # 'c s': 'vim-mode-plus:change-surround-any-pair-allow-forwarding'
+
+  'y m s':  'vim-mode-plus:map-surround'
+
+  # old habits die hard.
+  '; w enter': 'core:save'
+  ': w enter': 'core:save'
+
+  ', v': 'pane:split-right-and-copy-active-item'
+  ', ,': 'custom:toggle-pane'
+
+  'g c c': 'editor:toggle-line-comments'

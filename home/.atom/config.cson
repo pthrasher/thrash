@@ -1,0 +1,138 @@
+"*":
+  "atom-tracker":
+    trackerToken: "814d77de66293eab1a071c9773dfa102"
+  "autocomplete-plus":
+    suppressActivationForEditorClasses: [
+      "vim-mode-plus.normal-mode"
+      "vim-mode-plus.visual-mode"
+      "vim-mode-plus.operator-pending-mode"
+      "vim-mode-plus.insert-mode.replace"
+    ]
+  autosave:
+    enabled: true
+  core:
+    customFileTypes:
+      "source.ini": [
+        ".buckconfig"
+        ".flowconfig"
+        ".hgrc"
+      ]
+      "source.json": [
+        ".arcconfig"
+        "BUCK.autodeps"
+      ]
+      "source.python": [
+        "BUCK"
+      ]
+    disabledPackages: [
+      "tree-view"
+      "linter"
+      "language-gfm"
+      "editorconfig"
+      "hey-pane"
+    ]
+    telemetryConsent: "no"
+    themes: [
+      "one-light-ui"
+      "one-light-syntax"
+    ]
+    titleBar: "custom"
+  editor:
+    fontFamily: "Menlo"
+    invisibles:
+      space: " "
+    lineHeight: 1.2
+    showIndentGuide: true
+    showInvisibles: true
+    softWrap: true
+    tabType: "soft"
+    zoomFontWhenCtrlScrolling: true
+  "exception-reporting":
+    userId: "5698e711-0720-0f52-0332-0fb3b1cbeb8b"
+  figlet: {}
+  "language-babel": {}
+  linter:
+    lintOnFly: false
+  nuclide:
+    installRecommendedPackages: true
+    "nuclide-adb-logcat": {}
+    "nuclide-arcanist": {}
+    "nuclide-buck":
+      compileErrorDiagnostics: false
+    "nuclide-clang":
+      defaultDiagnostics: true
+      defaultFlags: [
+        "-std=c11"
+        "-x c"
+      ]
+    "nuclide-console": {}
+    "nuclide-datatip": {}
+    "nuclide-diagnostics-ui":
+      showDiagnosticTraces: true
+    "nuclide-distraction-free-mode":
+      hideToolBar: true
+    "nuclide-file-tree":
+      showOpenFiles: false
+    "nuclide-flow":
+      enableStructuredTypeHints: true
+    "nuclide-format-js": {}
+    "nuclide-hack": {}
+    "nuclide-health": {}
+    "nuclide-home":
+      showHome: false
+    "nuclide-ios-simulator-logs": {}
+    "nuclide-ocaml": {}
+    "nuclide-python": {}
+    "nuclide-react-native": {}
+    "nuclide-working-sets":
+      workingSets: [
+        {
+          name: "Redux"
+          active: false
+          uris: [
+            "/Users/pthrasher/zeemeesrc/zeemee-mobile/app/actions"
+            "/Users/pthrasher/zeemeesrc/zeemee-mobile/app/hammer"
+            "/Users/pthrasher/zeemeesrc/zeemee-mobile/app/reducers"
+            "/Users/pthrasher/zeemeesrc/zeemee-mobile/app/services"
+          ]
+        }
+        {
+          name: "components"
+          active: false
+          uris: [
+            "/Users/pthrasher/zeemeesrc/zeemee-mobile/app/ZeeMeeMobile.js"
+            "/Users/pthrasher/zeemeesrc/zeemee-mobile/app/components"
+            "/Users/pthrasher/zeemeesrc/zeemee-mobile/app/hammer"
+            "/Users/pthrasher/zeemeesrc/zeemee-mobile/app/setup.js"
+          ]
+        }
+      ]
+  "one-dark-ui":
+    layoutMode: "Compact"
+    tabSizing: "Minimum"
+  "one-light-ui":
+    layoutMode: "Compact"
+    tabSizing: "Minimum"
+  "tool-bar":
+    visible: false
+  "vim-mode-plus":
+    clearHighlightSearchOnResetNormalMode: true
+    highlightSearch: true
+    incrementalSearch: true
+    stayOnTransformString: true
+    useSmartcaseForSearch: true
+    useSmartcaseForSearchCurrentWord: true
+  wakatime:
+    apikey: "Saved in your ~/.wakatime.cfg file"
+  "wakatime-hidden":
+    lastInit: 1492781723
+  welcome:
+    showOnStartup: false
+  whitespace:
+    ignoreWhitespaceOnCurrentLine: false
+  zentabs:
+    maximumOpenedTabs: 3
+    neverCloseUnsaved: true
+".md.text":
+  whitespace:
+    removeTrailingWhitespace: false
