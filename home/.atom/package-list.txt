@@ -1,7 +1,10 @@
 MagicPython@1.0.10
+aligner@0.22.3
+aligner-javascript@1.0.0
+editorconfig@2.2.2
 haskell-grammar@0.4.0
 highlight-selected@0.13.1
-language-babel@2.58.0
+language-babel@2.61.0
 language-fish-shell@1.0.5
 language-graphql@0.8.0
 language-ini@1.19.0
@@ -10,11 +13,10 @@ language-ocaml@1.8.0
 language-swift@0.5.0
 language-thrift@1.0.2
 merge-conflicts@1.4.4
-nuclide@0.222.0
+nuclide@0.223.0
 nuclide-format-js@0.0.36
-parcel@0.1.0
 set-syntax@0.3.2
 sort-lines@0.14.0
 tool-bar@1.1.0
-vim-mode-plus@0.91.0
+vim-mode-plus@0.92.0
 

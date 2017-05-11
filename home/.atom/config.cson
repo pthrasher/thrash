@@ -11,6 +11,7 @@
   autosave:
     enabled: true
   core:
+    audioBeep: false
     customFileTypes:
       "source.ini": [
         ".buckconfig"
@@ -28,8 +29,8 @@
       "tree-view"
       "linter"
       "language-gfm"
-      "editorconfig"
       "hey-pane"
+      "whitespace"
     ]
     telemetryConsent: "no"
     themes: [
@@ -37,6 +38,7 @@
       "one-light-syntax"
     ]
     titleBar: "custom"
+    warnOnLargeFileLimit: 10
   editor:
     fontFamily: "Menlo"
     invisibles:
@@ -45,7 +47,6 @@
     showIndentGuide: true
     showInvisibles: true
     softWrap: true
-    tabType: "soft"
     zoomFontWhenCtrlScrolling: true
   "exception-reporting":
     userId: "5698e711-0720-0f52-0332-0fb3b1cbeb8b"
@@ -87,23 +88,10 @@
     "nuclide-working-sets":
       workingSets: [
         {
-          name: "Redux"
-          active: false
+          name: "Assessments"
+          active: true
           uris: [
-            "/Users/pthrasher/zeemeesrc/zeemee-mobile/app/actions"
-            "/Users/pthrasher/zeemeesrc/zeemee-mobile/app/hammer"
-            "/Users/pthrasher/zeemeesrc/zeemee-mobile/app/reducers"
-            "/Users/pthrasher/zeemeesrc/zeemee-mobile/app/services"
-          ]
-        }
-        {
-          name: "components"
-          active: false
-          uris: [
-            "/Users/pthrasher/zeemeesrc/zeemee-mobile/app/ZeeMeeMobile.js"
-            "/Users/pthrasher/zeemeesrc/zeemee-mobile/app/components"
-            "/Users/pthrasher/zeemeesrc/zeemee-mobile/app/hammer"
-            "/Users/pthrasher/zeemeesrc/zeemee-mobile/app/setup.js"
+            "/Users/philip.thrasher/grxsrc/portal/assessments"
           ]
         }
       ]
@@ -129,10 +117,16 @@
   welcome:
     showOnStartup: false
   whitespace:
+    ensureSingleTrailingNewline: false
     ignoreWhitespaceOnCurrentLine: false
+    keepMarkdownLineBreakWhitespace: false
+    removeTrailingWhitespace: false
   zentabs:
     maximumOpenedTabs: 3
     neverCloseUnsaved: true
+".editorconfig.source":
+  editor:
+    autoIndent: true
 ".md.text":
   whitespace:
     removeTrailingWhitespace: false
